@@ -1,0 +1,13 @@
+{{ $topbar := .Site.Data.topbar }}
+
+    <div class="topbar align-items-center">
+        <div class="menu">
+
+        </div>
+        <div class="nameBar">
+            <div class="col-4">
+                <img src="{{.Site.BaseURL}}images/topbar/{{ $topbar.displayPicture }}" class="rounded-circle mb-3" width="32px"></img>
+                <h4>Damian Korcz</h4>
+            </div>
+        </div>
+    </div>

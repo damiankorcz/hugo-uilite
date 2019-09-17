@@ -49,6 +49,20 @@ a:hover {
   opacity: 1;
 }
 
+.topbar {
+  position: static;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+  width:100%;
+  height: 48px;
+  background: red;
+}
+
+.nameBar {
+  padding-right: 10px;
+}
+
 .main-content {
   position: relative;
   overflow: visible;
