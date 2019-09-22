@@ -1,13 +1,31 @@
 {{ $topbar := .Site.Data.topbar }}
+{{ $social := .Site.Data.social }}
+{{ $socialfas := .Site.Data.socialfas}}
 
-    <div class="topbar align-items-center">
-        <div class="menu">
-
-        </div>
-        <div class="nameBar">
-            <div class="col-4">
-                <img src="{{.Site.BaseURL}}images/topbar/{{ $topbar.displayPicture }}" class="rounded-circle mb-3" width="32px"></img>
-                <h4>Damian Korcz</h4>
-            </div>
-        </div>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand mb-0 h1" href="{{.Site.BaseURL}}">
+        <img src="{{.Site.BaseURL}}images/topbar/{{$topbar.displayPicture}}" width="30" height="30" class="d-inline-block align-top rounded-circle" alt="">
+        Damian Korcz
+    </a>
+    <div class="d-flex flex-row order-2 order-sm-3">
+        <ul class="navbar-nav flex-row nav-social">
+                {{ range $key, $value := $social }}
+                <li class="nav-item"></li><a target="_blank" href="{{ $value }}" rel="me"><i class="fab fa-{{ $key }}"></i></a></li>
+                {{ end }}
+                
+                {{ range $key, $value := $socialfas }}
+                <li class="nav-item"></li><a target="_blank" href="{{ $value }}"><i class="fas fa-{{ $key }}"></i></a></li>
+                {{ end }}
+        </ul>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
+    <div class="collapse navbar-collapse order-3 order-sm-2" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="{{.Site.BaseURL}}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{.Site.BaseURL}}projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{.Site.BaseURL}}experience">Experience</a></li>
+        </ul>
+    </div>
+</nav>
