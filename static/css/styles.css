@@ -1,29 +1,22 @@
-/* ibm-plex-sans-regular - latin */
 @font-face {
-  font-family: 'IBM Plex Sans';
+  font-family: "IBMPlexSans";
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/ibm-plex-sans-v7-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local('IBM Plex Sans'), local('IBMPlexSans'),
-       url('../fonts/ibm-plex-sans-v7-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/ibm-plex-sans-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/ibm-plex-sans-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/ibm-plex-sans-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/ibm-plex-sans-v7-latin-regular.svg#IBMPlexSans') format('svg'); /* Legacy iOS */
+  src: url("../fonts/IBMPlexSans.eot?") format("eot"), url("../fonts/IBMPlexSans.woff2") format("woff2"), url("../fonts/IBMPlexSans.woff") format("woff"), url("../fonts/IBMPlexSans.ttf") format("truetype"), url("../fonts/IBMPlexSans.svg#IBMPlexSans") format("svg");
 }
 
-/* poppins-800 - latin */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 800;
-  src: url('../fonts/poppins-v8-latin-800.eot'); /* IE9 Compat Modes */
-  src: local('Poppins ExtraBold'), local('Poppins-ExtraBold'),
-       url('../fonts/poppins-v8-latin-800.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/poppins-v8-latin-800.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/poppins-v8-latin-800.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/poppins-v8-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/poppins-v8-latin-800.svg#Poppins') format('svg'); /* Legacy iOS */
+  src: url("../fonts/Poppins.eot?") format("eot"), url("../fonts/Poppins.woff2") format("woff2"), url("../fonts/Poppins.woff") format("woff"), url("../fonts/Poppins.ttf") format("truetype"), url("../fonts/Poppins.svg#Poppins") format("svg");
+}
+
+@font-face {
+  font-family: "Iceland";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Iceland.eot?") format("eot"), url("../fonts/Iceland.woff2") format("woff2"), url("../fonts/Iceland.woff") format("woff"), url("../fonts/Iceland.ttf") format("truetype"), url("../fonts/Iceland.svg#Iceland") format("svg");
 }
 
 html {
@@ -31,13 +24,24 @@ html {
   overflow-y: scroll;
 }
 
-a, p, label, input, div  {
-  font-family: 'IBM Plex Sans', sans-serif;
+body {
+  background-color: #E1E2E2;
+  background-color: #e1e2e2;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FA2742' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+a,
+p,
+label,
+input,
+div {
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 a:hover {
   text-decoration: none;
 }
+
 .sidebar {
   position: fixed;
   left: 0px;
@@ -47,21 +51,30 @@ a:hover {
   z-index: 1;
   width: 35%;
   height: 100%;
-  background-color: #222127;
-  color: #FFFFFF;
+  color: #1D2228;
 }
+
 .sidebar .main-info * {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   opacity: 0;
   -webkit-transform: translateX(-40px);
-          transform: translateX(-40px);
+  transform: translateX(-40px);
 }
 
 .sidebar .main-info *.bs {
   -webkit-transform: translateX(0);
-          transform: translateX(0);
+  transform: translateX(0);
   opacity: 1;
+}
+
+.sidebar-photo {
+  background-color: #FA2742;
+}
+
+.sidebar-cover {
+  background-color: #E1E2E2;
+  padding: 5%;
 }
 
 .topbar {
@@ -69,7 +82,7 @@ a:hover {
   left: 0px;
   top: 0px;
   z-index: 1;
-  width:100%;
+  width: 100%;
   height: 48px;
   background: red;
 }
@@ -90,32 +103,36 @@ a:hover {
 
 .main-content:after {
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   -webkit-transition: all 0.8s cubic-bezier(0.79, 0, 0.05, 0.83);
   transition: all 0.8s cubic-bezier(0.79, 0, 0.05, 0.83);
-  background-color: #fff;
+  background-color: #e1e2e2;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FA2742' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .main-content.active:after {
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   -webkit-transform: translateX(100%);
-          transform: translateX(100%);
-  background-color: #fff;
+  transform: translateX(100%);
 }
 
 .heading,
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif !important;
-  font-weight: 800 !important;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif !important;
   text-transform: uppercase;
 }
 
@@ -123,10 +140,15 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 38px;
 }
 
+.text-white {
+  color: #1D2228;
+}
+
 .highlight {
-  color: #222127 ;
-  background-color: #FFC100;
+  color: #E1E2E2;
+  background-color: #FA2742;
   padding: 2px 10px;
+  line-height: 1.5;
 }
 
 .form-control {
@@ -142,36 +164,38 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-dark-faded {
   font-weight: 300;
-  font-family: 'IBM Plex Sans', sans-serif !important;
+  font-family: "IBM Plex Sans", sans-serif !important;
   /*text-transform: uppercase;*/
   background-color: rgba(0, 0, 0, 0.07);
   color: black;
 }
 
-.btn-yellow {
-  background-color: #FFC100;
-  color: #222127;
+.btn-color {
+  color: #E1E2E2;
+  background-color: #FA2742;
+  font-weight: 500;
 }
 
-.yellow-text {
-  color: #FFC100;
+.number-text {
+  color: #FA2742;
   font-weight: bold;
+  font-family: "Iceland", sans-serif;
 }
 
 .social:hover a {
-  color: #FFFFFF;
+  color: #1D2228;
 }
 
 .social a {
-  color: #FFFFFF;
+  color: #1D2228;
   font-size: 28px;
   margin-right: 12px;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
 }
 
 .social a:hover {
-  color: #FFC100;
+  color: #FA2742;
 }
 
 .nav-social {
@@ -179,11 +203,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-social:hover a {
-  color: #FFFFFF;
+  color: #1D2228;
 }
 
 .nav-social a {
-  color: #FFFFFF;
+  color: #1D2228;
   font-size: 24px;
   margin-right: 12px;
   -webkit-transition: all 0.3s ease;
@@ -191,15 +215,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-social a:hover {
-  color: #FFC100;
+  color: #FA2742;
 }
 
 section {
-  padding: 6% 10%;
+  padding: 7% 10%;
 }
 
 section .heading {
   margin-bottom: 30px;
+}
+
+section#about, section#experience {
+  background-color: #1D2228;
+  color: #E1E2E2;
+}
+
+section#projects, section#contact {
+  background-color: #D9D9D9;
+}
+
+.contact-text {
+  color: #FA2742;
 }
 
 .progress {
@@ -214,8 +251,10 @@ section .heading {
 .card {
   border-radius: 0;
   border: none;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .card-body {
@@ -223,47 +262,45 @@ section .heading {
 }
 
 .card:hover {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
-
-
 
 .separator-short {
   width: 10%;
   display: block;
   overflow: hidden;
   height: 2px;
-  background-color: #FFC100;
+  background-color: #FA2742;
   margin: 0 auto;
 }
 
-
-.btn-outline-black {
-  color:#222127;
-  border-color:#222127;
+.btn-outline-custom {
+  color: #1D2228;
+  border-color: #1D2228;
 }
 
-.btn-outline-black:hover {
-  color:#FFFFFF;
-  background-color:#222127;
-  border-color:#222127;
-}
-.btn-outline-black.focus,
-.btn-outline-black:focus {
-  box-shadow:0 0 0 .2rem rgba(108,117,125,.5);
+.btn-outline-custom:hover {
+  color: #1D2228;
+  background-color: #FA2742;
+  border-color: #FA2742;
 }
 
-.btn-outline-black.disabled,.btn-outline-black:disabled {
-  color:#222127;
-  background-color:transparent;
+.btn-outline-custom.focus, .btn-outline-custom:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
 }
 
-.btn-outline-black:not(:disabled):not(.disabled).active,
-.btn-outline-black:not(:disabled):not(.disabled):active,
-.show>.btn-outline-black.dropdown-toggle {
-  color:#FFFFFF;
-  background-color:#222127;
-  border-color:#222127;
+.btn-outline-custom.active, .btn-outline-custom:active {
+  color: #1D2228;
+  background-color: #1D2228;
+  border-color: #1D2228;
+}
+
+.show > .btn-outline-black.dropdown-toggle {
+  color: #1D2228;
+  background-color: #E1E2E2;
+  border-color: #E1E2E2;
 }
 
 #timeline {
@@ -277,10 +314,10 @@ section .heading {
   content: "";
   width: 3px;
   height: 100%;
-  background: #000;
+  background: #E1E2E2;
   left: 50%;
   -webkit-transform: translate(-50%);
-          transform: translate(-50%);
+  transform: translate(-50%);
   top: 0;
   position: absolute;
 }
@@ -297,8 +334,9 @@ section .heading {
   position: relative;
   text-align: right;
 }
-#timeline .timeline-item .timeline-icon  {
-  background: #000;
+
+#timeline .timeline-item .timeline-icon {
+  background: #E1E2E2;
   width: 20px;
   height: 20px;
   position: absolute;
@@ -317,8 +355,8 @@ section .heading {
 
 #timeline .timeline-item .timeline-content .date {
   display: inline-block;
-  color:#222127;
-  border:  1px solid #222127;
+  color: #FA2742;
+  border: 1px solid #FA2742;
   padding: 8px;
   border-radius: 3px;
 }
@@ -366,3 +404,4 @@ section .heading {
     left: 0;
   }
 }
+/*# sourceMappingURL=styles.css.map */

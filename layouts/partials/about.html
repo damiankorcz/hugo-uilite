@@ -1,0 +1,17 @@
+{{ $about := .Site.Data.about }}
+
+<section id="about">
+    <div class="row">
+        <div class="col">
+            <h2 class="heading"><span class="number-text">00</span> {{ $about.title }}</h2>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <p>
+                    {{ $about.content }}
+            </p>
+        </div>
+    </div>
+</section>

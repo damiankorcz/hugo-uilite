@@ -3,15 +3,13 @@
 {{ $socialfas := .Site.Data.socialfas}}
 
 <section id="sidebar" class="sidebar d-flex align-items-center p-5">
-  <div class="main-info">
-
-    <img src="{{.Site.BaseURL}}images/{{ $sidebar.displayPicture }}" class="rounded-circle mb-3" width="160px">
-
+<div class="main-info">
+  <img src="{{.Site.BaseURL}}images/{{ $sidebar.displayPicture }}" class="rounded-circle mb-3 sidebar-photo" width="160px">
+  <div class="sidebar-cover">
     <h1 class="heading">{{ $sidebar.title }}<br><span class="highlight">{{ $sidebar.highlightedText }}</span></h1>
-    <p>{{ $sidebar.description }}</p>
+    <p>{{ $sidebar.description1 }} <br/> {{ $sidebar.description2 }}</p>
 
     <div class="social my-4">
-
       {{ range $key, $value := $social }}
         <a target="_blank" href="{{ $value }}" rel="me">
           <i class="fab fa-{{ $key }}"></i>
@@ -23,11 +21,7 @@
           <i class="fas fa-{{ $key }}"></i>
         </a>
       {{ end }}
-
     </div>
-
-    <a href="#contact" class="btn btn-yellow btn-lg">Contact</a>
-
-
   </div>
+</div>
 </section>

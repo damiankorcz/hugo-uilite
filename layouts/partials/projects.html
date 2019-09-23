@@ -1,9 +1,9 @@
 {{ $projects := .Site.Data.projects }}
 
-<section class="yellow">
+<section id="projects">
     <div class="row">
         <div class="col">
-            <h2 class="heading"><span class="yellow-text">/</span> {{ $projects.title }}</h2>
+            <h2 class="heading"><span class="number-text">01 </span> {{ $projects.title }}</h2>
         </div>
     </div>
 
@@ -17,7 +17,7 @@
                         <h5 class="mb-0">{{ $element.title }}</h5>
                         <div class="separator-short my-3"></div>
                         <p class="card-text">{{ $element.description }}</p>
-                        <a href="#" class="stretched-link btn btn-outline-black mt-auto">Read More</a>
+                        <a href="#" class="stretched-link btn btn-outline-custom mt-auto">Read More</a>
                     </div>
                 </div>
             </div>
@@ -25,6 +25,6 @@
     </div>
 
     <div class="row justify-content-center text-center p-5">
-            <a href="{{.Site.BaseURL}}projects" class="btn btn-yellow btn-lg btn-block">View All</a>
+            <a href="{{.Site.BaseURL}}projects" class="btn btn-color btn-lg btn-block">View All</a>
     </div>
 </section>
