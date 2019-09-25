@@ -108,31 +108,6 @@ a:hover {
     margin-left: 35%;
     float: none;
     clear: none;
-
-    &:after {
-        position: absolute;
-        content: "";
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        -webkit-transition: all 0.8s cubic-bezier(0.79, 0, 0.05, 0.83);
-        transition: all 0.8s cubic-bezier(0.79, 0, 0.05, 0.83);
-        background-color: $secondColor;
-        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231D2228' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-
-    &.active:after {
-        position: absolute;
-        content: "";
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        -webkit-transform: translateX(100%);
-        transform: translateX(100%);
-        
-    }
 }
 
 .main-content-list {
@@ -222,16 +197,14 @@ h6 {
 }
 
 .nav-social {
-    padding-left: 1rem;
-
     &:hover a {
-        color: $firstColor;
+        color: $secondColor;
     }
 
     a {
-        color: $firstColor;
-        font-size: 24px;
-        margin-right: 12px;
+        color: $secondColor;
+        font-size: 18px;
+        padding: 0 0.5rem;
         -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease;
 
@@ -242,17 +215,19 @@ h6 {
 }
 
 .navbar-color {
-    background-color: $secondColor;
+    z-index: 9000;
+    background: rgba($firstColor,0.8);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
     
     a {
-        color: $firstColor;
-        font-weight: bold;
+        color: $secondColor;
     }
 
 }
 
 section {
-    padding: 7% 7%;
+    padding: 5% 5%;
 
     .heading {
         margin-bottom: 30px;
@@ -262,12 +237,16 @@ section {
     &#experience {
         background-color: $firstColor;
         color: $secondColor;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
     
     &#projects,
     &#contact,
     &#list {
         background-color: $secondColor;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 }
 
@@ -415,11 +394,22 @@ section {
     margin-bottom: 20px;
 }
 
-@media (max-width: 767px) {
+@include media-breakpoint-down(md) {
     .sidebar {
         position: static;
         width: 100%;
         padding-left: 65px;
+    }
+
+    .navbar-toggler,
+    .navbar-toggler:focus,
+    .navbar-toggler:active
+    {
+        border: none;
+        outline: none;
+    }
+    .navbar-toggler i {
+        color: $secondColor;
     }
 
     .main-content {
