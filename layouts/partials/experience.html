@@ -1,6 +1,6 @@
 {{ $experience := .Site.Data.experience }}
 
-<section id="experience">
+<section id="experience" >
   <h2 class="heading"><span class="number-text">02 </span> {{ $experience.title }}</h2>
   <div id="timeline">
     {{ range $index, $element := $experience.experience }}
@@ -22,7 +22,7 @@
     {{ end }}
   </div>
 
-  <div class="row justify-content-center text-center p-4">
+  <div class="row justify-content-center text-center  px-5 pt-5">
     <a href="{{.Site.BaseURL}}experience" class="btn btn-color btn-lg btn-block">View All</a>
   </div>
 </section>

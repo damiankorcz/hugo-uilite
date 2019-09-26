@@ -8,10 +8,17 @@ $mainFont: 'IBMPlexSans', sans-serif;
 $titleFont: 'Poppins', serif;
 $numberFont: 'Iceland', sans-serif;
 
-$firstColor:#1D2228;
-$secondColor:#FFFFFF;
-$thirdColor: #E85253;
+$fontColor:#282A2B;
+$fontColorAlt: #FFFFFF;
+$cardColor:#FFFFFF;
+$bgColor: #282A2B;
+$bgColorAlt: #F9F9F9;
+$accentColor: #E85253;
+
 $tempColor: #a6a6a6;
+
+$borderRadius: 0.8rem;
+$sectionSpace: 5%;
 
 // $firstColor:#1D2228;
 // $secondColor:#FFFFFF;
@@ -36,8 +43,7 @@ html {
 }
 
 body  {
-    background-color: $secondColor;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231D2228' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-color: $bgColor;
 }
 a,
 p,
@@ -60,7 +66,7 @@ a:hover {
     z-index: 1;
     width: 35%;
     height: 100%;
-    color: $firstColor;
+    color: $fontColor;
 
     .main-info * {
         -webkit-transition: all 0.3s ease;
@@ -78,12 +84,11 @@ a:hover {
 }
 
 .sidebar-photo {
-    background-color: $thirdColor;
+    background-color: $accentColor;
 }
 
 .sidebar-cover {
-    background-color: $secondColor;
-    padding: 5%;
+    color: $fontColorAlt;
 }
 
 .topbar {
@@ -113,7 +118,6 @@ a:hover {
 .main-content-list {
     position: relative;
     overflow: visible;
-    width: 60%;
     max-width: 1200px;
     margin-top: 88px;
     float: none;
@@ -136,12 +140,12 @@ h6 {
 }
 
 .text-white {
-    color: $firstColor;
+    color: $fontColor;
 }
 
 .highlight {
-    color: $secondColor;
-    background-color: $thirdColor;
+    color: $cardColor;
+    background-color: $accentColor;
     padding: 2px 12px;
     line-height: 1.5;
 }
@@ -167,91 +171,89 @@ h6 {
 }
 
 .btn-color {
-    color: $secondColor;
-    background-color: $thirdColor;
+    color: $cardColor;
+    background-color: $accentColor;
     font-weight: 500;
+    border-radius: $borderRadius;
 }
 
 .number-text {
-    color: $thirdColor;
+    color: $accentColor;
     font-weight: bold;
     font-family: $numberFont;
 }
 
 .social {
     &:hover a {
-        color: $firstColor;
+        color: $fontColorAlt;
     }
 
     a {
-        color: $firstColor;
+        color: $fontColorAlt;
         font-size: 28px;
         margin-right: 12px;
         -webkit-transition: all 0.1s ease;
         transition: all 0.1s ease;
 
         &:hover {
-            color: $thirdColor;
+            color: $accentColor;
         }
     }
 }
 
 .nav-social {
     &:hover a {
-        color: $secondColor;
+        color: $fontColorAlt;
     }
 
     a {
-        color: $secondColor;
+        color: $fontColorAlt;
         font-size: 18px;
         padding: 0 0.5rem;
-        -webkit-transition: all 0.3s ease;
-        transition: all 0.3s ease;
+        -webkit-transition: all 0.1s ease;
+        transition: all 0.1s ease;
 
         &:hover {
-            color: $thirdColor;
+            color: $accentColor;
         }
     }
 }
 
 .navbar-color {
     z-index: 9000;
-    background: rgba($firstColor,0.8);
+    background: rgba($bgColor,0.8);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
     
     a {
-        color: $secondColor;
+        color: $cardColor;
     }
-
 }
 
 section {
-    padding: 5% 5%;
-
     .heading {
         margin-bottom: 30px;
     }
-    
-    &#about,
-    &#experience {
-        background-color: $firstColor;
-        color: $secondColor;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    &:last-child{
+        margin-bottom: $sectionSpace;
     }
     
+    &#about,
     &#projects,
+    &#experience,
     &#contact,
-    &#list {
-        background-color: $secondColor;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    &#list,
+    &#single {
+        margin-top: $sectionSpace;
+        background-color: $bgColorAlt;
+        border-radius: $borderRadius;
+        padding: 3rem;
     }
 }
 
 .contact-text {
-    color: $thirdColor;
+    color: $accentColor;
 }
 
 .progress {
@@ -264,16 +266,19 @@ section {
 }
 
 .card {
-    border-radius: 0;
+    border-radius: $borderRadius;
     border: none;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-    background-color: $secondColor;
-    color: $firstColor;
-}
-
-.card:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    background-color: $cardColor;
+    color: $fontColor;
+    
+    &:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+    img {
+        border-radius: $borderRadius $borderRadius 0 0;
+    }
 }
 
 .cardHorizontal {
@@ -281,8 +286,8 @@ section {
     border: none;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-    background-color: $secondColor;
-    color: $firstColor;
+    background-color: $cardColor;
+    color: $fontColor;
 }
 
 .card-img {
@@ -294,18 +299,18 @@ section {
     display: block;
     overflow: hidden;
     height: 2px;
-    background-color: $thirdColor;
+    background-color: $accentColor;
     margin: 0 auto;
 }
 
 .btn-outline-custom {
-    color: $firstColor;
-    border-color: $firstColor;
+    color: $fontColor;
+    border-color: $fontColor;
 
     &:hover {
-        color: $firstColor;
-        background-color: $thirdColor;
-        border-color: $thirdColor;
+        color: $fontColor;
+        background-color: $accentColor;
+        border-color: $accentColor;
     }
 
     &.focus,
@@ -315,16 +320,16 @@ section {
 
     &.active,
     &:active {
-        color: $firstColor;
-        background-color: $firstColor;
-        border-color: $firstColor;
+        color: $fontColor;
+        background-color: $fontColor;
+        border-color: $fontColor;
     }
 }
 
 .show > .btn-outline-black.dropdown-toggle {
-    color: $firstColor;
-    background-color: $secondColor;
-    border-color: $secondColor;
+    color: $fontColor;
+    background-color: $cardColor;
+    border-color: $cardColor;
 }
 
 #timeline {
@@ -337,7 +342,7 @@ section {
         content: "";
         width: 3px;
         height: 100%;
-        background: $secondColor;
+        background: $accentColor;
         left: 50%;
         -webkit-transform: translate(-50%);
         transform: translate(-50%);
@@ -358,7 +363,7 @@ section {
         text-align: right;
 
         .timeline-icon {
-            background: $secondColor;
+            background: $accentColor;
             width: 20px;
             height: 20px;
             position: absolute;
@@ -376,8 +381,8 @@ section {
 
             .date {
                 display: inline-block;
-                color: $thirdColor;
-                border: 1px solid $thirdColor;
+                color: $accentColor;
+                border: 1px solid $accentColor;
                 padding: 8px;
                 border-radius: 3px;
             }
@@ -394,7 +399,7 @@ section {
     margin-bottom: 20px;
 }
 
-@include media-breakpoint-down(md) {
+@media (max-width: 991.98px) {
     .sidebar {
         position: static;
         width: 100%;
@@ -409,7 +414,11 @@ section {
         outline: none;
     }
     .navbar-toggler i {
-        color: $secondColor;
+        color: $cardColor;
+    }
+
+    &#single {
+        padding: 1rem !important;
     }
 
     .main-content {
