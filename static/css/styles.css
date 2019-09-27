@@ -220,20 +220,11 @@ section#about, section#projects, section#experience, section#contact, section#li
   margin-top: 5%;
   background-color: #F9F9F9;
   border-radius: 0.8rem;
-  padding: 3rem;
+  padding: 4rem;
 }
 
 .contact-text {
   color: #E85253;
-}
-
-.progress {
-  height: 0.6rem;
-  background-color: #fff;
-}
-
-.progress .bg-blue {
-  background-color: #2e96a5;
 }
 
 .card {
@@ -391,7 +382,7 @@ section#about, section#projects, section#experience, section#contact, section#li
     color: #FFFFFF;
   }
   #single {
-    padding: 1rem !important;
+    padding: 3rem !important;
   }
   .main-content {
     width: 100%;

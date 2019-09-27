@@ -8,6 +8,7 @@ $mainFont: 'IBMPlexSans', sans-serif;
 $titleFont: 'Poppins', serif;
 $numberFont: 'Iceland', sans-serif;
 
+
 $fontColor:#282A2B;
 $fontColorAlt: #FFFFFF;
 $cardColor:#FFFFFF;
@@ -248,21 +249,12 @@ section {
         margin-top: $sectionSpace;
         background-color: $bgColorAlt;
         border-radius: $borderRadius;
-        padding: 3rem;
+        padding: 4rem;
     }
 }
 
 .contact-text {
     color: $accentColor;
-}
-
-.progress {
-    height: 0.6rem;
-    background-color: #fff;
-
-    .bg-blue {
-        background-color: #2e96a5;
-    }
 }
 
 .card {
@@ -418,7 +410,7 @@ section {
     }
 
     &#single {
-        padding: 1rem !important;
+        padding: 3rem !important;
     }
 
     .main-content {
