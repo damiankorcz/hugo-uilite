@@ -8,7 +8,6 @@ $mainFont: 'IBMPlexSans', sans-serif;
 $titleFont: 'Poppins', serif;
 $numberFont: 'Iceland', sans-serif;
 
-
 $fontColor:#282A2B;
 $fontColorAlt: #FFFFFF;
 $cardColor:#FFFFFF;
@@ -20,6 +19,7 @@ $tempColor: #a6a6a6;
 
 $borderRadius: 0.8rem;
 $sectionSpace: 5%;
+
 
 // $firstColor:#1D2228;
 // $secondColor:#FFFFFF;
@@ -373,8 +373,8 @@ section {
 
             .date {
                 display: inline-block;
-                color: $accentColor;
-                border: 1px solid $accentColor;
+                color: $fontColorAlt;
+                background-color: $accentColor;
                 padding: 8px;
                 border-radius: 3px;
             }

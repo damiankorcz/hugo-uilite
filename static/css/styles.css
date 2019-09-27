@@ -351,8 +351,8 @@ section#about, section#projects, section#experience, section#contact, section#li
 
 #timeline .timeline-item .timeline-content .date {
   display: inline-block;
-  color: #E85253;
-  border: 1px solid #E85253;
+  color: #FFFFFF;
+  background-color: #E85253;
   padding: 8px;
   border-radius: 3px;
 }
