@@ -1,11 +1,11 @@
 {{ partial "header.html" . }}
-{{ partial "topbar.html" . }}
+{{ partial "navbar.html" . }}
 <div class="main-content-list mx-auto">
     <section id="single">
         <div>
-            <h1 class="text-center">{{.Title}}</h1>
+            <h1 class="text-center">{{ .Title }}</h1>
             <div class="text-center text-muted mb-5">{{ dateFormat "Monday, Jan 2, 2006" .Date }}</div>
-            <div>{{.Content}}</div>
+            <div>{{ .Content }}</div>
         </div>
     </section>
 </div>

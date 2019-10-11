@@ -1,41 +1,27 @@
 @import 'mixins';
 
 @include font-face(IBMPlexSans, "../fonts/IBMPlexSans", 400, normal);
-@include font-face(Iceland, "../fonts/Iceland", 400, normal);
+@include font-face(IBMPlexSans, "../fonts/IBMPlexSansBold", 700, normal);
 @include font-face(Poppins, "../fonts/Poppins", 700, normal);
+@include font-face(OrkneyRegular, "../fonts/OrkneyRegular", 400, normal);
+@include font-face(ManropeBold, "../fonts/ManropeBold", 700, bold);
 
 $mainFont: 'IBMPlexSans', sans-serif;
-$titleFont: 'Poppins', serif;
-$numberFont: 'Iceland', sans-serif;
+$titleFont: 'ManropeBold', serif;
+$numberFont: 'ManropeBold', sans-serif;
 
-$fontColor:#282A2B;
-$fontColorAlt: #FFFFFF;
-$cardColor:#FFFFFF;
-$bgColor: #282A2B;
-$bgColorAlt: #F9F9F9;
-$accentColor: #E85253;
+$fontColor:#FDFDFD;
+$fontColorAlt: #3C3C3B;
+$cardColor:#FDFDFD;
+$pageColor: #FDFDFD;
+$sectionColor: #EFEFEF;
+$accentColor1: #48E4B7;
+$accentColor2: #E84855;
+$accentColor3: #FFC857;
+$accentColor4: #A14EBF;
 
-$tempColor: #a6a6a6;
-
-$borderRadius: 0.8rem;
+$borderRadius: 0rem;
 $sectionSpace: 5%;
-
-
-// $firstColor:#1D2228;
-// $secondColor:#FFFFFF;
-// $thirdColor: #E85253;
-// $tempColor: #a6a6a6;
-
-//other nice purple #9999FF
-//nice blue #31B2D2
-//current red E85253
-//mint 09BC8A
-//baby blue 66C3E8
-//hot pink D81159
-//purple 6369D1
-//greyish 2B2D42
-//yellowish E8BF3A
-//redish FF6B6B
 
 
 html {
@@ -44,8 +30,10 @@ html {
 }
 
 body  {
-    background-color: $bgColor;
+    background-color: $pageColor;
+    color: $fontColorAlt;
 }
+
 a,
 p,
 label,
@@ -62,7 +50,7 @@ a:hover {
     position: fixed;
     left: 0px;
     top: 0px;
-    right: 552px;
+    right: 35%;
     bottom: 0px;
     z-index: 1;
     width: 35%;
@@ -85,25 +73,11 @@ a:hover {
 }
 
 .sidebar-photo {
-    background-color: $accentColor;
+    background-color: $accentColor1;
 }
 
 .sidebar-cover {
     color: $fontColorAlt;
-}
-
-.topbar {
-    position: static;
-    left: 0px;
-    top: 0px;
-    z-index: 1;
-    width: 100%;
-    height: 48px;
-    background: red;
-}
-
-.nameBar {
-    padding-right: 10px;
 }
 
 .main-content {
@@ -137,7 +111,11 @@ h6 {
 }
 
 .heading {
-    font-size: 38px;
+    font-size: 2.2rem;
+}
+
+h5 {
+    font-size: 1.2rem !important;
 }
 
 .text-white {
@@ -145,8 +123,9 @@ h6 {
 }
 
 .highlight {
-    color: $cardColor;
-    background-color: $accentColor;
+    color: $fontColor;
+    background-color: $accentColor1;
+    border-radius: $borderRadius;
     padding: 2px 12px;
     line-height: 1.5;
 }
@@ -173,13 +152,12 @@ h6 {
 
 .btn-color {
     color: $cardColor;
-    background-color: $accentColor;
+    background-color: $accentColor1;
     font-weight: 500;
     border-radius: $borderRadius;
 }
 
 .number-text {
-    color: $accentColor;
     font-weight: bold;
     font-family: $numberFont;
 }
@@ -193,81 +171,165 @@ h6 {
         color: $fontColorAlt;
         font-size: 28px;
         margin-right: 12px;
-        -webkit-transition: all 0.1s ease;
-        transition: all 0.1s ease;
 
         &:hover {
-            color: $accentColor;
+            color: $accentColor1;
         }
     }
 }
 
-.nav-social {
+.navbarSocial {
     &:hover a {
         color: $fontColorAlt;
     }
 
     a {
-        color: $fontColorAlt;
         font-size: 18px;
         padding: 0 0.5rem;
         -webkit-transition: all 0.1s ease;
         transition: all 0.1s ease;
 
         &:hover {
-            color: $accentColor;
+            color: $accentColor1;
         }
     }
 }
 
-.navbar-color {
+.navbarColor {
     z-index: 9000;
-    background: rgba($bgColor,0.8);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
+    background: rgba($pageColor,0.6);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+    backdrop-filter: saturate(180%) blur(10px);
     
     a {
-        color: $cardColor;
+        color: $fontColorAlt !important;
     }
 }
 
+
 section {
     .heading {
-        margin-bottom: 30px;
+        margin-bottom:  2rem;
     }
 
     &:last-child{
         margin-bottom: $sectionSpace;
-    }
-    
-    &#about,
-    &#projects,
-    &#experience,
-    &#contact,
-    &#list,
-    &#single {
         margin-top: $sectionSpace;
-        background-color: $bgColorAlt;
+        background-color: $sectionColor;
         border-radius: $borderRadius;
         padding: 4rem;
+    }
+    
+    &#about {
+        margin-top: $sectionSpace;
+        background-color: $sectionColor;
+        border-radius: $borderRadius;
+        padding: 4rem;
+
+        .number-text {
+            color: $accentColor1;
+        }
+
+        a  {
+            color: $fontColorAlt;
+        }
+
+        a:hover {
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            color: $accentColor1;
+        }
+    }
+
+    &#projects {
+        margin-top: $sectionSpace;
+        background-color: $sectionColor;
+        border-radius: $borderRadius;
+        padding: 4rem;
+
+        .number-text {
+            color: $accentColor2;
+        }
+
+        .btn-color {
+            color: $fontColor;
+            background-color: $accentColor2;
+            border: 2px $accentColor2 solid;
+            
+            &:hover {
+                color: $accentColor2;
+                background: none;
+            }
+        }
+
+        .separator-short {
+            background-color: $accentColor2;
+        }
+    }
+
+    &#experience {
+        margin-top: $sectionSpace;
+        background-color: $sectionColor;
+        border-radius: $borderRadius;
+        padding: 4rem;
+
+        .number-text {
+            color: $accentColor3;
+        }
+
+        .btn-color {
+            color: $fontColor;
+            background-color: $accentColor3;
+            border: 2px $accentColor3 solid;
+            
+            &:hover {
+                color: $accentColor3;
+                background: none;
+            }
+        }
+
+        .separator-short {
+            background-color: $accentColor3;
+        }
+    }
+
+    &#skills {
+        margin-top: $sectionSpace;
+        background-color: $sectionColor;
+        border-radius: $borderRadius;
+        padding: 4rem;
+
+        .number-text {
+            color: $accentColor4;
+        }
+    }
+
+    &#contact,
+    &#list{
+        margin-top: $sectionSpace;
+        background-color: $sectionColor;
+        border-radius: $borderRadius;
+        padding: 4rem;
+    }
+
+    &#single {
+        margin-top: $sectionSpace;
+        background-color: $sectionColor;
+        border-radius: $borderRadius;
+        padding: 5rem;
     }
 }
 
 .contact-text {
-    color: $accentColor;
+    color: $accentColor1;
 }
 
 .card {
     border-radius: $borderRadius;
-    border: none;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
     background-color: $cardColor;
-    color: $fontColor;
+    color: $fontColorAlt;
+    border: none;
     
-    &:hover {
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    }
     img {
         border-radius: $borderRadius $borderRadius 0 0;
     }
@@ -291,7 +353,6 @@ section {
     display: block;
     overflow: hidden;
     height: 2px;
-    background-color: $accentColor;
     margin: 0 auto;
 }
 
@@ -301,8 +362,8 @@ section {
 
     &:hover {
         color: $fontColor;
-        background-color: $accentColor;
-        border-color: $accentColor;
+        background-color: $accentColor1;
+        border-color: $accentColor1;
     }
 
     &.focus,
@@ -334,7 +395,7 @@ section {
         content: "";
         width: 3px;
         height: 100%;
-        background: $accentColor;
+        background: $fontColorAlt;
         left: 50%;
         -webkit-transform: translate(-50%);
         transform: translate(-50%);
@@ -355,7 +416,7 @@ section {
         text-align: right;
 
         .timeline-icon {
-            background: $accentColor;
+            background: $fontColorAlt;
             width: 20px;
             height: 20px;
             position: absolute;
@@ -373,10 +434,10 @@ section {
 
             .date {
                 display: inline-block;
-                color: $fontColorAlt;
-                background-color: $accentColor;
+                color: $fontColor;
+                background-color: $accentColor3;
                 padding: 8px;
-                border-radius: 3px;
+                border-radius: $borderRadius;
             }
 
             &.right {
@@ -406,9 +467,14 @@ section {
         outline: none;
     }
     .navbar-toggler i {
-        color: $cardColor;
+        color: $fontColorAlt;;
     }
 
+    &#about,
+    &#projects,
+    &#experience,
+    &#contact,
+    &#list,
     &#single {
         padding: 3rem !important;
     }

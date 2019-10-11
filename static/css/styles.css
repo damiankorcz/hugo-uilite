@@ -6,10 +6,10 @@
 }
 
 @font-face {
-  font-family: "Iceland";
+  font-family: "IBMPlexSans";
   font-style: normal;
-  font-weight: 400;
-  src: url("../fonts/Iceland.eot?") format("eot"), url("../fonts/Iceland.woff2") format("woff2"), url("../fonts/Iceland.woff") format("woff"), url("../fonts/Iceland.ttf") format("truetype"), url("../fonts/Iceland.svg#Iceland") format("svg");
+  font-weight: 700;
+  src: url("../fonts/IBMPlexSansBold.eot?") format("eot"), url("../fonts/IBMPlexSansBold.woff2") format("woff2"), url("../fonts/IBMPlexSansBold.woff") format("woff"), url("../fonts/IBMPlexSansBold.ttf") format("truetype"), url("../fonts/IBMPlexSansBold.svg#IBMPlexSans") format("svg");
 }
 
 @font-face {
@@ -19,13 +19,28 @@
   src: url("../fonts/Poppins.eot?") format("eot"), url("../fonts/Poppins.woff2") format("woff2"), url("../fonts/Poppins.woff") format("woff"), url("../fonts/Poppins.ttf") format("truetype"), url("../fonts/Poppins.svg#Poppins") format("svg");
 }
 
+@font-face {
+  font-family: "OrkneyRegular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/OrkneyRegular.eot?") format("eot"), url("../fonts/OrkneyRegular.woff2") format("woff2"), url("../fonts/OrkneyRegular.woff") format("woff"), url("../fonts/OrkneyRegular.ttf") format("truetype"), url("../fonts/OrkneyRegular.svg#OrkneyRegular") format("svg");
+}
+
+@font-face {
+  font-family: "ManropeBold";
+  font-style: bold;
+  font-weight: 700;
+  src: url("../fonts/ManropeBold.eot?") format("eot"), url("../fonts/ManropeBold.woff2") format("woff2"), url("../fonts/ManropeBold.woff") format("woff"), url("../fonts/ManropeBold.ttf") format("truetype"), url("../fonts/ManropeBold.svg#ManropeBold") format("svg");
+}
+
 html {
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
 body {
-  background-color: #282A2B;
+  background-color: #FDFDFD;
+  color: #3C3C3B;
 }
 
 a,
@@ -44,12 +59,12 @@ a:hover {
   position: fixed;
   left: 0px;
   top: 0px;
-  right: 552px;
+  right: 35%;
   bottom: 0px;
   z-index: 1;
   width: 35%;
   height: 100%;
-  color: #282A2B;
+  color: #FDFDFD;
 }
 
 .sidebar .main-info * {
@@ -67,25 +82,11 @@ a:hover {
 }
 
 .sidebar-photo {
-  background-color: #E85253;
+  background-color: #48E4B7;
 }
 
 .sidebar-cover {
-  color: #FFFFFF;
-}
-
-.topbar {
-  position: static;
-  left: 0px;
-  top: 0px;
-  z-index: 1;
-  width: 100%;
-  height: 48px;
-  background: red;
-}
-
-.nameBar {
-  padding-right: 10px;
+  color: #3C3C3B;
 }
 
 .main-content {
@@ -114,21 +115,26 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Poppins", serif !important;
+  font-family: "ManropeBold", serif !important;
   text-transform: uppercase;
 }
 
 .heading {
-  font-size: 38px;
+  font-size: 2.2rem;
+}
+
+h5 {
+  font-size: 1.2rem !important;
 }
 
 .text-white {
-  color: #282A2B;
+  color: #FDFDFD;
 }
 
 .highlight {
-  color: #FFFFFF;
-  background-color: #E85253;
+  color: #FDFDFD;
+  background-color: #48E4B7;
+  border-radius: 0rem;
   padding: 2px 12px;
   line-height: 1.5;
 }
@@ -153,98 +159,180 @@ h6 {
 }
 
 .btn-color {
-  color: #FFFFFF;
-  background-color: #E85253;
+  color: #FDFDFD;
+  background-color: #48E4B7;
   font-weight: 500;
-  border-radius: 0.8rem;
+  border-radius: 0rem;
 }
 
 .number-text {
-  color: #E85253;
   font-weight: bold;
-  font-family: "Iceland", sans-serif;
+  font-family: "ManropeBold", sans-serif;
 }
 
 .social:hover a {
-  color: #FFFFFF;
+  color: #3C3C3B;
 }
 
 .social a {
-  color: #FFFFFF;
+  color: #3C3C3B;
   font-size: 28px;
   margin-right: 12px;
-  -webkit-transition: all 0.1s ease;
-  transition: all 0.1s ease;
 }
 
 .social a:hover {
-  color: #E85253;
+  color: #48E4B7;
 }
 
-.nav-social:hover a {
-  color: #FFFFFF;
+.navbarSocial:hover a {
+  color: #3C3C3B;
 }
 
-.nav-social a {
-  color: #FFFFFF;
+.navbarSocial a {
   font-size: 18px;
   padding: 0 0.5rem;
   -webkit-transition: all 0.1s ease;
   transition: all 0.1s ease;
 }
 
-.nav-social a:hover {
-  color: #E85253;
+.navbarSocial a:hover {
+  color: #48E4B7;
 }
 
-.navbar-color {
+.navbarColor {
   z-index: 9000;
-  background: rgba(40, 42, 43, 0.8);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(253, 253, 253, 0.6);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  backdrop-filter: saturate(180%) blur(10px);
 }
 
-.navbar-color a {
-  color: #FFFFFF;
+.navbarColor a {
+  color: #3C3C3B !important;
 }
 
 section .heading {
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
 section:last-child {
   margin-bottom: 5%;
-}
-
-section#about, section#projects, section#experience, section#contact, section#list, section#single {
   margin-top: 5%;
-  background-color: #F9F9F9;
-  border-radius: 0.8rem;
+  background-color: #EFEFEF;
+  border-radius: 0rem;
   padding: 4rem;
 }
 
+section#about {
+  margin-top: 5%;
+  background-color: #EFEFEF;
+  border-radius: 0rem;
+  padding: 4rem;
+}
+
+section#about .number-text {
+  color: #48E4B7;
+}
+
+section#about a {
+  color: #3C3C3B;
+}
+
+section#about a:hover {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #48E4B7;
+}
+
+section#projects {
+  margin-top: 5%;
+  background-color: #EFEFEF;
+  border-radius: 0rem;
+  padding: 4rem;
+}
+
+section#projects .number-text {
+  color: #E84855;
+}
+
+section#projects .btn-color {
+  color: #FDFDFD;
+  background-color: #E84855;
+  border: 2px #E84855 solid;
+}
+
+section#projects .btn-color:hover {
+  color: #E84855;
+  background: none;
+}
+
+section#projects .separator-short {
+  background-color: #E84855;
+}
+
+section#experience {
+  margin-top: 5%;
+  background-color: #EFEFEF;
+  border-radius: 0rem;
+  padding: 4rem;
+}
+
+section#experience .number-text {
+  color: #FFC857;
+}
+
+section#experience .btn-color {
+  color: #FDFDFD;
+  background-color: #FFC857;
+  border: 2px #FFC857 solid;
+}
+
+section#experience .btn-color:hover {
+  color: #FFC857;
+  background: none;
+}
+
+section#experience .separator-short {
+  background-color: #FFC857;
+}
+
+section#skills {
+  margin-top: 5%;
+  background-color: #EFEFEF;
+  border-radius: 0rem;
+  padding: 4rem;
+}
+
+section#skills .number-text {
+  color: #A14EBF;
+}
+
+section#contact, section#list {
+  margin-top: 5%;
+  background-color: #EFEFEF;
+  border-radius: 0rem;
+  padding: 4rem;
+}
+
+section#single {
+  margin-top: 5%;
+  background-color: #EFEFEF;
+  border-radius: 0rem;
+  padding: 5rem;
+}
+
 .contact-text {
-  color: #E85253;
+  color: #48E4B7;
 }
 
 .card {
-  border-radius: 0.8rem;
+  border-radius: 0rem;
+  background-color: #FDFDFD;
+  color: #3C3C3B;
   border: none;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  -webkit-transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-  background-color: #FFFFFF;
-  color: #282A2B;
-}
-
-.card:hover {
-  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .card img {
-  border-radius: 0.8rem 0.8rem 0 0;
+  border-radius: 0rem 0rem 0 0;
 }
 
 .cardHorizontal {
@@ -254,8 +342,8 @@ section#about, section#projects, section#experience, section#contact, section#li
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   -webkit-transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
   transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-  background-color: #FFFFFF;
-  color: #282A2B;
+  background-color: #FDFDFD;
+  color: #FDFDFD;
 }
 
 .card-img {
@@ -267,19 +355,18 @@ section#about, section#projects, section#experience, section#contact, section#li
   display: block;
   overflow: hidden;
   height: 2px;
-  background-color: #E85253;
   margin: 0 auto;
 }
 
 .btn-outline-custom {
-  color: #282A2B;
-  border-color: #282A2B;
+  color: #FDFDFD;
+  border-color: #FDFDFD;
 }
 
 .btn-outline-custom:hover {
-  color: #282A2B;
-  background-color: #E85253;
-  border-color: #E85253;
+  color: #FDFDFD;
+  background-color: #48E4B7;
+  border-color: #48E4B7;
 }
 
 .btn-outline-custom.focus, .btn-outline-custom:focus {
@@ -288,15 +375,15 @@ section#about, section#projects, section#experience, section#contact, section#li
 }
 
 .btn-outline-custom.active, .btn-outline-custom:active {
-  color: #282A2B;
-  background-color: #282A2B;
-  border-color: #282A2B;
+  color: #FDFDFD;
+  background-color: #FDFDFD;
+  border-color: #FDFDFD;
 }
 
 .show > .btn-outline-black.dropdown-toggle {
-  color: #282A2B;
-  background-color: #FFFFFF;
-  border-color: #FFFFFF;
+  color: #FDFDFD;
+  background-color: #FDFDFD;
+  border-color: #FDFDFD;
 }
 
 #timeline {
@@ -310,7 +397,7 @@ section#about, section#projects, section#experience, section#contact, section#li
   content: "";
   width: 3px;
   height: 100%;
-  background: #E85253;
+  background: #3C3C3B;
   left: 50%;
   -webkit-transform: translate(-50%);
   transform: translate(-50%);
@@ -332,7 +419,7 @@ section#about, section#projects, section#experience, section#contact, section#li
 }
 
 #timeline .timeline-item .timeline-icon {
-  background: #E85253;
+  background: #3C3C3B;
   width: 20px;
   height: 20px;
   position: absolute;
@@ -351,10 +438,10 @@ section#about, section#projects, section#experience, section#contact, section#li
 
 #timeline .timeline-item .timeline-content .date {
   display: inline-block;
-  color: #FFFFFF;
-  background-color: #E85253;
+  color: #FDFDFD;
+  background-color: #FFC857;
   padding: 8px;
-  border-radius: 3px;
+  border-radius: 0rem;
 }
 
 #timeline .timeline-item .timeline-content.right {
@@ -379,8 +466,13 @@ section#about, section#projects, section#experience, section#contact, section#li
     outline: none;
   }
   .navbar-toggler i {
-    color: #FFFFFF;
+    color: #3C3C3B;
   }
+  #about,
+  #projects,
+  #experience,
+  #contact,
+  #list,
   #single {
     padding: 3rem !important;
   }
