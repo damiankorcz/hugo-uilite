@@ -10,22 +10,33 @@
       <span class="date">{{ $element.timeperiod }}</span>
       {{ $website := $element.website }}
       </br>
-      <i class="fas fa-link text-muted"></i><a class="text-muted" href="{{ $website }}"> {{ $element.company }}</a>
+        <i class="fas fa-link text-muted"></i><a class="text-muted" href="{{ $website }}"> {{ $element.company }}</a>
       </br>
 
       {{ $position := $element.position }}
-        {{ if $position }}
-        <h5>
-        {{ $position }}
-        </h5>
+      {{ if $position }}
+        <h5>{{ $position }}</h5>
       {{ end }}
-      <p>{{ $element.description }}</p>
+
+      {{ $grade := $element.grade }}
+      {{ if $grade }}
+        <i class="fas fa-award  text-muted"></i><a class="text-muted" > {{ $grade }}</a>
+      {{ end }}
+
+      {{ $description := $element.description }}
+      {{ if $description }}
+        <p>{{ $element.description }}</p>
+      {{ end }}
     </div>
     </div>
     {{ end }}
   </div>
+</section>
 
-  <div class="row justify-content-center text-center  px-5 pt-5">
+<!--
+View all button 
+
+<div class="row justify-content-center text-center  px-5 pt-5">
   <a href="{{.Site.BaseURL}}experience" class="btn btn-color btn-lg btn-block">View All</a>
   </div>
-</section>
+-->

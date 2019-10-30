@@ -251,22 +251,22 @@ section#projects {
 }
 
 section#projects .number-text {
-  color: #E84855;
+  color: #0496FF;
 }
 
 section#projects .btn-color {
   color: #FDFDFD;
-  background-color: #E84855;
-  border: 2px #E84855 solid;
+  background-color: #0496FF;
+  border: 2px #0496FF solid;
 }
 
 section#projects .btn-color:hover {
-  color: #E84855;
+  color: #0496FF;
   background: none;
 }
 
 section#projects .separator-short {
-  background-color: #E84855;
+  background-color: #0496FF;
 }
 
 section#experience {
