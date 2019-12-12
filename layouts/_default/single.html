@@ -3,10 +3,14 @@
 <div class="main-content-list mx-auto">
     <section id="single">
         <div>
-            <h1 class="text-center">{{ .Title }}</h1>
-            <div class="text-center text-muted mb-5">{{ dateFormat "Monday, Jan 2, 2006" .Date }}</div>
+            <div class="text-center text-muted">{{ .Params.subtitle }}</div>
+            <h1 class="text-center mb-4">{{ .Title }}</h1>
             <div>{{ .Content }}</div>
         </div>
     </section>
 </div>
 {{ partial "footer-scripts.html" . }}
+
+<!--
+    <div class="text-center text-muted mb-5">{{ dateFormat "Monday, Jan 2, 2006" .Date }}</div>
+-->

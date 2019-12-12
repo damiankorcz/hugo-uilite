@@ -13,20 +13,6 @@
 }
 
 @font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../fonts/Poppins.eot?") format("eot"), url("../fonts/Poppins.woff2") format("woff2"), url("../fonts/Poppins.woff") format("woff"), url("../fonts/Poppins.ttf") format("truetype"), url("../fonts/Poppins.svg#Poppins") format("svg");
-}
-
-@font-face {
-  font-family: "OrkneyRegular";
-  font-style: normal;
-  font-weight: 400;
-  src: url("../fonts/OrkneyRegular.eot?") format("eot"), url("../fonts/OrkneyRegular.woff2") format("woff2"), url("../fonts/OrkneyRegular.woff") format("woff"), url("../fonts/OrkneyRegular.ttf") format("truetype"), url("../fonts/OrkneyRegular.svg#OrkneyRegular") format("svg");
-}
-
-@font-face {
   font-family: "ManropeBold";
   font-style: bold;
   font-weight: 700;
@@ -68,8 +54,8 @@ a:hover {
 }
 
 .sidebar .main-info * {
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
   opacity: 0;
   -webkit-transform: translateX(-40px);
   transform: translateX(-40px);
@@ -146,8 +132,8 @@ h5 {
 
 .btn {
   border-radius: 0px;
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .btn-dark-faded {
@@ -172,16 +158,26 @@ h5 {
 
 .social:hover a {
   color: #3C3C3B;
+  -webkit-transition: all 0.2s ease !important;
+  transition: all 0.2s ease !important;
 }
 
 .social a {
   color: #3C3C3B;
-  font-size: 28px;
+  font-size: 32px;
   margin-right: 12px;
+  -webkit-transition: all 0.2s ease !important;
+  transition: all 0.2s ease !important;
 }
 
 .social a:hover {
   color: #48E4B7;
+}
+
+.order-2 {
+  -webkit-box-pack: end !important;
+      -ms-flex-pack: end !important;
+          justify-content: flex-end !important;
 }
 
 .navbarSocial:hover a {
@@ -191,16 +187,16 @@ h5 {
 .navbarSocial a {
   font-size: 18px;
   padding: 0 0.5rem;
-  -webkit-transition: all 0.1s ease;
-  transition: all 0.1s ease;
 }
 
-.navbarSocial a:hover {
+.navbarSocial a:hover i {
   color: #48E4B7;
+  -webkit-transition: all 0.2s ease !important;
+  transition: all 0.2s ease !important;
 }
 
 .navbarColor {
-  z-index: 9000;
+  z-index: 1000;
   background: rgba(253, 253, 253, 0.6);
   -webkit-backdrop-filter: saturate(180%) blur(10px);
   backdrop-filter: saturate(180%) blur(10px);
@@ -208,6 +204,16 @@ h5 {
 
 .navbarColor a {
   color: #3C3C3B !important;
+}
+
+.nav-item {
+  margin: 0 0.2rem;
+}
+
+.nav-link:hover {
+  color: #48E4B7 !important;
+  -webkit-transition: all 0.2s ease !important;
+  transition: all 0.2s ease !important;
 }
 
 section .heading {
@@ -238,8 +244,8 @@ section#about a {
 }
 
 section#about a:hover {
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all 0.2s ease !important;
+  transition: all 0.2s ease !important;
   color: #48E4B7;
 }
 
@@ -340,8 +346,8 @@ section#single {
   border: none;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  -webkit-transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
   background-color: #FDFDFD;
   color: #FDFDFD;
 }
@@ -389,8 +395,8 @@ section#single {
 #timeline {
   width: 100%;
   position: relative;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 #timeline:before {
@@ -432,8 +438,8 @@ section#single {
 
 #timeline .timeline-item .timeline-content {
   width: 45%;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 #timeline .timeline-item .timeline-content .date {
@@ -453,6 +459,23 @@ section#single {
   margin-bottom: 20px;
 }
 
+.box {
+  text-align: center;
+}
+
+blockquote {
+  background-color: rgba(215, 38, 61, 0.1);
+  border-left: 5px solid #D7263D;
+  padding: 8px 10px 1px 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+code {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 @media (max-width: 991.98px) {
   .sidebar {
     position: static;
@@ -462,6 +485,9 @@ section#single {
   .navbar-toggler,
   .navbar-toggler:focus,
   .navbar-toggler:active {
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
     border: none;
     outline: none;
   }
@@ -474,7 +500,7 @@ section#single {
   #contact,
   #list,
   #single {
-    padding: 3rem !important;
+    padding: 2rem !important;
   }
   .main-content {
     width: 100%;
@@ -506,6 +532,24 @@ section#single {
   }
   #timeline .timeline-item .timeline-icon {
     left: 0;
+  }
+  .navbarSocial {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  .nav-item {
+    margin: 0.2rem 1rem;
+  }
+  .nav-link {
+    text-align: center !important;
   }
 }
 /*# sourceMappingURL=styles.css.map */

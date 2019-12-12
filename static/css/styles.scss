@@ -2,8 +2,6 @@
 
 @include font-face(IBMPlexSans, "../fonts/IBMPlexSans", 400, normal);
 @include font-face(IBMPlexSans, "../fonts/IBMPlexSansBold", 700, normal);
-@include font-face(Poppins, "../fonts/Poppins", 700, normal);
-@include font-face(OrkneyRegular, "../fonts/OrkneyRegular", 400, normal);
 @include font-face(ManropeBold, "../fonts/ManropeBold", 700, bold);
 
 $mainFont: 'IBMPlexSans', sans-serif;
@@ -19,6 +17,7 @@ $accentColor1: #48E4B7;
 $accentColor2: #0496FF;
 $accentColor3: #FFC857;
 $accentColor4: #A14EBF;
+$blockcodeColor:  #D7263D;
 
 $borderRadius: 0rem;
 $sectionSpace: 5%;
@@ -58,8 +57,8 @@ a:hover {
     color: $fontColor;
 
     .main-info * {
-        -webkit-transition: all 0.3s ease;
-        transition: all 0.3s ease;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
         opacity: 0;
         -webkit-transform: translateX(-40px);
         transform: translateX(-40px);
@@ -137,8 +136,8 @@ h5 {
 
 .btn {
     border-radius: 0px;
-    -webkit-transition: all 0.25s ease;
-    transition: all 0.25s ease;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .btn-dark-faded {
@@ -165,17 +164,25 @@ h5 {
 .social {
     &:hover a {
         color: $fontColorAlt;
+        -webkit-transition: all 0.2s ease !important;
+        transition: all 0.2s ease !important;
     }
 
     a {
         color: $fontColorAlt;
-        font-size: 28px;
+        font-size: 32px;
         margin-right: 12px;
+        -webkit-transition: all 0.2s ease !important;
+        transition: all 0.2s ease !important;
 
         &:hover {
             color: $accentColor1;
         }
     }
+}
+
+.order-2 {
+    justify-content: flex-end !important;
 }
 
 .navbarSocial {
@@ -186,17 +193,17 @@ h5 {
     a {
         font-size: 18px;
         padding: 0 0.5rem;
-        -webkit-transition: all 0.1s ease;
-        transition: all 0.1s ease;
 
-        &:hover {
+        &:hover i {
             color: $accentColor1;
+            -webkit-transition: all 0.2s ease !important;
+            transition: all 0.2s ease !important;
         }
     }
 }
 
 .navbarColor {
-    z-index: 9000;
+    z-index: 1000;
     background: rgba($pageColor,0.6);
     -webkit-backdrop-filter: saturate(180%) blur(10px);
     backdrop-filter: saturate(180%) blur(10px);
@@ -206,6 +213,17 @@ h5 {
     }
 }
 
+.nav-item {
+    margin: 0 0.2rem;
+}
+
+.nav-link {
+    &:hover {
+        color: $accentColor1 !important;
+        -webkit-transition: all 0.2s ease !important;
+        transition: all 0.2s ease !important;
+    }
+}
 
 section {
     .heading {
@@ -235,8 +253,8 @@ section {
         }
 
         a:hover {
-            -webkit-transition: all 0.3s ease;
-            transition: all 0.3s ease;
+            -webkit-transition: all 0.2s ease !important;
+            transition: all 0.2s ease !important;
             color: $accentColor1;
         }
     }
@@ -339,7 +357,7 @@ section {
     border-radius: 0;
     border: none;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
     background-color: $cardColor;
     color: $fontColor;
 }
@@ -388,8 +406,8 @@ section {
 #timeline {
     width: 100%;
     position: relative;
-    -webkit-transition: all 0.4s ease;
-    transition: all 0.4s ease;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 
     &:before {
         content: "";
@@ -429,8 +447,8 @@ section {
 
         .timeline-content {
             width: 45%;
-            -webkit-transition: all 0.3s ease;
-            transition: all 0.3s ease;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
 
             .date {
                 display: inline-block;
@@ -452,6 +470,23 @@ section {
     margin-bottom: 20px;
 }
 
+.box {
+    text-align: center;
+}
+
+blockquote {
+    background-color: rgba($blockcodeColor,0.1);
+    border-left: 5px solid $blockcodeColor;
+    padding: 8px 10px 1px 10px; 
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+code {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 @media (max-width: 991.98px) {
     .sidebar {
         position: static;
@@ -463,6 +498,7 @@ section {
     .navbar-toggler:focus,
     .navbar-toggler:active
     {
+        align-items: flex-end;
         border: none;
         outline: none;
     }
@@ -476,7 +512,7 @@ section {
     &#contact,
     &#list,
     &#single {
-        padding: 3rem !important;
+        padding: 2rem !important;
     }
 
     .main-content {
@@ -518,4 +554,19 @@ section {
             }
         }
     }
+
+    .navbarSocial {
+        flex-direction: row !important;
+        justify-content: center !important;
+        display: flex !important;
+    }
+
+    .nav-item {
+        margin: 0.2rem 1rem;
+    }
+
+    .nav-link {
+        text-align: center !important;
+    }
+
 }
