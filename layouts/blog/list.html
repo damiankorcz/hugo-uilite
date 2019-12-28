@@ -1,0 +1,36 @@
+{{ partial "header.html" . }}
+{{ partial "navbar.html" . }}
+<div class="main-content-list mx-auto">
+     <section id="blog">
+          <h2 class="text-center mb-4 cardText"><i class="fas fa-newspaper pr-3"></i>{{.Title}}</h2>
+          <div class="row px-5">
+               {{ range .Pages }}
+                    <div class="card mb-3 w-100">
+                         <div class="row no-gutters">
+                              <div class="col-12 px-3 pt-3">
+                                   <p class="my-1 text-muted">
+                                        <i class="far fa-calendar-alt pr-1"></i>
+                                        {{ dateFormat "2 Jan 2006" .Date }} 
+                                        {{ $lastmod := .Params.Lastmod }}
+                                        
+                                        {{ if ne .PublishDate .Lastmod }}  | Last updated {{ dateFormat "2 Jan 2006" .Params.Lastmod }} {{ end }}
+                                   </p>
+                                   <h5>{{ .Params.title }}</h5>
+                                   <p>{{ .Params.description }}</p>
+                              </div>
+                         </div>
+                         <div class="px-3 pb-3 mt-auto">
+                              <div class="separator-long mb-2"></div>
+                              <div class="w-100 d-flex flex-row">
+                                  <a href="{{ .Permalink }}" class="stretched-link font-weight-bold mr-auto">
+                                      Read more
+                                  </a>
+                                  <i class="fas fa-chevron-right my-auto"></i>
+                              </div>
+                         </div>
+                    </div>
+               {{ end }}
+          </div>
+     </section>
+</div>
+{{ partial "footer-scripts.html" . }}

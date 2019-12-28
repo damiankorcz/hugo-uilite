@@ -2,29 +2,35 @@
 
 <section id="projects">
     <div class="row">
-        <div class="col">
-            <h2 class="heading cardText"><span class="number-text">01 </span> {{ $projects.title }}</h2>
+        <div class="col-8">
+            <h2 class="heading"><i class="fas fa-vial pr-3"></i>{{ $projects.title }}</h2>
+        </div>
+        <div class="col-4 text-right">
+            <h3 class="btn font-weight-bold"><a href="{{.Site.BaseURL}}projects">View all</a></h3>
         </div>
     </div>
-
-    <div class="row justify-content-center text-center">
-        {{ range $index, $element := $projects.projects }}
-            <div class="m-2">
+    <div class="separator-long mb-2"></div>
+    <div class="row justify-content-center">
+        {{ range first 3 ( where .Site.Pages "Section" "projects" ) }}
+            <div class="m-3">
                 <div class="card h-100 d-flex flex-column" style="width: 18rem;">
-                    <img src="{{.Site.BaseURL}}images/projects/{{ $element.previewPicture }}" class="card-img" alt="...">
+                    <img src="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}" class="card-img" alt="{{ .Params.title }}">
                     <div class="p-3">
-                        <p class="my-2 text-muted card-text">{{ $element.subtitle }}</p>
-                        <h5 class="mb-0">{{ $element.title }}</h5>
-                        <div class="separator-short my-3"></div>
-                        <p class="card-text">{{ $element.description }}</p>
+                        <p class="my-1 text-muted card-text">{{ .Params.subtitle }}</p>
+                        <h5 class="mb-2">{{ .Params.title }}</h5>
+                        <p class="card-text">{{ .Params.description }}</p>
                     </div>
-                    <a href="{{ $element.link }}" class="stretched-link btn btn-color mt-auto m-3">Read More</a>
+                    <div class="px-3 pb-3 mt-auto">
+                        <div class="separator-long mb-2"></div>
+                        <div class="w-100 d-flex flex-row">
+                            <a href="{{ .Permalink }}" class="stretched-link font-weight-bold mr-auto">
+                                Read more
+                            </a>
+                            <i class="fas fa-chevron-right my-auto"></i>
+                        </div>
+                   </div>
                 </div>
             </div>
         {{ end }}
-    </div>
-
-    <div class="row justify-content-center text-center px-5 pt-5">
-            <a href="{{.Site.BaseURL}}projects" class="btn btn-color btn-lg btn-block">View All</a>
     </div>
 </section>

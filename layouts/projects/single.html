@@ -1,0 +1,14 @@
+{{ partial "header.html" . }}
+{{ partial "navbar.html" . }}
+<div class="main-content-list mx-auto">
+    <section id="single">
+        <div class="text-center text-muted">{{ .Params.subtitle }}</div>
+        <h2 class="text-center mb-4">{{ .Title }}</h2>
+        <div>{{ .Content }}</div>
+    </section>
+</div>
+{{ partial "footer-scripts.html" . }}
+
+<!--
+    <div class="text-center text-muted mb-5">{{ dateFormat "Monday, Jan 2, 2006" .Date }}</div>
+-->

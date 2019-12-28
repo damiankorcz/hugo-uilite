@@ -2,11 +2,10 @@
 {{ partial "navbar.html" . }}
 <div class="main-content-list mx-auto">
     <section id="single">
-        <div>
-            <div class="text-center text-muted">{{ .Params.subtitle }}</div>
-            <h1 class="text-center mb-4">{{ .Title }}</h1>
-            <div>{{ .Content }}</div>
-        </div>
+        <div class="text-center text-muted">{{.Date.Format "2 Jan 2006"}}</div>
+        <h2 class="text-center px-5 mb-4">{{ .Title }}</h2>
+        <div class="mb-4">{{ .Content }}</div>
+        {{ partial "footer.html" . }}
     </section>
 </div>
 {{ partial "footer-scripts.html" . }}

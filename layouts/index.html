@@ -4,6 +4,7 @@
 <div class="main-content">
 	{{ if .Site.Data.about }}{{ partial "about.html" . }}{{ end }}
 	{{ if .Site.Data.projects }}{{ partial "projects.html" . }}{{ end }}
+	{{ if .Site.Data.blog }}{{ partial "blog.html" . }}{{ end }}
 	{{ if .Site.Data.experience }}{{ partial "experience.html" . }}{{ end }}
 	{{ if .Site.Data.skills }}{{ partial "skills.html" . }}{{ end }}
 </div>

@@ -6,21 +6,25 @@
 
 $mainFont: 'IBMPlexSans', sans-serif;
 $titleFont: 'ManropeBold', serif;
-$numberFont: 'ManropeBold', sans-serif;
 
-$fontColor:#FDFDFD;
-$fontColorAlt: #3C3C3B;
+$fontColorLight:#FDFDFD;
+$fontColorDark: #3C3C3B;
 $cardColor:#FDFDFD;
 $pageColor: #FDFDFD;
+$separatorColor: #CCCCCC;
 $sectionColor: #EFEFEF;
 $accentColor1: #48E4B7;
 $accentColor2: #0496FF;
-$accentColor3: #FFC857;
-$accentColor4: #A14EBF;
-$blockcodeColor:  #D7263D;
+$accentColor3: #D7263D;
+$accentColor4: #FFC857;
+$accentColor5:  #A14EBF;
+$blockquoteColor: #D7263D;
 
-$borderRadius: 0rem;
-$sectionSpace: 5%;
+// 6C7386
+
+$borderRadius: 0.5rem;
+$sectionMargin: 2rem;
+$sectionPadding: 3rem;
 
 
 html {
@@ -30,7 +34,7 @@ html {
 
 body  {
     background-color: $pageColor;
-    color: $fontColorAlt;
+    color: $fontColorDark;
 }
 
 a,
@@ -54,7 +58,7 @@ a:hover {
     z-index: 1;
     width: 35%;
     height: 100%;
-    color: $fontColor;
+    color: $fontColorLight;
 
     .main-info * {
         -webkit-transition: all 0.2s ease;
@@ -76,7 +80,7 @@ a:hover {
 }
 
 .sidebar-cover {
-    color: $fontColorAlt;
+    color: $fontColorDark;
 }
 
 .main-content {
@@ -109,20 +113,12 @@ h6 {
     text-transform: uppercase;
 }
 
-.heading {
-    font-size: 2.2rem;
-}
-
-h5 {
-    font-size: 1.2rem !important;
-}
-
 .text-white {
-    color: $fontColor;
+    color: $fontColorLight;
 }
 
 .highlight {
-    color: $fontColor;
+    color: $fontColorLight;
     background-color: $accentColor1;
     border-radius: $borderRadius;
     padding: 2px 12px;
@@ -135,41 +131,20 @@ h5 {
 }
 
 .btn {
-    border-radius: 0px;
+    border-radius: $borderRadius;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
 
-.btn-dark-faded {
-    font-weight: 300;
-    font-family: $mainFont !important;
-
-    /*text-transform: uppercase;*/
-    background-color: rgba(0, 0, 0, 0.07);
-    color: black;
-}
-
-.btn-color {
-    color: $cardColor;
-    background-color: $accentColor1;
-    font-weight: 500;
-    border-radius: $borderRadius;
-}
-
-.number-text {
-    font-weight: bold;
-    font-family: $numberFont;
-}
-
 .social {
     &:hover a {
-        color: $fontColorAlt;
+        color: $fontColorDark;
         -webkit-transition: all 0.2s ease !important;
         transition: all 0.2s ease !important;
     }
 
     a {
-        color: $fontColorAlt;
+        color: $fontColorDark;
         font-size: 32px;
         margin-right: 12px;
         -webkit-transition: all 0.2s ease !important;
@@ -187,12 +162,12 @@ h5 {
 
 .navbarSocial {
     &:hover a {
-        color: $fontColorAlt;
+        color: $fontColorDark;
     }
 
     a {
         font-size: 18px;
-        padding: 0 0.5rem;
+        margin: 0 0.5rem;
 
         &:hover i {
             color: $accentColor1;
@@ -209,7 +184,7 @@ h5 {
     backdrop-filter: saturate(180%) blur(10px);
     
     a {
-        color: $fontColorAlt !important;
+        color: $fontColorDark !important;
     }
 }
 
@@ -226,30 +201,22 @@ h5 {
 }
 
 section {
-    .heading {
-        margin-bottom:  2rem;
-    }
-
     &:last-child{
-        margin-bottom: $sectionSpace;
-        margin-top: $sectionSpace;
+        margin-bottom: $sectionMargin;
+        margin-top: $sectionMargin;
         background-color: $sectionColor;
         border-radius: $borderRadius;
-        padding: 4rem;
+        padding: $sectionPadding;
     }
     
     &#about {
-        margin-top: $sectionSpace;
+        margin-top: $sectionMargin;
         background-color: $sectionColor;
         border-radius: $borderRadius;
-        padding: 4rem;
-
-        .number-text {
-            color: $accentColor1;
-        }
+        padding: $sectionPadding;
 
         a  {
-            color: $fontColorAlt;
+            color: $fontColorDark;
         }
 
         a:hover {
@@ -260,81 +227,46 @@ section {
     }
 
     &#projects {
-        margin-top: $sectionSpace;
+        margin-top: $sectionMargin;
         background-color: $sectionColor;
         border-radius: $borderRadius;
-        padding: 4rem;
+        padding: $sectionPadding;
+    }
 
-        .number-text {
-            color: $accentColor2;
-        }
-
-        .btn-color {
-            color: $fontColor;
-            background-color: $accentColor2;
-            border: 2px $accentColor2 solid;
-            
-            &:hover {
-                color: $accentColor2;
-                background: none;
-            }
-        }
-
-        .separator-short {
-            background-color: $accentColor2;
-        }
+    &#blog {
+        margin-top: $sectionMargin;
+        background-color: $sectionColor;
+        border-radius: $borderRadius;
+        padding: $sectionPadding;
     }
 
     &#experience {
-        margin-top: $sectionSpace;
+        margin-top: $sectionMargin;
         background-color: $sectionColor;
         border-radius: $borderRadius;
-        padding: 4rem;
-
-        .number-text {
-            color: $accentColor3;
-        }
-
-        .btn-color {
-            color: $fontColor;
-            background-color: $accentColor3;
-            border: 2px $accentColor3 solid;
-            
-            &:hover {
-                color: $accentColor3;
-                background: none;
-            }
-        }
-
-        .separator-short {
-            background-color: $accentColor3;
-        }
+        padding: $sectionPadding;
     }
 
     &#skills {
-        margin-top: $sectionSpace;
+        margin-top: $sectionMargin;
         background-color: $sectionColor;
         border-radius: $borderRadius;
-        padding: 4rem;
-
-        .number-text {
-            color: $accentColor4;
-        }
+        padding: $sectionPadding;
     }
 
     &#contact,
     &#list{
-        margin-top: $sectionSpace;
+        margin-top: $sectionMargin;
         background-color: $sectionColor;
         border-radius: $borderRadius;
-        padding: 4rem;
+        padding: $sectionPadding;
     }
 
     &#single {
-        margin-top: $sectionSpace;
+        margin-top: $sectionMargin;
         background-color: $sectionColor;
         border-radius: $borderRadius;
-        padding: 5rem;
+        padding: $sectionPadding;
     }
 }
 
@@ -345,7 +277,7 @@ section {
 .card {
     border-radius: $borderRadius;
     background-color: $cardColor;
-    color: $fontColorAlt;
+    color: $fontColorDark;
     border: none;
     
     img {
@@ -353,54 +285,17 @@ section {
     }
 }
 
-.cardHorizontal {
-    border-radius: 0;
-    border: none;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-    background-color: $cardColor;
-    color: $fontColor;
-}
-
 .card-img {
     border-radius: 0;
 }
 
-.separator-short {
-    width: 10%;
+.separator-long {
+    width: 100%;
     display: block;
     overflow: hidden;
-    height: 2px;
+    height: 1px;
     margin: 0 auto;
-}
-
-.btn-outline-custom {
-    color: $fontColor;
-    border-color: $fontColor;
-
-    &:hover {
-        color: $fontColor;
-        background-color: $accentColor1;
-        border-color: $accentColor1;
-    }
-
-    &.focus,
-    &:focus {
-        box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
-    }
-
-    &.active,
-    &:active {
-        color: $fontColor;
-        background-color: $fontColor;
-        border-color: $fontColor;
-    }
-}
-
-.show > .btn-outline-black.dropdown-toggle {
-    color: $fontColor;
-    background-color: $cardColor;
-    border-color: $cardColor;
+    background-color: $separatorColor;
 }
 
 #timeline {
@@ -413,7 +308,7 @@ section {
         content: "";
         width: 3px;
         height: 100%;
-        background: $fontColorAlt;
+        background: $fontColorDark;
         left: 50%;
         -webkit-transform: translate(-50%);
         transform: translate(-50%);
@@ -434,7 +329,7 @@ section {
         text-align: right;
 
         .timeline-icon {
-            background: $fontColorAlt;
+            background: $fontColorDark;
             width: 20px;
             height: 20px;
             position: absolute;
@@ -452,8 +347,8 @@ section {
 
             .date {
                 display: inline-block;
-                color: $fontColor;
-                background-color: $accentColor3;
+                color: $fontColorLight;
+                background-color: $accentColor4;
                 padding: 8px;
                 border-radius: $borderRadius;
             }
@@ -466,17 +361,13 @@ section {
     }
 }
 
-.skill {
-    margin-bottom: 20px;
-}
-
 .box {
     text-align: center;
 }
 
 blockquote {
-    background-color: rgba($blockcodeColor,0.1);
-    border-left: 5px solid $blockcodeColor;
+    background-color: rgba($blockquoteColor,0.1);
+    border-left: 5px solid $blockquoteColor;
     padding: 8px 10px 1px 10px; 
     margin-left: 20px;
     margin-right: 20px;
@@ -487,7 +378,16 @@ code {
     margin-right: 20px;
 }
 
-@media (max-width: 991.98px) {
+#shareButtons {
+    display: inline-block; 
+    a {
+        color: $fontColorDark !important;
+        font-size: 24px;
+        margin: 0 0.5rem;
+    }
+}
+
+@media (max-width: 1200px) {
     .sidebar {
         position: static;
         width: 100%;
@@ -503,16 +403,19 @@ code {
         outline: none;
     }
     .navbar-toggler i {
-        color: $fontColorAlt;;
+        color: $fontColorDark;;
     }
 
     &#about,
     &#projects,
+    &#blog,
     &#experience,
+    &#skills,
     &#contact,
     &#list,
-    &#single {
-        padding: 2rem !important;
+    &#single,
+    &#footer {
+        padding: 1.5rem !important;
     }
 
     .main-content {
@@ -568,5 +471,16 @@ code {
     .nav-link {
         text-align: center !important;
     }
+
+    blockquote {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    code {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
 
 }

@@ -3,21 +3,21 @@
 <section id="skills">
   <div class="row">
       <div class="col">
-          <h2 class="heading cardText"><span class="number-text">04 </span> {{ $skills.title }}</h2>
+          <h2 class="heading"><i class="fas fa-cogs pr-3"></i>{{ $skills.title }}</h2>
       </div>
   </div>
-
+  <div class="separator-long mb-3"></div>
   <div class="row justify-content-center text-center">
-    <div class="col-sm-12 col-md-6 p-4">
+    <div class="col-12 p-4">
       <div class="row-12">
-        <h4>{{ $skills.languagesTitle }}</h4>
+        <h3>{{ $skills.languagesTitle }}</h3>
       </div>
-      <div class="container" style="max-width: 500px;">
+      <div class="container" style="max-width: 800px;">
         <div class="row justify-content-center text-center">
             {{ range $index, $element := $skills.languages }}
               <div class="m-2">
                   <div style="width: 7rem;">
-                      <img src="{{.Site.BaseURL}}images/skills/{{ $element.icon }}" class="card-img" alt="...">
+                      <img src="{{.Site.BaseURL}}images/skills/{{ $element.icon }}" class="card-img" alt="{{ $element.title }}">
                       <div class="p-3">
                           <a class="mb-0 font-weight-bold">{{ $element.title }}</a>
                       </div>
@@ -28,11 +28,13 @@
       </div>
     </div>
 
-    <div class="col-sm-12 col-md-6 p-4">
+    <div class="separator-long mb-3"></div>
+
+    <div class="col-12 p-4">
       <div class="row-12">
-        <h4>{{ $skills.webTitle }}</h4>
+        <h3>{{ $skills.webTitle }}</h3>
       </div>
-      <div class="container" style="max-width: 500px;">
+      <div class="container" style="max-width: 800px;">
         <div class="row justify-content-center text-center">
           {{ range $index, $element := $skills.web }}
             <div class="m-2">
@@ -47,12 +49,14 @@
         </div>
       </div>
     </div>
+    
+    <div class="separator-long mb-3"></div>
 
-    <div class="col-sm-12 col-md-6 p-4">
+    <div class="col-12  p-4">
       <div class="row-12">
-        <h4>{{ $skills.toolsTitle }}</h4>
+        <h3>{{ $skills.toolsTitle }}</h3>
       </div>
-      <div class="container" style="max-width: 500px;">
+      <div class="container" style="max-width: 800px;">
         <div class="row justify-content-center text-center">
           {{ range $index, $element := $skills.tools }}
             <div class="m-2">
