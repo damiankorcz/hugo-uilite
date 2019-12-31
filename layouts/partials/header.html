@@ -22,8 +22,9 @@
 	{{ $main := resources.Get "css/styles.css" | fingerprint }}
 	{{ $syntax := resources.Get "css/vendor/AtomOneDark.min.css" | fingerprint }}
 	{{ $fontawesome := resources.Get "css/vendor/fontawesome-all.min.css" | fingerprint }}
-	{{ $styles := slice $bootstrap $main $syntax  $fontawesome | resources.Concat "styles.css" | minify | fingerprint }}
-	<link rel="stylesheet" href="{{ $styles.Permalink }}"></link>
+	{{ $styles := slice $bootstrap $main $syntax  $fontawesome | resources.Concat "styles.css" | minify }}
+	{{ $secureCSS := $styles | resources.Fingerprint "sha512" }}
+	<link rel="stylesheet" href="{{ $secureCSS.Permalink }}" integrity="{{ $secureCSS.Data.Integrity }}"></link>
 	
 	<!-- Meta tags -->
 	<meta name="author" content="{{ $config.author }}">

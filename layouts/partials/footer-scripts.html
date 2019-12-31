@@ -6,13 +6,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
 
 <!-- Bundling all of the local js files into one and minifying it -->
-{{ $highlight := resources.Get "js/vendor/highlight.min.js" | fingerprint }}
-{{ $jquery := resources.Get "js/vendor/jquery-3.4.1.min.js" | fingerprint }}
-{{ $photoLoad := resources.Get "js/vendor/load-photoswipe.js" | fingerprint }}
-{{ $bootstrap := resources.Get "js/vendor/bootstrap-4.3.1.bundle.min.js" | fingerprint }}
-{{ $main := resources.Get "js/main.js" | fingerprint }}
-{{ $styles := slice $highlight $jquery $photoLoad $bootstrap $main | resources.Concat "scripts.js" | minify | fingerprint }}
-<script src="{{ $styles.Permalink }}"></script>
+{{ $highlight := resources.Get "js/vendor/highlight.min.js" }}
+{{ $jquery := resources.Get "js/vendor/jquery-3.4.1.min.js" }}
+{{ $photoLoad := resources.Get "js/vendor/load-photoswipe.js" }}
+{{ $bootstrap := resources.Get "js/vendor/bootstrap-4.3.1.bundle.min.js" }}
+{{ $main := resources.Get "js/main.js" }}
+{{ $scripts := slice $highlight $jquery $photoLoad $bootstrap $main | resources.Concat "scripts.js" | minify }}
+{{ $secureJS := $scripts | resources.Fingerprint "sha512" }}
+<script type="text/javascript" src="{{ $secureJS.Permalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
 
 <script>hljs.initHighlightingOnLoad();</script>
 
