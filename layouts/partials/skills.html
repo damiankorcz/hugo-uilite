@@ -39,7 +39,7 @@
           {{ range $index, $element := $skills.web }}
             <div class="m-2">
               <div style="width: 7rem;">
-                <img src="{{.Site.BaseURL}}images/skills/{{ $element.icon }}" class="card-img" alt="...">
+                <img src="{{.Site.BaseURL}}images/skills/{{ $element.icon }}" class="card-img" height="112" width="112" alt="{{ $element.title }}">
                 <div class="p-3">
                   <a class="mb-0 font-weight-bold">{{ $element.title }}</a>
                 </div>
@@ -61,7 +61,7 @@
           {{ range $index, $element := $skills.tools }}
             <div class="m-2">
               <div style="width: 7rem;">
-                <img src="{{.Site.BaseURL}}images/skills/{{ $element.icon }}" class="card-img" alt="...">
+                <img src="{{.Site.BaseURL}}images/skills/{{ $element.icon }}" class="card-img" height="112" width="112" alt="{{ $element.title }}">
                 <div class="p-3">
                   <a class="mb-0 font-weight-bold">{{ $element.title }}</a>
                 </div>
