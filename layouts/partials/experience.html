@@ -2,7 +2,7 @@
 
 <section id="experience" >
   <h2 class="heading"><i class="fas fa-user-tie pr-3"></i>{{ $experience.title }}</h2>
-  <div class="separator-long mb-4"></div>
+  <div class="separator-long mb-5"></div>
   <div id="timeline">
     {{ range $index, $element := $experience.experience }}
     <div class="timeline-item clearfix">
@@ -11,7 +11,7 @@
       <span class="date">{{ $element.timeperiod }}</span>
       {{ $website := $element.website }}
       </br>
-        <i class="fas fa-link text-muted"></i><a class="text-muted" href="{{ $website }}"> {{ $element.company }}</a>
+        <i class="fas fa-link text-muted pr-1"></i><a class="text-muted" href="{{ $website }}"> {{ $element.company }}</a>
       </br>
 
       {{ $position := $element.position }}
@@ -21,7 +21,7 @@
 
       {{ $grade := $element.grade }}
       {{ if $grade }}
-        <i class="fas fa-award  text-muted"></i><a class="text-muted" > {{ $grade }}</a>
+        <i class="fas fa-award text-muted pr-1"></i><a class="text-muted" > {{ $grade }}</a>
       {{ end }}
 
       {{ $description := $element.description }}

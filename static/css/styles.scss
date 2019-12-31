@@ -25,7 +25,12 @@ $blockquoteColor: #D7263D;
 $borderRadius: 0.5rem;
 $sectionMargin: 2rem;
 $sectionPadding: 3rem;
+$singlePadding: 3rem 6rem;
 
+hr {
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem !important;
+}
 
 html {
     overflow-x: hidden;
@@ -266,7 +271,7 @@ section {
         margin-top: $sectionMargin;
         background-color: $sectionColor;
         border-radius: $borderRadius;
-        padding: $sectionPadding;
+        padding: $singlePadding;
     }
 }
 

@@ -19,6 +19,11 @@
   src: url("../fonts/ManropeBold.eot?") format("eot"), url("../fonts/ManropeBold.woff2") format("woff2"), url("../fonts/ManropeBold.woff") format("woff"), url("../fonts/ManropeBold.ttf") format("truetype"), url("../fonts/ManropeBold.svg#ManropeBold") format("svg");
 }
 
+hr {
+  margin-top: 0 !important;
+  margin-bottom: 0.5rem !important;
+}
+
 html {
   overflow-x: hidden;
   overflow-y: scroll;
@@ -252,7 +257,7 @@ section#single {
   margin-top: 2rem;
   background-color: #EFEFEF;
   border-radius: 0.5rem;
-  padding: 3rem;
+  padding: 3rem 6rem;
 }
 
 .contact-text {

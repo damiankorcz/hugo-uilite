@@ -14,7 +14,7 @@
         {{ range first 3 ( where .Site.Pages "Section" "projects" ) }}
             <div class="m-3">
                 <div class="card h-100 d-flex flex-column" style="width: 18rem;">
-                    <img src="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}" class="card-img" alt="{{ .Params.title }}">
+                    <img src="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}" class="card-img" height="162" width= "288" alt="{{ .Params.title }}">
                     <div class="p-3">
                         <p class="my-1 text-muted card-text">{{ .Params.subtitle }}</p>
                         <h5 class="mb-2">{{ .Params.title }}</h5>
