@@ -1,21 +1,17 @@
 </body>
 
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
 
 <!-- Bundling all of the local js files into one and minifying it -->
 {{ $highlight := resources.Get "js/vendor/highlight.min.js" }}
+{{ $highlightLoad := resources.Get "js/vendor/highlightLoad.js" }}
 {{ $jquery := resources.Get "js/vendor/jquery-3.4.1.min.js" }}
 {{ $photoLoad := resources.Get "js/vendor/load-photoswipe.js" }}
 {{ $bootstrap := resources.Get "js/vendor/bootstrap-4.3.1.bundle.min.js" }}
 {{ $main := resources.Get "js/main.js" }}
-{{ $scripts := slice $highlight $jquery $photoLoad $bootstrap $main | resources.Concat "scripts.js" | minify }}
+{{ $scripts := slice $highlight $highlightLoad $jquery $photoLoad $bootstrap $main | resources.Concat "scripts.js" | minify }}
 {{ $secureJS := $scripts | resources.Fingerprint "sha512" }}
 <script type="text/javascript" src="{{ $secureJS.Permalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
-
-<script>hljs.initHighlightingOnLoad();</script>
-
 
 </html>
