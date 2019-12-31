@@ -17,15 +17,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Including the bootstrap -->
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vendor/bootstrap.min.css">
-
-	<!--Personal scripts-->
-	<link rel="stylesheet" type="text/css" href="{{.Site.BaseURL}}css/styles.css">
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vendor/AtomOneDark.min.css">
-
-	<!-- Font awesome -->
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/vendor/fontawesome-all.min.css">
+	<!-- Bundling all of the local CSS files into one and minifying it -->
+	{{ $bootstrap := resources.Get "css/vendor/bootstrap.min.css" | fingerprint }}
+	{{ $main := resources.Get "css/styles.css" | fingerprint }}
+	{{ $syntax := resources.Get "css/vendor/AtomOneDark.min.css" | fingerprint }}
+	{{ $fontawesome := resources.Get "css/vendor/fontawesome-all.min.css" | fingerprint }}
+	{{ $styles := slice $bootstrap $main $syntax  $fontawesome | resources.Concat "styles.css" | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $styles.Permalink }}"></link>
 	
 	<!-- Meta tags -->
 	<meta name="author" content="{{ $config.author }}">
