@@ -1,0 +1,12 @@
+{{- $src := .Get "src" -}}
+{{- $thumb := .Get "thumb" -}}
+{{ $baseURL := .Site.BaseURL }}
+
+{{- $isimg := lower $src | findRE "\\.(gif|jpg|jpeg|tiff|png|bmp)" }} <!-- is the current file an image? -->
+{{- if $isimg }}
+<div class="swiper-slide my-4">
+    <a href="{{ $.Page.Params.imageDir }}{{ $src }}" data-fancybox>
+        <img class="img-fluid mx-auto d-block" src="{{ $.Page.Params.imageDir }}{{ $thumb }}" />
+    </a>
+</div>
+{{- end }}

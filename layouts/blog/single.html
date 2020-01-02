@@ -5,11 +5,10 @@
         <div class="text-center text-muted">{{.Date.Format "2 Jan 2006"}}</div>
         <h2 class="text-center px-5 mb-4">{{ .Title }}</h2>
         <div class="mb-4">{{ .Content }}</div>
-        {{ partial "footer.html" . }}
+        {{ partial "footer.html" . }}  
+        {{ partial "twitterCard" . }}
     </section>
 </div>
 {{ partial "footer-scripts.html" . }}
 
-<!--
-    <div class="text-center text-muted mb-5">{{ dateFormat "Monday, Jan 2, 2006" .Date }}</div>
--->
+

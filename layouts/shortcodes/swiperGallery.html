@@ -1,0 +1,40 @@
+{{- $name := .Get "name" -}}
+{{ $baseURL := .Site.BaseURL }}
+
+<!-- Slider main container -->
+<div class="swiper-container mb-4">
+    <div class="swiper-wrapper">
+        {{- with (.Get "dir") -}}
+            <!-- If a directory was specified, generate figures for all of the images in the directory -->
+            {{- $files := readDir (print "/static/" .) }}
+            {{- range $files -}}
+                {{- $thumbext := $.Get "thumb" | default "-thumb" }}
+                {{- $isthumb := .Name | findRE ($thumbext | printf "%s\\.") }} <!-- is the current file a thumbnail image? -->
+                {{- $isimg := lower .Name | findRE "\\.(gif|jpg|jpeg|tiff|png|bmp)" }} <!-- is the current file an image? -->
+                <!-- skip files that aren't images, or that inlcude the thumb suffix in their name -->  
+                {{- if and $isimg (not $isthumb) }}
+                    {{- $caption :=  .Name | replaceRE "\\..*" "" | humanize }} <!-- humanized filename without extension -->
+                    {{- $linkURL := print $baseURL ($.Get "dir") "/" .Name | absURL }} <!-- absolute URL to hi-res image -->
+                    {{- $thumb := .Name | replaceRE "(\\.)" ($thumbext | printf "%s.") }} <!-- filename of thumbnail image -->
+			    	{{- $thumbexists := where $files "Name" $thumb }} <!-- does a thumbnail image exist? --> 
+			    	{{- $thumbURL := print $baseURL ($.Get "dir") "/" $thumb | absURL }} <!-- absolute URL to thumbnail image -->
+                    <div class="swiper-slide">
+                        <a href="{{ $linkURL }}" data-fancybox="{{ $name }}" data-caption="{{ $caption }}">
+                            <img class="img-fluid mx-auto d-block" src="{{ if $thumbexists }}{{ $thumbURL }}{{ else }}{{ $linkURL }}{{ end }}" />
+                        </a>
+                    </div>
+                {{- end }}
+            {{- end }}
+        {{- else -}}
+            <!-- If no directory was specified, include any figure shortcodes called within the gallery -->
+            {{ .Inner }}
+        {{- end }}
+    </div>
+
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
