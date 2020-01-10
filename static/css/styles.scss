@@ -11,9 +11,12 @@ $fontColorLight:#FFFFFF;
 $fontColorDark: #202020;
 $accentColor1: #005DFF;
 $cardColor:#FFFFFF;
-$pageColor: #FFFFFF;
-$sectionColor: #EFEFEF;
+$pageColor: #EFEFEF;
+$sectionColor: #FFFFFF;
 $separatorColor: #CCCCCC;
+$warningColor: #D7263D;
+//$importantColor: #FFAD00;
+
 //005DFF
 //FFAD00
 //E84855
@@ -22,14 +25,11 @@ $separatorColor: #CCCCCC;
 //#E63462
 //#FE5F55
 //#1098F7
-$warningColor: #D7263D;
-//$importantColor: #FFAD00;
 
 $borderRadius: 0.75rem;
 $sectionMargin: 2rem;
 $sectionPadding: 3rem;
 $singlePadding: 3rem 6rem;
-
 
 hr {
     margin-top: 0 !important;
@@ -139,7 +139,7 @@ h6 {
 }
 
 .highlight {
-    color: $fontColorLight;
+    color: $pageColor;
     background-color: $accentColor1;
     border-radius: $borderRadius;
     padding: 2px 12px;
@@ -264,14 +264,14 @@ section {
     border: none;
     transition-timing-function: ease-in;
     transition-duration: 300ms;
-    box-shadow: 10px 10px 20px #d9d9d9, 
-    -10px -10px 20px #ffffff;
+    box-shadow: 10px 10px 20px #D9D9D9, 
+    -10px -10px 20px #FFFFFF;
     
     &:hover {
         transition-timing-function: ease-out;
         transition-duration: 300ms;
-        box-shadow: -10px -10px 20px #d9d9d9, 
-        10px 10px 20px #ffffff;
+        box-shadow: -10px -10px 20px #D9D9D9, 
+        10px 10px 20px #FFFFFF;
     }
 
     img {

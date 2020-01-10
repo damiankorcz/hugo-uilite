@@ -1,7 +1,7 @@
 {{ $experience := .Site.Data.experience }}
 
 <section id="experience" >
-  <h2 class="heading"><i class="fas fa-user-tie pr-3 mb-4"></i>{{ $experience.title }}</h2>
+  <h2 class="heading accentText"><i class="fas fa-user-tie pr-3 mb-4"></i>{{ $experience.title }}</h2>
   <div id="timeline">
     {{ range $index, $element := $experience.experience }}
     <div class="timeline-item clearfix">
