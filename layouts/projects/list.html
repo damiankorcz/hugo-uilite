@@ -7,25 +7,24 @@
                {{ range .Pages }}
                     <div class="m-2">
                          <div class="card h-100 d-flex flex-column" style="width: 18rem;">
-                              <img src="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}" class="card-img" alt="{{ .Params.title }}">
+                              <img src="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}" class="card-img" height="162" width= "288" alt="{{ .Params.title }}">
                               <div class="p-3">
-                                   <p class="my-1 text-muted card-text">{{  .Params.subtitle }}</p>
+                                   <p class="my-1 accentText card-text font-weight-bold">{{  .Params.subtitle }}</p>
                                    <h5 class="mb-2">{{ .Params.title }}</h5>
                                    <p class="card-text">{{ .Params.description }}</p>
                               </div>
                               <div class="px-3 pb-3 mt-auto">
                                    <div class="separator-long mb-2"></div>
-                                   <div class="w-100 btn-color d-flex flex-row">
-                                       <a href="{{ .Permalink }}" class="stretched-link font-weight-bold mr-auto">
-                                           Read more
-                                       </a>
-                                       <i class="fas fa-chevron-right my-auto"></i>
-                                   </div>
+                                   <a href="{{ .Permalink }}" class="stretched-link font-weight-bold">
+                                        Read more
+                                        <i class="fas fa-chevron-right float-right my-1"></i>
+                                   </a>
                               </div>
                          </div>
                     </div>
                {{ end }}
           </div>
      </section>
+     {{ partial "footer.html" . }}
 </div>
 {{ partial "footer-scripts.html" . }}

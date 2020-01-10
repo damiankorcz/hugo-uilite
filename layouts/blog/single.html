@@ -2,12 +2,12 @@
 {{ partial "navbar.html" . }}
 <div class="main-content-list mx-auto">
     <section id="single">
-        <div class="text-center text-muted">{{.Date.Format "2 Jan 2006"}}</div>
+        <div class="text-center accentText font-weight-bold"><i class="far fa-clock fa-sm"></i> {{.Date.Format "2 Jan 2006"}}</div>
         <h2 class="text-center px-5 mb-4">{{ .Title }}</h2>
         <div class="mb-4">{{ .Content }}</div>
-        {{ partial "footer.html" . }}  
-        {{ partial "twitterCard" . }}
+        {{ partial "postEnd.html" . }}  
     </section>
+    {{ partial "footer.html" . }}
 </div>
 {{ partial "footer-scripts.html" . }}
 

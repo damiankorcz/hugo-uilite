@@ -7,25 +7,29 @@
 $mainFont: 'IBMPlexSans', sans-serif;
 $titleFont: 'ManropeBold', serif;
 
-$fontColorLight:#FDFDFD;
-$fontColorDark: #3C3C3B;
-$cardColor:#FDFDFD;
-$pageColor: #FDFDFD;
-$separatorColor: #CCCCCC;
+$fontColorLight:#FFFFFF;
+$fontColorDark: #202020;
+$accentColor1: #005DFF;
+$cardColor:#FFFFFF;
+$pageColor: #FFFFFF;
 $sectionColor: #EFEFEF;
-$accentColor1: #48E4B7;
-$accentColor2: #0496FF;
-$accentColor3: #D7263D;
-$accentColor4: #FFC857;
-$accentColor5:  #A14EBF;
-$blockquoteColor: #D7263D;
+$separatorColor: #CCCCCC;
+//005DFF
+//FFAD00
+//E84855
 
-// 6C7386
+//#8884FF
+//#E63462
+//#FE5F55
+//#1098F7
+$warningColor: #D7263D;
+//$importantColor: #FFAD00;
 
-$borderRadius: 0.5rem;
+$borderRadius: 0.75rem;
 $sectionMargin: 2rem;
 $sectionPadding: 3rem;
 $singlePadding: 3rem 6rem;
+
 
 hr {
     margin-top: 0 !important;
@@ -50,8 +54,16 @@ div {
     font-family: $mainFont;
 }
 
-a:hover {
-    text-decoration: none;
+a {
+    color: $accentColor1;
+    &:hover {
+        text-decoration: none;
+        color: darken($accentColor1, 10%);
+    }
+}
+
+.accentText {
+    color: $accentColor1
 }
 
 .sidebar {
@@ -81,7 +93,7 @@ a:hover {
 }
 
 .sidebar-photo {
-    background-color: $accentColor1;
+    border-radius: $borderRadius;
 }
 
 .sidebar-cover {
@@ -115,6 +127,10 @@ h4,
 h5,
 h6 {
     font-family: $titleFont !important;
+    text-transform: uppercase;
+}
+
+.font-upper {
     text-transform: uppercase;
 }
 
@@ -165,14 +181,15 @@ h6 {
     justify-content: flex-end !important;
 }
 
-.navbarSocial {
-    &:hover a {
-        color: $fontColorDark;
-    }
-
+.navbarSocial {   
+    
     a {
         font-size: 18px;
         margin: 0 0.5rem;
+        
+        &:hover {
+            color: $fontColorDark;
+        }
 
         &:hover i {
             color: $accentColor1;
@@ -206,72 +223,33 @@ h6 {
 }
 
 section {
-    &:last-child{
-        margin-bottom: $sectionMargin;
-        margin-top: $sectionMargin;
-        background-color: $sectionColor;
-        border-radius: $borderRadius;
-        padding: $sectionPadding;
-    }
-    
-    &#about {
-        margin-top: $sectionMargin;
-        background-color: $sectionColor;
-        border-radius: $borderRadius;
-        padding: $sectionPadding;
-
-        a  {
-            color: $fontColorDark;
-        }
-
-        a:hover {
-            -webkit-transition: all 0.2s ease !important;
-            transition: all 0.2s ease !important;
-            color: $accentColor1;
-        }
-    }
-
-    &#projects {
-        margin-top: $sectionMargin;
-        background-color: $sectionColor;
-        border-radius: $borderRadius;
-        padding: $sectionPadding;
-    }
-
-    &#blog {
-        margin-top: $sectionMargin;
-        background-color: $sectionColor;
-        border-radius: $borderRadius;
-        padding: $sectionPadding;
-    }
-
-    &#experience {
-        margin-top: $sectionMargin;
-        background-color: $sectionColor;
-        border-radius: $borderRadius;
-        padding: $sectionPadding;
-    }
-
-    &#skills {
-        margin-top: $sectionMargin;
-        background-color: $sectionColor;
-        border-radius: $borderRadius;
-        padding: $sectionPadding;
-    }
-
+    &#about,
+    &#projects,
+    &#blog,
+    &#experience,
+    &#skills,
     &#contact,
-    &#list{
+    &#list { 
         margin-top: $sectionMargin;
         background-color: $sectionColor;
         border-radius: $borderRadius;
         padding: $sectionPadding;
     }
+
 
     &#single {
         margin-top: $sectionMargin;
         background-color: $sectionColor;
         border-radius: $borderRadius;
         padding: $singlePadding;
+    }
+
+    &#footer{
+        margin-bottom: $sectionMargin;
+        margin-top: $sectionMargin;
+        background-color: $sectionColor;
+        border-radius: $borderRadius;
+        padding: 1rem;
     }
 }
 
@@ -284,11 +262,23 @@ section {
     background-color: $cardColor;
     color: $fontColorDark;
     border: none;
+    transition-timing-function: ease-in;
+    transition-duration: 300ms;
+    box-shadow: 10px 10px 20px #d9d9d9, 
+    -10px -10px 20px #ffffff;
     
+    &:hover {
+        transition-timing-function: ease-out;
+        transition-duration: 300ms;
+        box-shadow: -10px -10px 20px #d9d9d9, 
+        10px 10px 20px #ffffff;
+    }
+
     img {
         border-radius: $borderRadius $borderRadius 0 0;
     }
 }
+
 
 .card-img {
     border-radius: 0;
@@ -317,7 +307,7 @@ section {
         left: 50%;
         -webkit-transform: translate(-50%);
         transform: translate(-50%);
-        top: 0;
+        top: 7px;
         position: absolute;
     }
 
@@ -338,7 +328,7 @@ section {
             width: 20px;
             height: 20px;
             position: absolute;
-            top: 0;
+            top: 7px;
             left: 50%;
             overflow: hidden;
             margin-left: -10px;
@@ -353,8 +343,8 @@ section {
             .date {
                 display: inline-block;
                 color: $fontColorLight;
-                background-color: $accentColor4;
-                padding: 8px;
+                background-color: $fontColorDark;
+                padding: 0.35rem 0.5rem;
                 border-radius: $borderRadius;
             }
 
@@ -371,16 +361,27 @@ section {
 }
 
 blockquote {
-    background-color: rgba($blockquoteColor,0.1);
-    border-left: 5px solid $blockquoteColor;
-    padding: 8px 10px 1px 10px; 
-    margin-left: 20px;
-    margin-right: 20px;
+    background-color: rgba($warningColor,0.1);
+    border-left: 0.75rem solid $warningColor;
+    border-radius: $borderRadius;
+    padding: 0.75rem !important;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    p {
+        margin-bottom: 0;
+    }
 }
 
 code {
-    margin-left: 20px;
-    margin-right: 20px;
+    border-radius: $borderRadius;
+    padding: 0.75rem !important;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+kbd {
+    color: $fontColorLight !important;
+    background-color: $fontColorDark !important;
 }
 
 #shareButtons {
@@ -392,14 +393,70 @@ code {
     }
 }
 
+
+// Swiper buttons
 .swiper-container {
     width: 100%;
     height: 100%;
 }
 
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    margin-top: calc(-1 * var(--swiper-navigation-size) / 2);
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $fontColorLight;
+    background-color: rgba($fontColorDark, 0.8);
+    border-radius: $borderRadius;
+}
 
+.swiper-button-prev-custom.swiper-button-disabled,
+.swiper-button-next-custom.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: auto;
+    pointer-events: none;
+}
 
-@media (max-width: 1200px) {
+.swiper-button-prev-custom:after,
+.swiper-button-next-custom:after {
+    font-family: swiper-icons;
+    font-size: var(--swiper-navigation-size);
+    text-transform: none !important;
+    letter-spacing: 0;
+    text-transform: none;
+    font-variant: initial;
+}
+
+.swiper-button-prev-custom,
+.swiper-container-rtl .swiper-button-next-custom {
+    left: 15px;
+    right: auto;
+}
+
+.swiper-button-next-custom,
+.swiper-container-rtl .swiper-button-prev-custom {
+    right: 15px;
+    left: auto;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: $fontColorLight !important;
+  }
+
+//Twitter center
+.twitter-tweet-rendered {
+    margin: auto;
+}
+
+@media (max-width: 992px) {
     .sidebar {
         position: static;
         width: 100%;
@@ -418,6 +475,11 @@ code {
         color: $fontColorDark;;
     }
 
+    &#about {
+        margin-top: 0 !important;
+    }
+
+    &#sidebar,
     &#about,
     &#projects,
     &#blog,
@@ -425,8 +487,7 @@ code {
     &#skills,
     &#contact,
     &#list,
-    &#single,
-    &#footer {
+    &#single {
         padding: 1.5rem !important;
     }
 
@@ -443,7 +504,7 @@ code {
     #timeline {
         margin: 30px;
         padding: 0px;
-        width: 90%;
+        width: 95%;
 
         &:before {
             left: 0;
@@ -451,7 +512,7 @@ code {
 
         .timeline-item {
             .timeline-content {
-                width: 90%;
+                width: 95%;
                 float: right;
                 text-align: left;
 
@@ -460,7 +521,6 @@ code {
                     left: 10%;
                     margin-left: -6px;
                     border-left: 0;
-                    border-right: 7px solid #ee4d4d;
                 }
             }
 
@@ -493,6 +553,4 @@ code {
         margin-left: 0;
         margin-right: 0;
     }
-    
-
 }

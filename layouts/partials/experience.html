@@ -1,8 +1,7 @@
 {{ $experience := .Site.Data.experience }}
 
 <section id="experience" >
-  <h2 class="heading"><i class="fas fa-user-tie pr-3"></i>{{ $experience.title }}</h2>
-  <div class="separator-long mb-5"></div>
+  <h2 class="heading"><i class="fas fa-user-tie pr-3 mb-4"></i>{{ $experience.title }}</h2>
   <div id="timeline">
     {{ range $index, $element := $experience.experience }}
     <div class="timeline-item clearfix">
@@ -11,22 +10,22 @@
       <span class="date">{{ $element.timeperiod }}</span>
       {{ $website := $element.website }}
       </br>
-        <i class="fas fa-link text-muted pr-1"></i><a class="text-muted" href="{{ $website }}"> {{ $element.company }}</a>
+      <a class="font-weight-bold" href="{{ $website }}"><i class="fas fa-link fa-sm"></i> {{ $element.company }}</a>
       </br>
 
       {{ $position := $element.position }}
       {{ if $position }}
-        <h5>{{ $position }}</h5>
+        <h5 class="mb-0">{{ $position }}</h5>
       {{ end }}
 
       {{ $grade := $element.grade }}
       {{ if $grade }}
-        <i class="fas fa-award text-muted pr-1"></i><a class="text-muted" > {{ $grade }}</a>
+        <a><i class="fas fa-award fa-sm"></i> {{ $grade }}</a>
       {{ end }}
 
       {{ $description := $element.description }}
       {{ if $description }}
-        <p>{{ $element.description }}</p>
+        <a><i class="fas fa-briefcase fa-sm"></i> {{ $element.description }}</a>
       {{ end }}
     </div>
     </div>

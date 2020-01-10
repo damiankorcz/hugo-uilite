@@ -1,13 +1,7 @@
-{{ $footer := .Site.Data.footer }}
-<footer>
-    <div class="separator-long mb-2"></div>
-    <div class="row">
-        <div class="col-12 col-sm-6 my-auto">
-                <a class="font-weight-bold"><a class="font-weight-bold" href="{{.Site.BaseURL}}blog"><i class="fas fa-chevron-left my-auto pr-2"></i>Blog posts</a></a>
-        </div>
-        <div class="col-12 col-sm-6 d-flex justify-content-end">
-            <a class="my-auto mr-2 font-weight-bold"> Share </a>
-            {{ partial "shareButtons.html" . }} 
-        </div>
-    </div>
-</footer>
+<section id="footer">
+    <footer>
+        <p class="font-weight-bold text-center accentText mb-0">
+            {{ replace .Site.Copyright "{year}" now.Year }}
+        </p>
+    </footer>
+</section>

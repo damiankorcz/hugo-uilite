@@ -2,6 +2,7 @@ var mySwiper = new Swiper ('.swiper-container', {
   // Optional parameters
   direction: 'horizontal',
   loop: false,
+  autoHeight: true,
 
   // If we need pagination
   pagination: {
@@ -10,7 +11,12 @@ var mySwiper = new Swiper ('.swiper-container', {
 
   // Navigation arrows
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.swiper-button-next-custom',
+    prevEl: '.swiper-button-prev-custom',
+  },
+
+  keyboard: {
+    enabled: true,
+    onlyInViewport: false,
   },
 })
