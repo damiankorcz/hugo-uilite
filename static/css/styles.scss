@@ -5,7 +5,7 @@
 @include font-face(ManropeBold, "../fonts/ManropeBold", 700, bold);
 
 $mainFont: 'IBMPlexSans', sans-serif;
-$titleFont: 'ManropeBold', serif;
+$titleFont: 'ManropeBold', sans-serif;
 
 $fontColorLight:#FFFFFF;
 $fontColorDark: #202020;
@@ -26,7 +26,7 @@ $warningColor: #D7263D;
 //#FE5F55
 //#1098F7
 
-$borderRadius: 0.75rem;
+$borderRadius: 0.5rem;
 $sectionMargin: 2rem;
 $sectionPadding: 3rem;
 $singlePadding: 3rem 6rem;
@@ -50,7 +50,8 @@ a,
 p,
 label,
 input,
-div {
+div,
+kbd {
     font-family: $mainFont;
 }
 
@@ -128,6 +129,7 @@ h5,
 h6 {
     font-family: $titleFont !important;
     text-transform: uppercase;
+    font-weight: 700;
 }
 
 .font-upper {
@@ -380,8 +382,9 @@ code {
 }
 
 kbd {
-    color: $fontColorLight !important;
-    background-color: $fontColorDark !important;
+    color: $fontColorDark !important;
+    background-color: $pageColor !important;
+    font-weight: 700 !important;
 }
 
 #shareButtons {
@@ -488,17 +491,17 @@ kbd {
     &#contact,
     &#list,
     &#single {
-        padding: 1.5rem !important;
+        padding: 1.25rem !important;
     }
 
     .main-content {
-        width: 100%;
-        margin-left: 0%;
+        width: 96%;
+        margin-left: 2%;
     }
 
     .main-content-list {
-        width: 100%;
-        margin-left: 0%;
+        width: 96%;
+        margin-left: 2%;
     }
 
     #timeline {

@@ -9,13 +9,13 @@
             <h3 class="btn font-weight-bold"><a href="{{.Site.BaseURL}}blog">Show All</a></h3>
         </div>
     </div>
-    <div class="row px-5">
+    <div class="row mx-4">
         {{ range first 2 ( where .Site.Pages "Section" "blog" ) }}
             <div class="card mb-3 w-100">
                 <div class="row no-gutters">
                     <div class="col-12 p-3">
                         <p class="mb-1 accentText font-weight-bold">
-                            <i class="far fa-clock fa-sm"></i>
+                            <!--<i class="far fa-clock fa-sm"></i>-->
                             {{ dateFormat "2 Jan 2006" .Date }} 
                             {{ if ne .PublishDate .Lastmod }}  | Last updated {{ dateFormat "2 Jan 2006" .Params.Lastmod }} {{ end }}
                         </p>

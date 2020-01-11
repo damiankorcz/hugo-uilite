@@ -10,7 +10,8 @@
       <span class="date">{{ $element.timeperiod }}</span>
       {{ $website := $element.website }}
       </br>
-      <a class="font-weight-bold" href="{{ $website }}"><i class="fas fa-link fa-sm"></i> {{ $element.company }}</a>
+      <a class="font-weight-bold" href="{{ $website }}">{{ $element.company }}</a>
+      <!--<i class="fas fa-link fa-sm"></i>-->
       </br>
 
       {{ $position := $element.position }}
@@ -20,12 +21,14 @@
 
       {{ $grade := $element.grade }}
       {{ if $grade }}
-        <a><i class="fas fa-award fa-sm"></i> {{ $grade }}</a>
+        <a>{{ $grade }}</a>
+        <!--<i class="fas fa-award fa-sm"></i>-->
       {{ end }}
 
       {{ $description := $element.description }}
       {{ if $description }}
-        <a><i class="fas fa-briefcase fa-sm"></i> {{ $element.description }}</a>
+        <a>{{ $element.description }}</a>
+        <!--<i class="fas fa-briefcase fa-sm"></i>-->
       {{ end }}
     </div>
     </div>

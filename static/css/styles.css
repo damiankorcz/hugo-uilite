@@ -38,7 +38,8 @@ a,
 p,
 label,
 input,
-div {
+div,
+kbd {
   font-family: "IBMPlexSans", sans-serif;
 }
 
@@ -82,7 +83,7 @@ a:hover {
 }
 
 .sidebar-photo {
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
 }
 
 .sidebar-cover {
@@ -115,8 +116,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "ManropeBold", serif !important;
+  font-family: "ManropeBold", sans-serif !important;
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 .font-upper {
@@ -130,7 +132,7 @@ h6 {
 .highlight {
   color: #EFEFEF;
   background-color: #005DFF;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   padding: 2px 12px;
   line-height: 1.5;
 }
@@ -141,7 +143,7 @@ h6 {
 }
 
 .btn {
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
@@ -209,14 +211,14 @@ h6 {
 section#about, section#projects, section#blog, section#experience, section#skills, section#contact, section#list {
   margin-top: 2rem;
   background-color: #FFFFFF;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   padding: 3rem;
 }
 
 section#single {
   margin-top: 2rem;
   background-color: #FFFFFF;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   padding: 3rem 6rem;
 }
 
@@ -224,7 +226,7 @@ section#footer {
   margin-bottom: 2rem;
   margin-top: 2rem;
   background-color: #FFFFFF;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   padding: 1rem;
 }
 
@@ -233,7 +235,7 @@ section#footer {
 }
 
 .card {
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   background-color: #FFFFFF;
   color: #202020;
   border: none;
@@ -255,7 +257,7 @@ section#footer {
 }
 
 .card img {
-  border-radius: 0.75rem 0.75rem 0 0;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .card-img {
@@ -326,7 +328,7 @@ section#footer {
   color: #FFFFFF;
   background-color: #202020;
   padding: 0.35rem 0.5rem;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
 }
 
 #timeline .timeline-item .timeline-content.right {
@@ -341,7 +343,7 @@ section#footer {
 blockquote {
   background-color: rgba(215, 38, 61, 0.1);
   border-left: 0.75rem solid #D7263D;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   padding: 0.75rem !important;
   margin-left: 1rem;
   margin-right: 1rem;
@@ -352,15 +354,16 @@ blockquote p {
 }
 
 code {
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   padding: 0.75rem !important;
   margin-left: 1rem;
   margin-right: 1rem;
 }
 
 kbd {
-  color: #FFFFFF !important;
-  background-color: #202020 !important;
+  color: #202020 !important;
+  background-color: #EFEFEF !important;
+  font-weight: 700 !important;
 }
 
 #shareButtons {
@@ -398,7 +401,7 @@ kbd {
           justify-content: center;
   color: #FFFFFF;
   background-color: rgba(32, 32, 32, 0.8);
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
 }
 
 .swiper-button-prev-custom.swiper-button-disabled,
@@ -469,15 +472,15 @@ kbd {
   #contact,
   #list,
   #single {
-    padding: 1.5rem !important;
+    padding: 1.25rem !important;
   }
   .main-content {
-    width: 100%;
-    margin-left: 0%;
+    width: 96%;
+    margin-left: 2%;
   }
   .main-content-list {
-    width: 100%;
-    margin-left: 0%;
+    width: 96%;
+    margin-left: 2%;
   }
   #timeline {
     margin: 30px;
