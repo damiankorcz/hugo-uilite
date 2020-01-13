@@ -2,26 +2,10 @@
 {{ partial "navbar.html" . }}
 <div class="main-content-list mx-auto">
      <section id="projects">
-          <h2 class="text-center mb-4 accentText"><i class="fas fa-shapes pr-3"></i>{{.Title}}</h2>
+          <h2 class="heading text-center mb-4 accentText"><i class="fas fa-shapes pr-3"></i>{{.Title}}</h2>
           <div class="row justify-content-center">
                {{ range .Pages }}
-                    <div class="m-2">
-                         <div class="card h-100 d-flex flex-column" style="width: 18rem;">
-                              <img src="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}" class="card-img" height="162" width= "288" alt="{{ .Params.title }}">
-                              <div class="p-3">
-                                   <p class="my-1 accentText card-text font-weight-bold">{{  .Params.subtitle }}</p>
-                                   <h5 class="mb-2">{{ .Params.title }}</h5>
-                                   <p class="card-text">{{ .Params.description }}</p>
-                              </div>
-                              <div class="px-3 pb-3 mt-auto">
-                                   <div class="separator-long mb-2"></div>
-                                   <a href="{{ .Permalink }}" class="stretched-link font-weight-bold">
-                                        Read more
-                                        <i class="fas fa-chevron-right float-right my-1"></i>
-                                   </a>
-                              </div>
-                         </div>
-                    </div>
+                 {{ partial "projectCard.html" . }}
                {{ end }}
           </div>
      </section>

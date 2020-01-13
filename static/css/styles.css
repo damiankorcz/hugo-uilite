@@ -34,11 +34,12 @@ body {
   color: #202020;
 }
 
-a,
+body,
 p,
 label,
+li,
+code,
 input,
-div,
 kbd {
   font-family: "IBMPlexSans", sans-serif;
 }
@@ -49,11 +50,19 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: #004acc;
+  color: #0041b3;
 }
 
 .accentText {
   color: #005DFF;
+}
+
+.whiteText {
+  color: #FFFFFF !important;
+}
+
+.mutedText {
+  color: #CCCCCC;
 }
 
 .sidebar {
@@ -109,7 +118,10 @@ a:hover {
   clear: none;
 }
 
-.heading,
+.heading {
+  text-transform: uppercase;
+}
+
 h1,
 h2,
 h3,
@@ -117,7 +129,6 @@ h4,
 h5,
 h6 {
   font-family: "ManropeBold", sans-serif !important;
-  text-transform: uppercase;
   font-weight: 700;
 }
 
@@ -129,7 +140,7 @@ h6 {
   color: #FFFFFF;
 }
 
-.highlight {
+.sidebarHighlight {
   color: #EFEFEF;
   background-color: #005DFF;
   border-radius: 0.5rem;
@@ -208,11 +219,13 @@ h6 {
   transition: all 0.2s ease !important;
 }
 
-section#about, section#projects, section#blog, section#experience, section#skills, section#contact, section#list {
+section#about, section#projects, section#blog, section#experience, section#skills, section#contact, section#list, section#taxonomy {
   margin-top: 2rem;
   background-color: #FFFFFF;
   border-radius: 0.5rem;
   padding: 3rem;
+  -webkit-box-shadow: 5px 5px 10px #D9D9D9,  -5px -5px 10px #EFEFEF;
+          box-shadow: 5px 5px 10px #D9D9D9,  -5px -5px 10px #EFEFEF;
 }
 
 section#single {
@@ -220,6 +233,8 @@ section#single {
   background-color: #FFFFFF;
   border-radius: 0.5rem;
   padding: 3rem 6rem;
+  -webkit-box-shadow: 5px 5px 10px #D9D9D9,  -5px -5px 10px #EFEFEF;
+          box-shadow: 5px 5px 10px #D9D9D9,  -5px -5px 10px #EFEFEF;
 }
 
 section#footer {
@@ -228,6 +243,8 @@ section#footer {
   background-color: #FFFFFF;
   border-radius: 0.5rem;
   padding: 1rem;
+  -webkit-box-shadow: 5px 5px 10px #D9D9D9,  -5px -5px 10px #EFEFEF;
+          box-shadow: 5px 5px 10px #D9D9D9,  -5px -5px 10px #EFEFEF;
 }
 
 .contact-text {
@@ -243,8 +260,8 @@ section#footer {
           transition-timing-function: ease-in;
   -webkit-transition-duration: 300ms;
           transition-duration: 300ms;
-  -webkit-box-shadow: 10px 10px 20px #D9D9D9,  -10px -10px 20px #FFFFFF;
-          box-shadow: 10px 10px 20px #D9D9D9,  -10px -10px 20px #FFFFFF;
+  -webkit-box-shadow: 7px 7px 15px #D9D9D9,  -7px -7px 15px #EFEFEF;
+          box-shadow: 7px 7px 15px #D9D9D9,  -7px -7px 15px #EFEFEF;
 }
 
 .card:hover {
@@ -252,8 +269,8 @@ section#footer {
           transition-timing-function: ease-out;
   -webkit-transition-duration: 300ms;
           transition-duration: 300ms;
-  -webkit-box-shadow: -10px -10px 20px #D9D9D9,  10px 10px 20px #FFFFFF;
-          box-shadow: -10px -10px 20px #D9D9D9,  10px 10px 20px #FFFFFF;
+  -webkit-box-shadow: -7px -7px 15px #D9D9D9,  7px 7px 15px #EFEFEF;
+          box-shadow: -7px -7px 15px #D9D9D9,  7px 7px 15px #EFEFEF;
 }
 
 .card img {
@@ -261,7 +278,56 @@ section#footer {
 }
 
 .card-img {
-  border-radius: 0;
+  border-radius: none;
+}
+
+.card-img-overlay-custom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.blogPosts {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.blogCategory {
+  background-color: #005DFF;
+  border-radius: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  font-weight: bold;
+}
+
+.blogCategory:hover {
+  background-color: #0041b3;
+}
+
+.blogCategory:first-child {
+  margin-left: 0;
+}
+
+.blogTag {
+  background-color: #EFEFEF;
+  border-radius: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  font-weight: bold;
+}
+
+.blogTag:first-child {
+  margin-left: 0;
+}
+
+.elevateLink {
+  z-index: 2;
+  position: relative;
 }
 
 .separator-long {
@@ -325,10 +391,11 @@ section#footer {
 
 #timeline .timeline-item .timeline-content .date {
   display: inline-block;
-  color: #FFFFFF;
-  background-color: #202020;
+  color: #202020;
+  background-color: #EFEFEF;
   padding: 0.35rem 0.5rem;
   border-radius: 0.5rem;
+  font-weight: bold;
 }
 
 #timeline .timeline-item .timeline-content.right {
@@ -353,11 +420,12 @@ blockquote p {
   margin-bottom: 0;
 }
 
-code {
-  border-radius: 0.5rem;
-  padding: 0.75rem !important;
+pre {
+  border-radius: 0.5rem !important;
+  padding: 0.3rem !important;
   margin-left: 1rem;
   margin-right: 1rem;
+  font-size: 100%;
 }
 
 kbd {
@@ -460,18 +528,10 @@ kbd {
   .navbar-toggler i {
     color: #202020;
   }
-  #about {
+  section#about {
     margin-top: 0 !important;
   }
-  #sidebar,
-  #about,
-  #projects,
-  #blog,
-  #experience,
-  #skills,
-  #contact,
-  #list,
-  #single {
+  section#sidebar, section#about, section#projects, section#blog, section#experience, section#skills, section#contact, section#list, section#single, section#taxonomy {
     padding: 1.25rem !important;
   }
   .main-content {
@@ -481,6 +541,10 @@ kbd {
   .main-content-list {
     width: 96%;
     margin-left: 2%;
+  }
+  .blogPosts {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
   #timeline {
     margin: 30px;

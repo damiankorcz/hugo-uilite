@@ -6,7 +6,7 @@
 <div class="main-info">
   <img src="{{.Site.BaseURL}}images/{{ $sidebar.displayPicture }}" class="rounded-circle mb-3" height="160" width="160">
   <div class="sidebar-cover">
-    <h2 class="heading accentText mb-0">{{ $sidebar.title }}<br><span class="highlight">{{ $sidebar.highlightedText }}</span></h2>
+    <h2 class="heading accentText mb-0">{{ $sidebar.title }}<br><span class="sidebarHighlight">{{ $sidebar.highlightedText }}</span></h2>
     <div class="social mt-2">
       {{ range $key, $value := $social }}
         <a target="_blank" href="{{ $value }}" rel="me">

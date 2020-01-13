@@ -37,7 +37,7 @@
   var defaults = {
     // Close existing modals
     // Set this to false if you do not need to stack multiple instances
-    closeExisting: false,
+    closeExisting: true,
 
     // Enable infinite gallery navigation
     loop: false,
@@ -73,10 +73,10 @@
     buttons: [
       "zoom",
       //"share",
-      "slideShow",
+      //"slideShow",
       //"fullScreen",
       //"download",
-      "thumbs",
+      //"thumbs",
       "close"
     ],
 
@@ -84,7 +84,7 @@
     idleTime: 3,
 
     // Disable right-click and use simple image protection for images
-    protect: false,
+    protect: true,
 
     // Shortcut to make content "modal" - disable keyboard navigtion, hide buttons, etc
     modal: false,

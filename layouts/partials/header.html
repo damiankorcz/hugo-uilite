@@ -7,11 +7,11 @@
 	<title>
 			{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
 			{{ if .IsHome }}
-					{{ .Site.Title }}
+				{{ .Site.Title }}
 			{{ else if .Params.heading }}
-					{{ .Params.heading }}
+				{{ .Params.heading }}
 			{{ else }}
-					{{ .Title }} | {{ .Site.Title }}
+				{{ .Title }} | {{ .Site.Title }}
 			{{ end }}
 	</title>
 	<meta charset="utf-8">

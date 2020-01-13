@@ -1,0 +1,16 @@
+{{ partial "header.html" . }}
+{{ partial "navbar.html" . }}
+<div class="main-content-list mx-auto">
+     <section id="taxonomy">
+          <h2 class="heading text-center mb-4 accentText"><i class="fas fa-hashtag pr-2"></i>{{.Title}}</h2>
+          <div class="row justify-content-center">
+            {{ range .Data.Pages }}
+                <div class="mb-2 mx-1">
+                    <h4><a class="accentText blogTag"  href="{{ .Permalink}}">{{ .Title }}</a></h4>
+                </div>
+            {{ end }}
+        </div>
+     </section>
+     {{ partial "footer.html" . }}
+</div>
+{{ partial "footer-scripts.html" . }}

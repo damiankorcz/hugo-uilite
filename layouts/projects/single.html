@@ -2,7 +2,21 @@
 {{ partial "navbar.html" . }}
 <div class="main-content-list mx-auto">
     <section id="single">
-        <div class="text-center accentText font-weight-bold">{{ .Params.subtitle }}</div>
+        <div class="row mb-4">
+            <div class="col">
+                {{ $category := "categories/projects"}}
+                {{ range .Param $category }}
+                    <a class="blogCategory float-left whiteText elevateLink font-weight-bold" href="/categories/projects/{{ . | urlize }}"><i class="fas fa-tag fa-xs pr-1"></i>{{ . }}</a>
+                {{ end }}
+            </div>
+            <div class="col">
+                <p class="accentText font-weight-bold float-right mb-0">
+                    <!--<i class="far fa-clock fa-sm"></i>-->
+                    {{ dateFormat "2/01/06" .Date }} 
+                    {{ if ne .PublishDate .Lastmod }}  | Last updated {{ dateFormat "2/01/06"  .Params.Lastmod }} {{ end }}
+                </p>
+            </div>
+        </div>
         <h2 class="text-center mb-4">{{ .Title }}</h2>
         <div>{{ .Content }}</div>
     </section>
