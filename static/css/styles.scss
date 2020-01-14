@@ -1,7 +1,7 @@
 @import 'mixins';
 
 @include font-face(IBMPlexSans, "../fonts/IBMPlexSans", 400, normal);
-@include font-face(IBMPlexSans, "../fonts/IBMPlexSansBold", 700, normal);
+@include font-face(IBMPlexSans, "../fonts/IBMPlexSansBold", 700, bold);
 @include font-face(ManropeBold, "../fonts/ManropeBold", 700, bold);
 
 $mainFont: 'IBMPlexSans', sans-serif;
@@ -53,7 +53,11 @@ li,
 code,
 input,
 kbd {
-    font-family: $mainFont;
+    font-family: $mainFont !important;
+}
+
+code {
+    margin: 1rem;
 }
 
 a {
@@ -253,6 +257,9 @@ section {
         -5px -5px 10px #EFEFEF;
     }
 
+    &#skills img {
+        fill: $fontColorDark;
+    }
 
     &#single {
         margin-top: $sectionMargin;
@@ -437,8 +444,6 @@ blockquote {
     border-left: 0.75rem solid $warningColor;
     border-radius: $borderRadius;
     padding: 0.75rem !important;
-    margin-left: 1rem;
-    margin-right: 1rem;
     p {
         margin-bottom: 0;
     }
@@ -447,8 +452,6 @@ blockquote {
 pre  {
     border-radius: $borderRadius !important;
     padding: 0.3rem !important;
-    margin-left: 1rem;
-    margin-right: 1rem;
     font-size: 100%;
 }
 
@@ -527,6 +530,32 @@ kbd {
 //Twitter center
 .twitter-tweet-rendered {
     margin: auto;
+}
+
+// Buy Me a Coffee button
+.bmc-button img {
+    height: 24px;
+    margin: 0 6px 3px 4px;
+}
+
+.bmc-button {
+    color:$fontColorLight;
+    background-color:$accentColor1;
+    border-radius: $borderRadius;
+    padding: 0.5rem;
+    min-width: 161px;
+
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+        background-color: darken($accentColor1, 15%);
+        color: $fontColorLight;
+    }
+}
+
+.bmc-text {
+    font-size: 16px;
 }
 
 @media (max-width: 992px) {
@@ -625,13 +654,13 @@ kbd {
         text-align: center !important;
     }
 
-    blockquote {
-        margin-left: 0;
-        margin-right: 0;
+    .smallCenter {
+        display: flex !important;
+        justify-content: center !important;
     }
-    
-    code {
-        margin-left: 0;
-        margin-right: 0;
+
+    .bmcPadding {
+        padding-top: 0.5rem;
     }
+
 }
