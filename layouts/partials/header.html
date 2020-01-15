@@ -18,14 +18,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Bundling all of the local CSS files into one and minifying it -->
-	{{ $bootstrap := resources.Get "css/vendor/bootstrap.min.css"}}
-	{{ $prism := resources.Get "css/vendor/prism.css"}}
-	{{ $prismtheme := resources.Get "css/vendor/prism-atom-dark.css"}}
-	{{ $fontawesome := resources.Get "css/vendor/fontawesome-all.min.css"}}
-	{{ $fancybox := resources.Get "css/vendor/jquery.fancybox.css"}}
-	{{ $swiper := resources.Get "css/styles.css"}}
-	{{ $main := resources.Get "css/vendor/swiper.css"}}
-	{{ $bundle := slice $bootstrap $prism $prismtheme $fontawesome $fancybox $swiper $main | resources.Concat "bundle.css" | minify}}
+	{{ $bootstrap := resources.Get "css/vendor/bootstrap.min.css" }}
+	{{ $main := resources.Get "css/styles.css" }}
+	{{ $fontawesome := resources.Get "css/vendor/fontawesome-all.min.css" }}
+	{{ $fancybox := resources.Get "css/vendor/jquery.fancybox.css" }}
+	{{ $swiper := resources.Get "css/vendor/swiper.css" }}
+	{{ $prism := resources.Get "css/vendor/prism.css" }}
+	{{ $prismtheme := resources.Get "css/vendor/prism-atom-dark.css" }}
+	{{ $bundle := slice $bootstrap $main $fontawesome $fancybox $swiper $prism $prismtheme | resources.Concat "bundle.css" | minify }}
 	<link rel="stylesheet" href="{{ $bundle.Permalink }}"></link>
 
 	<!-- Meta tags -->

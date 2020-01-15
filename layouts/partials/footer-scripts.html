@@ -1,11 +1,11 @@
         <!-- Bundling all of the local js files into one and minifying it -->
-        {{ $prism := resources.Get "js/vendor/prism.js"}}
         {{ $jquery := resources.Get "js/vendor/jquery-3.4.1.min.js"}}
+        {{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js"}}
+        {{ $fancybox := resources.Get "js/vendor/jquery.fancybox.js"}}
         {{ $swiper := resources.Get "js/vendor/swiper.js"}}
         {{ $swiperInit := resources.Get "js/swiperInit.js"}}
-        {{ $fancybox := resources.Get "js/vendor/jquery.fancybox.js"}}
-        {{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js"}}
-        {{ $bundle := slice $prism $jquery $swiper $swiperInit $fancybox $bootstrap | resources.Concat "bundle.js" | minify}}
+        {{ $prism := resources.Get "js/vendor/prism.js"}}
+        {{ $bundle := slice $jquery $bootstrap $fancybox $swiper $swiperInit $prism | resources.Concat "bundle.js" | minify}}
         <script src="{{ $bundle.Permalink }}"></script>
     </body>
 </html>
