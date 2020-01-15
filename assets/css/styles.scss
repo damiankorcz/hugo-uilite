@@ -1,5 +1,7 @@
 @import 'mixins';
 
+@include font-face(IBMPlexSans, "../fonts/IBMPlexSans", 400, normal);
+@include font-face(IBMPlexSans, "../fonts/IBMPlexSansBold", 700, bold);
 @include font-face(ManropeBold, "../fonts/ManropeBold", 700, bold);
 
 $mainFont: 'IBMPlexSans', sans-serif;
