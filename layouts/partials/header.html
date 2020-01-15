@@ -17,16 +17,37 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Bundling all of the local CSS files into one and minifying it -->
+
+	<!-- Including the bootstrap -->
 	{{ $bootstrap := resources.Get "css/vendor/bootstrap.min.css" | fingerprint }}
-	{{ $prism := resources.Get "css/vendor/prism.css" | fingerprint }}
-	{{ $prismtheme := resources.Get "css/vendor/prism-atom-dark.css" | fingerprint }}
-	{{ $fontawesome := resources.Get "css/vendor/fontawesome-all.min.css" | fingerprint }}
-	{{ $fancybox := resources.Get "css/vendor/jquery.fancybox.css" | fingerprint }}
-	{{ $swiper := resources.Get "css/styles.css" | fingerprint }}
-	{{ $main := resources.Get "css/vendor/swiper.css" | fingerprint }}
-	{{ $bundle := slice $bootstrap $prism $prismtheme $fontawesome $fancybox $swiper $main | resources.Concat "bundle.css" | minify | fingerprint }}
-	<link rel="stylesheet" href="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity}}"></link>
+	<link rel="stylesheet" href="{{ $bootstrap.Permalink }}" integrity="{{ $bootstrap.Data.Integrity}}"></link>
+	
+
+	<!-- Prism.js Syntax Hightlighting -->
+	{{ $prism := resources.Get "css/vendor/prism.css" | minify | fingerprint}}
+	<link rel="stylesheet" href="{{ $prism.Permalink }}" integrity="{{ $prism.Data.Integrity}}"></link>
+
+	{{ $prismtheme := resources.Get "css/vendor/prism-atom-dark.css" | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $prismtheme.Permalink }}" integrity="{{ $prismtheme.Data.Integrity}}"></link>
+	
+
+	<!-- Font awesome -->
+	{{ $fontawesome := resources.Get "css/vendor/fontawesome-all.min.css" | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $fontawesome.Permalink }}" integrity="{{ $fontawesome.Data.Integrity}}"></link>
+	
+
+	<!--  Photo scripts -->
+	{{ $fancybox := resources.Get "css/vendor/jquery.fancybox.css" | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $fancybox.Permalink }}" integrity="{{ $fancybox.Data.Integrity}}"></link>
+
+	{{ $swiper := resources.Get "css/vendor/swiper.css" | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $swiper.Permalink }}" integrity="{{ $swiper.Data.Integrity}}"></link>
+	
+
+	<!--Personal script-->
+	{{ $main := resources.Get "css/styles.css" | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $main.Permalink }}" integrity="{{ $main.Data.Integrity}}"></link>
+
 
 	<!-- Meta tags -->
 	<meta name="author" content="{{ $config.author }}">
