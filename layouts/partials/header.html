@@ -25,7 +25,7 @@
 	{{ $swiper := resources.Get "css/vendor/swiper.css" }}
 	{{ $prism := resources.Get "css/vendor/prism.css" }}
 	{{ $prismtheme := resources.Get "css/vendor/prism-atom-dark.css" }}
-	{{ $bundle := slice $bootstrap $main $fontawesome $fancybox $swiper $prism $prismtheme | resources.Concat "bundle.css" | minify | fingerprint "md5"}}
+	{{ $bundle := slice $bootstrap $main $fontawesome $fancybox $swiper $prism $prismtheme | resources.Concat "bundle.css" | minify | fingerprint "sha256"}}
 	<link rel="stylesheet" href="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity }}"></link>
 
 	<!-- Meta tags -->
