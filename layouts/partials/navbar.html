@@ -19,11 +19,11 @@
             <div class="navbar-collapse collapse dual-nav w-50 order-2">
                 <ul class="nav navbar-nav navbarSocial">
                         {{ range $key, $value := $social }}
-                        <li class="nav-item"><a target="_blank" href="{{ $value }}" rel="me"><i class="fab fa-{{ $key }}"></i></a></li>
+                        <li class="nav-item"><a target="_blank" href="{{ $value }}" rel="noopener"><i class="fab fa-{{ $key }}"></i></a></li>
                         {{ end }}
                         
                         {{ range $key, $value := $socialfas }}
-                        <li class="nav-item"><a target="_blank" href="{{ $value }}"><i class="fas fa-{{ $key }}"></i></a></li>
+                        <li class="nav-item"><a target="_blank" href="{{ $value }}" rel="noopener"><i class="fas fa-{{ $key }}"></i></a></li>
                         {{ end }}
                 </ul>
             </div>

@@ -4,9 +4,10 @@
 
 {{- $isimg := lower $src | findRE "\\.(gif|jpg|jpeg|tiff|png|bmp)" }} <!-- is the current file an image? -->
 {{- if $isimg }}
+{{- $caption :=  .Name | replaceRE "\\..*" "" | humanize }} <!-- humanized filename without extension -->
 <div class="img-fluid mx-auto d-block text-center my-4">
     <a href="{{ $.Page.Params.imageDir }}{{ $src }}" data-fancybox>
-        <img class="mw-100 h-auto" src="{{ $.Page.Params.imageDir }}{{ $thumb }}" />
+        <img class="mw-100 h-auto" src="{{ $.Page.Params.imageDir }}{{ $thumb }}" alt="{{ $caption }}" />
     </a>
 </div>
 {{- end }}

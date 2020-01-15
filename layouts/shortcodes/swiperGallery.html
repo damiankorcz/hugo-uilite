@@ -20,7 +20,7 @@
 			    	{{- $thumbURL := print $baseURL ($.Get "dir") "/" $thumb | absURL }} <!-- absolute URL to thumbnail image -->
                     <div class="swiper-slide">
                         <a href="{{ $linkURL }}" data-fancybox="{{ $name }}" data-caption="{{ $caption }}">
-                            <img class="img-fluid mx-auto d-block" src="{{ if $thumbexists }}{{ $thumbURL }}{{ else }}{{ $linkURL }}{{ end }}" />
+                            <img class="img-fluid mx-auto d-block" src="{{ if $thumbexists }}{{ $thumbURL }}{{ else }}{{ $linkURL }}{{ end }}" alt="{{ $caption }}" />
                         </a>
                     </div>
                 {{- end }}

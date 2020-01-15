@@ -4,18 +4,18 @@
 
 <section id="sidebar" class="sidebar d-flex align-items-center p-5">
 <div class="main-info">
-  <img src="{{.Site.BaseURL}}images/{{ $sidebar.displayPicture }}" class="rounded-circle mb-3" height="160" width="160">
+  <img src="{{.Site.BaseURL}}images/{{ $sidebar.displayPicture }}" class="rounded-circle mb-3" height="160" width="160" alt="Damian Korcz Portrait">
   <div class="sidebar-cover">
     <h2 class="heading accentText mb-0">{{ $sidebar.title }}<br><span class="sidebarHighlight">{{ $sidebar.highlightedText }}</span></h2>
     <div class="social mt-2">
       {{ range $key, $value := $social }}
-        <a target="_blank" href="{{ $value }}" rel="me">
+        <a target="_blank" href="{{ $value }}" rel="noopener" aria-label="{{ $key }}">
           <i class="fab fa-{{ $key }}"></i>
         </a>
       {{ end }}
 
       {{ range $key, $value := $socialfas }}
-        <a target="_blank" href="{{ $value }}">
+        <a target="_blank" href="{{ $value }}" rel="noopener" aria-label="{{ $key }}">
           <i class="fas fa-{{ $key }}"></i>
         </a>
       {{ end }}

@@ -1,26 +1,11 @@
-        <!-- Prism.js Syntax Hightlighting -->
-        {{ $prism := resources.Get "js/vendor/prism.js" | minify | fingerprint }}
-        <script src="{{ $prism.Permalink }}" integrity="{{ $prism.Data.Integrity}}"></script>
-
-        
-        <!-- Jquery for Bootstrap-->
-        {{ $jquery := resources.Get "js/vendor/jquery-3.4.1.min.js" | minify | fingerprint }}
-        <script src="{{ $jquery.Permalink }}" integrity="{{ $jquery.Data.Integrity}}"></script>
-        
-
-        <!--  Photo scripts -->
-        {{ $swiper := resources.Get "js/vendor/swiper.js" | minify | fingerprint }}
-        <script src="{{ $swiper.Permalink }}" integrity="{{ $swiper.Data.Integrity}}"></script>
-
-        {{ $swiperInit := resources.Get "js/swiperInit.js" | minify | fingerprint }}
-        <script src="{{ $swiperInit.Permalink }}" integrity="{{ $swiperInit.Data.Integrity}}"></script>
-
-        {{ $fancybox := resources.Get "js/vendor/jquery.fancybox.js" | minify | fingerprint }}
-        <script src="{{ $fancybox.Permalink }}" integrity="{{ $fancybox.Data.Integrity}}"></script>
-        
-
-        <!-- Including the bootstrap -->
-        {{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js" | minify | fingerprint }}
-        <script src="{{ $bootstrap.Permalink }}" integrity="{{ $bootstrap.Data.Integrity}}"></script>
+        <!-- Bundling all of the local js files into one and minifying it -->
+        {{ $prism := resources.Get "js/vendor/prism.js"}}
+        {{ $jquery := resources.Get "js/vendor/jquery-3.4.1.min.js"}}
+        {{ $swiper := resources.Get "js/vendor/swiper.js"}}
+        {{ $swiperInit := resources.Get "js/swiperInit.js"}}
+        {{ $fancybox := resources.Get "js/vendor/jquery.fancybox.js"}}
+        {{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js"}}
+        {{ $bundle := slice $prism $jquery $swiper $swiperInit $fancybox $bootstrap | resources.Concat "bundle.js" | minify}}
+        <script src="{{ $bundle.Permalink }}"></script>
     </body>
 </html>
