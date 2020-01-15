@@ -1,18 +1,11 @@
-	    <!-- Prism.js Syntax Hightlighting -->
-        <script src="{{ .Site.BaseURL }}js/vendor/prism.js"></script>
-        
-        <!-- Jquery for Bootstrap-->
-        <script src="{{ .Site.BaseURL }}js/vendor/jquery-3.4.1.min.js"></script>
-        
-        <!--  Photo scripts -->
-        <script src="{{ .Site.BaseURL }}js/vendor/swiper.js"></script>
-        <script src="{{ .Site.BaseURL }}js/swiperInit.js"></script>
-        <script src="{{ .Site.BaseURL }}js/vendor/jquery.fancybox.js"></script>
-        
-        <!-- Including the bootstrap -->
-        <script src="{{ .Site.BaseURL }}js/vendor/bootstrap.min.js"></script>
-
-        <!-- Personal script -->
-        <script src="{{ .Site.BaseURL }}js/main.js"></script>
+        <!-- Bundling all of the local js files into one and minifying it -->
+        {{ $prism := resources.Get "js/vendor/prism.js" | fingerprint }}
+        {{ $jquery := resources.Get "js/vendor/jquery-3.4.1.min.js" | fingerprint }}
+        {{ $swiper := resources.Get "js/vendor/swiper.js" | fingerprint }}
+        {{ $swiperInit := resources.Get "js/swiperInit.js" | fingerprint }}
+        {{ $fancybox := resources.Get "js/vendor/jquery.fancybox.js" | fingerprint }}
+        {{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js" | fingerprint }}
+        {{ $bundle := slice $prism $jquery $swiper $swiperInit $fancybox $bootstrap | resources.Concat "bundle.js" | minify | fingerprint }}
+        <script src="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity}}"></script>
     </body>
 </html>

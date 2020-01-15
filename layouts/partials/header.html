@@ -17,24 +17,17 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	
-	<!-- Including the bootstrap -->
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vendor/bootstrap.min.css">
-	
-	<!-- Prism.js Syntax Hightlighting -->
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vendor/prism.css">
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vendor/prism-atom-dark.css">
-	
-	<!-- Font awesome -->
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vendor/fontawesome-all.min.css">
-	
-	<!--  Photo scripts -->
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vendor/jquery.fancybox.css">
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vendor/swiper.css">
-	
-	<!--Personal script-->
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/styles.css">
-	
+	<!-- Bundling all of the local CSS files into one and minifying it -->
+	{{ $bootstrap := resources.Get "css/vendor/bootstrap.min.css" | fingerprint }}
+	{{ $prism := resources.Get "css/vendor/prism.css" | fingerprint }}
+	{{ $prismtheme := resources.Get "css/vendor/prism-atom-dark.css" | fingerprint }}
+	{{ $fontawesome := resources.Get "css/vendor/fontawesome-all.min.css" | fingerprint }}
+	{{ $fancybox := resources.Get "css/vendor/jquery.fancybox.css" | fingerprint }}
+	{{ $swiper := resources.Get "css/styles.css" | fingerprint }}
+	{{ $main := resources.Get "css/vendor/swiper.css" | fingerprint }}
+	{{ $bundle := slice $bootstrap $prism $prismtheme $fontawesome $fancybox $swiper $main | resources.Concat "bundle.css" | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity}}"></link>
+
 	<!-- Meta tags -->
 	<meta name="author" content="{{ $config.author }}">
 	<meta name="theme-color" content="#000000">

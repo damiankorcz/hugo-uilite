@@ -81,20 +81,6 @@ a:hover {
   color: #FFFFFF;
 }
 
-.sidebar .main-info * {
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-  opacity: 0;
-  -webkit-transform: translateX(-40px);
-  transform: translateX(-40px);
-}
-
-.sidebar .main-info *.bs {
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-  opacity: 1;
-}
-
 .sidebar-photo {
   border-radius: 0.5rem;
 }
