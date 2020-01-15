@@ -3,12 +3,11 @@
         <div class="col">
             {{ $category := "categories/blog"}}
             {{ range .Param $category }}
-            <a class="blogCategory float-left whiteText elevateLink font-weight-bold" href="/categories/blog/{{ . | urlize }}"><i class="fas fa-tag fa-xs pr-1"></i> {{ . }}</a>
+            <a class="blogCategory float-left whiteText elevateLink font-weight-bold" href="/categories/blog/{{ . | urlize }}"><i class="fas fa-tag fa-xs pr-1" aria-hidden="true"></i> {{ . }}</a>
             {{ end }}
         </div>
         <div class="col">
             <p class="accentText font-weight-bold float-right mb-0">
-                <!--<i class="far fa-clock fa-sm"></i>-->
                 {{ dateFormat "2/01/2006" .Date }} 
                 {{ if ne .PublishDate .Lastmod }}  | Last updated {{ dateFormat "2/01/2006"  .Params.Lastmod }} {{ end }}
             </p>
@@ -23,14 +22,14 @@
     <div class="row mx-0 my-2">
         {{ $tags := "tags/blog"}}
         {{ range .Param $tags }}
-            <a class="accentText elevateLink blogTag" href="/tags/blog/{{ . | urlize }}"><i class="fas fa-hashtag fa-sm pr-1"></i>{{ . }}</a>
+            <a class="accentText elevateLink blogTag" href="/tags/blog/{{ . | urlize }}"><i class="fas fa-hashtag fa-sm pr-1" aria-hidden="true"></i>{{ . }}</a>
         {{ end }}
     </div>
     <div class="mt-auto">
         <div class="separator-long mb-2"></div>
         <a href="{{ .Permalink }}" class="stretched-link font-weight-bold">
         Read more
-        <i class="fas fa-chevron-right float-right my-1"></i>
+        <i class="fas fa-chevron-right float-right my-1" aria-hidden="true"></i>
         </a>
     </div>
 </div>

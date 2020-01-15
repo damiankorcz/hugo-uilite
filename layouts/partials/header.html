@@ -25,8 +25,8 @@
 	{{ $swiper := resources.Get "css/vendor/swiper.css" }}
 	{{ $prism := resources.Get "css/vendor/prism.css" }}
 	{{ $prismtheme := resources.Get "css/vendor/prism-atom-dark.css" }}
-	{{ $bundle := slice $bootstrap $main $fontawesome $fancybox $swiper $prism $prismtheme | resources.Concat "bundle.css" | minify }}
-	<link rel="stylesheet" href="{{ $bundle.Permalink }}"></link>
+	{{ $bundle := slice $bootstrap $main $fontawesome $fancybox $swiper $prism $prismtheme | resources.Concat "bundle.css" | minify | fingerprint "md5"}}
+	<link rel="stylesheet" href="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity }}"></link>
 
 	<!-- Meta tags -->
 	<meta name="author" content="{{ $config.author }}">

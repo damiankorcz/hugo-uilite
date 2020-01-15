@@ -5,7 +5,7 @@
             <div class="row m-0 pb-2">
                 {{ $category := "categories/projects"}}
                 {{ range .Param $category }}
-                    <a class="blogCategory whiteText font-weight-bold elevateLink" href="/categories/projects/{{ . | urlize }}"><i class="fas fa-tag fa-xs pr-1"></i>{{ . }}</a>
+                    <a class="blogCategory whiteText font-weight-bold elevateLink" href="/categories/projects/{{ . | urlize }}"><i class="fas fa-tag fa-xs pr-1" aria-hidden="true"></i>{{ . }}</a>
                 {{ end }}
             </div>
             <h5 class="mb-1">{{ .Params.title }}</h5>
@@ -15,7 +15,7 @@
             <div class="separator-long mb-2"></div>
             <a href="{{ .Permalink }}" class="stretched-link font-weight-bold">
                 Read more
-                <i class="fas fa-chevron-right float-right my-1"></i>
+                <i class="fas fa-chevron-right float-right my-1" aria-hidden="true"></i>
             </a>
        </div>
     </div>
@@ -36,7 +36,7 @@ Image Overlay test (unfinished)
                         <div class="px-3 pb-3 mt-auto">
                             <a href="{{ .Permalink }}" class="stretched-link font-weight-bold">
                                 Read more
-                                <i class="fas fa-chevron-right float-right my-1"></i>
+                                <i class="fas fa-chevron-right float-right my-1" aria-hidden="true"></i>
                             </a>
                        </div>
                     </div>

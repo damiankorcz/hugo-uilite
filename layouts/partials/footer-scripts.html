@@ -5,7 +5,7 @@
         {{ $swiper := resources.Get "js/vendor/swiper.js"}}
         {{ $swiperInit := resources.Get "js/swiperInit.js"}}
         {{ $prism := resources.Get "js/vendor/prism.js"}}
-        {{ $bundle := slice $jquery $bootstrap $fancybox $swiper $swiperInit $prism | resources.Concat "bundle.js" | minify}}
-        <script src="{{ $bundle.Permalink }}"></script>
+        {{ $bundle := slice $jquery $bootstrap $fancybox $swiper $swiperInit $prism | resources.Concat "bundle.js" | minify | fingerprint "md5"}}
+        <script src="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity }}"></script>
     </body>
 </html>

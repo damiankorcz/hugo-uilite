@@ -1,7 +1,7 @@
 {{ $experience := .Site.Data.experience }}
 
 <section id="experience" >
-  <h2 class="heading accentText"><i class="fas fa-user-tie pr-3 mb-4"></i>{{ $experience.title }}</h2>
+  <h2 class="heading accentText"><i class="fas fa-user-tie pr-3 mb-4" aria-hidden="true"></i>{{ $experience.title }}</h2>
   <div id="timeline">
     {{ range $index, $element := $experience.experience }}
     <div class="timeline-item clearfix">
@@ -11,7 +11,6 @@
       {{ $website := $element.website }}
       </br>
       <a class="font-weight-bold" href="{{ $website }}">{{ $element.company }}</a>
-      <!--<i class="fas fa-link fa-sm"></i>-->
       </br>
 
       {{ $position := $element.position }}
@@ -22,13 +21,11 @@
       {{ $grade := $element.grade }}
       {{ if $grade }}
         <a>{{ $grade }}</a>
-        <!--<i class="fas fa-award fa-sm"></i>-->
       {{ end }}
 
       {{ $description := $element.description }}
       {{ if $description }}
         <a>{{ $element.description }}</a>
-        <!--<i class="fas fa-briefcase fa-sm"></i>-->
       {{ end }}
     </div>
     </div>

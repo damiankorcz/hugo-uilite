@@ -6,23 +6,21 @@
             <div class="col">
                 {{ $category := "categories/blog"}}
                 {{ range .Param $category }}
-                    <a class="blogCategory float-left whiteText elevateLink font-weight-bold" href="/categories/blog/{{ . | urlize }}"><i class="fas fa-tag fa-xs pr-1"></i>{{ . }}</a>
+                    <a class="blogCategory float-left whiteText elevateLink font-weight-bold" href="/categories/blog/{{ . | urlize }}"><i class="fas fa-tag fa-xs pr-1" aria-hidden="true"></i>{{ . }}</a>
                 {{ end }}
             </div>
             <div class="col">
                 <p class="accentText font-weight-bold float-right mb-0">
-                    <!--<i class="far fa-clock fa-sm"></i>-->
                     {{ dateFormat "2/01/2006" .Date }} 
                     {{ if ne .PublishDate .Lastmod }}  | Last updated {{ dateFormat "2/01/2006"  .Params.Lastmod }} {{ end }}
                 </p>
             </div>
         </div>
-        <!--<i class="far fa-clock fa-sm"></i>-->
         <h2 class="text-center px-5 mb-2">{{ .Title }}</h2>
         <div class="d-flex justify-content-center mb-2">
             {{ $tags := "tags/blog"}}
             {{ range .Param $tags }}
-                <a class="blogTag accentText elevateLink" href="/tags/blog/{{ . | urlize }}"><i class="fas fa-hashtag fa-sm pr-1"></i>{{ . }}</a>
+                <a class="blogTag accentText elevateLink" href="/tags/blog/{{ . | urlize }}"><i class="fas fa-hashtag fa-sm pr-1" aria-hidden="true"></i>{{ . }}</a>
              {{ end }}
         </div>
         <div class="mb-4">{{ .Content }}</div>

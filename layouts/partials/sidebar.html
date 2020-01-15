@@ -10,13 +10,13 @@
     <div class="social mt-2">
       {{ range $key, $value := $social }}
         <a target="_blank" href="{{ $value }}" rel="noopener" aria-label="{{ $key }}">
-          <i class="fab fa-{{ $key }}"></i>
+          <i class="fab fa-{{ $key }}" aria-hidden="true"></i>
         </a>
       {{ end }}
 
       {{ range $key, $value := $socialfas }}
         <a target="_blank" href="{{ $value }}" rel="noopener" aria-label="{{ $key }}">
-          <i class="fas fa-{{ $key }}"></i>
+          <i class="fas fa-{{ $key }}" aria-hidden="true"></i>
         </a>
       {{ end }}
     </div>
