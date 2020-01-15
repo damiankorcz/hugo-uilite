@@ -14,7 +14,11 @@
                 </ul>
             </div>
             <a href="{{.Site.BaseURL}}" class="navbar-brand mx-auto d-block text-center order-0">
-                <img src="{{.Site.BaseURL}}images/navbar/{{$navbar.displayPicture}}" width="30" height="30" class="d-inline-block rounded-circle" alt="Damian Korcz Portrait">
+                <picture>
+                    <source srcset="{{.Site.BaseURL}}images/navbar/{{$navbar.displayPicture}}.webp" type="image/webp">
+                    <source srcset="{{.Site.BaseURL}}images/navbar/{{$navbar.displayPicture}}.jpg" type="image/jpeg"> 
+                    <img src="{{.Site.BaseURL}}images/navbar/{{$navbar.displayPicture}}.jpg" class="d-inline-block rounded-circle" width="30" height="30" alt="Damian Korcz Portrait">
+                </picture>
             </a>
             <div class="navbar-collapse collapse dual-nav w-50 order-2">
                 <ul class="nav navbar-nav navbarSocial">

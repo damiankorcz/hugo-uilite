@@ -4,7 +4,11 @@
 
 <section id="sidebar" class="sidebar d-flex align-items-center p-5">
 <div class="main-info">
-  <img src="{{.Site.BaseURL}}images/{{ $sidebar.displayPicture }}" class="rounded-circle mb-3" height="160" width="160" alt="Damian Korcz Portrait">
+  <picture>
+    <source srcset="{{.Site.BaseURL}}images/{{ $sidebar.displayPicture }}.webp" type="image/webp">
+    <source srcset="{{.Site.BaseURL}}images/{{ $sidebar.displayPicture }}.jpg" type="image/jpeg"> 
+    <img src="{{.Site.BaseURL}}images/{{ $sidebar.displayPicture }}.jpg" class="rounded-circle mb-3" height="160" width="160"  alt="Damian Korcz Portrait">
+  </picture>
   <div class="sidebar-cover">
     <h2 class="heading accentText mb-0">{{ $sidebar.title }}<br><span class="sidebarHighlight">{{ $sidebar.highlightedText }}</span></h2>
     <div class="social mt-2">

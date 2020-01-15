@@ -1,9 +1,9 @@
 <div class="m-3">
     <div class="card h-100 d-flex flex-column" style="width: 18rem;">
-        <picture class="card-img" height="162" width= "288" alt="{{ .Params.title }}">
+        <picture class="card-img" height="162" width= "288">
             <source srcset="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}.webp" type="image/webp">
             <source srcset="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}.jpg" type="image/jpeg"> 
-            <img src="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}.jpg">
+            <img src="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}.jpg"  alt="{{ .Params.title }}">
         </picture>
         <div class="p-3">
             <div class="row m-0 pb-2">
