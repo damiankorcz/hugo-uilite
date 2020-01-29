@@ -3,27 +3,32 @@
 {{ $socialfas := .Site.Data.socialfas}}
 
 <section id="sidebar" class="sidebar d-flex align-items-center p-5">
-<div class="main-info">
-  <picture>
-    <source srcset="{{.Site.BaseURL}}images/{{ $sidebar.displayPicture }}.webp" type="image/webp">
-    <source srcset="{{.Site.BaseURL}}images/{{ $sidebar.displayPicture }}.jpg" type="image/jpeg"> 
-    <img src="{{.Site.BaseURL}}images/{{ $sidebar.displayPicture }}.jpg" class="rounded-circle mb-3" height="160" width="160"  alt="Damian Korcz Portrait">
-  </picture>
-  <div class="sidebar-cover">
-    <h2 class="heading accentText mb-0">{{ $sidebar.title }}<br><span class="sidebarHighlight">{{ $sidebar.highlightedText }}</span></h2>
-    <div class="social mt-2">
-      {{ range $key, $value := $social }}
-        <a target="_blank" href="{{ $value }}" rel="noopener" aria-label="{{ $key }}">
-          <i class="fab fa-{{ $key }}" aria-hidden="true"></i>
-        </a>
-      {{ end }}
+    <div class="main-info">
+        <picture>
+            <source srcset="{{.Site.BaseURL}}images/{{ $sidebar.displayPicture }}.webp" type="image/webp">
+            <source srcset="{{.Site.BaseURL}}images/{{ $sidebar.displayPicture }}.jpg" type="image/jpeg">
+            <img src="{{.Site.BaseURL}}images/{{ $sidebar.displayPicture }}.jpg" class="rounded-circle mb-3 noSelect"
+                height="160" width="160" alt="Damian Korcz Portrait">
+        </picture>
+        <div class="sidebar-cover">
+            <h2 class="heading mb-0">{{ $sidebar.title }}<br><span
+                    class="sidebarHighlight">{{ $sidebar.highlightedText }}</span></h2>
+            <div class="mt-2">
+                {{ range $key, $value := $social }}
+                <a class="social" target="_blank" href="{{ $value }}" rel="noopener" aria-label="{{ $key }}">
+                    <i class="fab fa-{{ $key }}" aria-hidden="true"></i>
+                </a>
+                {{ end }}
 
-      {{ range $key, $value := $socialfas }}
-        <a target="_blank" href="{{ $value }}" rel="noopener" aria-label="{{ $key }}">
-          <i class="fas fa-{{ $key }}" aria-hidden="true"></i>
-        </a>
-      {{ end }}
+                {{ range $key, $value := $socialfas }}
+                <a class="social" target="_blank" href="{{ $value }}" rel="noopener" aria-label="{{ $key }}">
+                    <i class="fas fa-{{ $key }}" aria-hidden="true"></i>
+                </a>
+                {{ end }}
+            </div>
+        </div>
+        <div class="mt-2">
+            {{ partial "themeToggle.html" . }}
+        </div>
     </div>
-  </div>
-</div>
 </section>

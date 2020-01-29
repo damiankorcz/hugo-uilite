@@ -3,7 +3,7 @@
 <section id="projects">
     <div class="row mb-2">
         <div class="col-8">
-            <h2 class="heading accentText"><i class="fas fa-shapes pr-3" aria-hidden="true"></i>{{ $projects.title }}</h2>
+            <h2 class="heading"><i class="fas fa-shapes pr-3" aria-hidden="true"></i>{{ $projects.title }}</h2>
         </div>
         <div class="col-4 text-right">
             <h3 class="btn font-weight-bold"><a href="{{.Site.BaseURL}}projects">Show all</a></h3>
@@ -11,7 +11,7 @@
     </div>
     <div class="row justify-content-center">
         {{ range first 3 ( where .Site.Pages "Section" "projects" ) }}
-          {{ partial "projectCard.html" . }}
+        {{ partial "projectCard.html" . }}
         {{ end }}
     </div>
 </section>

@@ -1,33 +1,33 @@
 {{ $experience := .Site.Data.experience }}
 
-<section id="experience" >
-  <h2 class="heading accentText"><i class="fas fa-user-tie pr-3 mb-4" aria-hidden="true"></i>{{ $experience.title }}</h2>
+<section id="experience">
+  <h2 class="heading"><i class="fas fa-user-tie pr-3 mb-4" aria-hidden="true"></i>{{ $experience.title }}</h2>
   <div id="timeline">
     {{ range $index, $element := $experience.experience }}
     <div class="timeline-item clearfix">
-    <div class="timeline-icon"></div>
-    <div class="timeline-content {{ if eq (mod $index 2) 0 }} right {{ end }}">
-      <span class="date">{{ $element.timeperiod }}</span>
-      {{ $website := $element.website }}
-      </br>
-      <a class="font-weight-bold" href="{{ $website }}">{{ $element.company }}</a>
-      </br>
+      <div class="timeline-icon"></div>
+      <div class="timeline-content {{ if eq (mod $index 2) 0 }} right {{ end }}">
+        <span class="date">{{ $element.timeperiod }}</span>
+        {{ $website := $element.website }}
+        </br>
+        <a href="{{ $website }}">{{ $element.company }}</a>
+        </br>
 
-      {{ $position := $element.position }}
-      {{ if $position }}
-        <h5 class="mb-0">{{ $position }}</h5>
-      {{ end }}
+        {{ $position := $element.position }}
+        {{ if $position }}
+        <h4 class="mb-0">{{ $position }}</h4>
+        {{ end }}
 
-      {{ $grade := $element.grade }}
-      {{ if $grade }}
+        {{ $grade := $element.grade }}
+        {{ if $grade }}
         <a>{{ $grade }}</a>
-      {{ end }}
+        {{ end }}
 
-      {{ $description := $element.description }}
-      {{ if $description }}
+        {{ $description := $element.description }}
+        {{ if $description }}
         <a>{{ $element.description }}</a>
-      {{ end }}
-    </div>
+        {{ end }}
+      </div>
     </div>
     {{ end }}
   </div>

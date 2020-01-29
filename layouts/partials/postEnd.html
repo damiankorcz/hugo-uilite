@@ -1,12 +1,47 @@
 <div>
-    <div class="separator-long mb-2"></div>
-    <div class="row">
-        <div class="col-md-6 col-sm-12 my-auto smallCenter">
-            <a class="my-auto mr-2 font-weight-bold">Share</a>
-            {{ partial "shareButtons.html" . }} 
-        </div>
-        <div class="col-md-6 col-sm-12 my-auto d-flex justify-content-end smallCenter bmcPadding">
-                 {{ partial "buyMeACoffee.html" . }}
+    <div class="separator-long-2 mb-2"></div>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-6 col-sm-12 smallCenter">
+                <div class="row">
+                    <div class="col-md-auto col-sm-12 my-auto smallCenter">
+                        <a class="font-weight-bold">Share</a>
+                    </div>
+                    <div class="col-md-auto col-sm-12 p-0 smallCenter">
+                        <div id="shareButtons" class="">
+                            <a href="http://www.facebook.com/share.php?u={{ .Permalink }}" title="Share this on Facebook"
+                                aria-label="Share this on Facebook" target="_blank" class="shareButton" rel="noopener">
+                                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                            </a>
+                            <a href="http://twitter.com/home?status={{ .Permalink }}" title="Share this on Twitter"
+                                aria-label="Share this on Twitter" target="_blank" class="shareButton" rel="noopener">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://www.reddit.com/submit?url={{ .Permalink }}&amp;title={{ .Title }}"
+                                title="Share this on Reddit" aria-label="Share this on Reddit" target="_blank" class="shareButton"
+                                rel="noopener">
+                                <i class="fab fa-reddit-alien" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink }}"
+                                title="Share this on LinkedIn" aria-label="Share this on LinkedIn" target="_blank"
+                                class="shareButton" rel="noopener">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a href="mailto:?&body={{ .Permalink }}" title="Share this via Email" aria-label="Share this via Email"
+                                target="_blank" class="shareButton" rel="noopener">
+                                <i class="fas fa-envelope-open-text" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 d-flex justify-content-end smallCenter bmcPadding">
+                <a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/DamianKorcz" rel="noopener"
+                    aria-label="Buy me a coffee">
+                    <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee">
+                    <span class="bmc-text">Buy me a coffee</span>
+                </a>
+            </div>
         </div>
     </div>
 </div>

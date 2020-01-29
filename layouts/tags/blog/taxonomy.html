@@ -1,16 +1,17 @@
 {{ partial "header.html" . }}
 {{ partial "navbar.html" . }}
 <div class="main-content-list mx-auto">
-     <section id="taxonomy">
-        <h2 class="heading text-center mb-4 accentText"><i class="fas fa-hashtag pr-2" aria-hidden="true"></i>
-            <a href="/tags/">Tags</a> /  <a href="/tags/blog/">Blog</a> / {{ .Title }}
+
+    <section id="taxonomy">
+        <h2 class="heading text-center mb-4"><i class="fas fa-hashtag pr-2" aria-hidden="true"></i>
+            <a href="/tags/">Tags</a> / <a href="/tags/blog/">Blog</a> / {{ .Title }}
         </h2>
         <div class="row blogPosts">
             {{ range .Pages }}
-                {{ partial "blogCard.html" . }}
+            {{ partial "blogCard.html" . }}
             {{ end }}
-          </div>
-     </section>
-     {{ partial "footer.html" . }}
+        </div>
+    </section>
+    {{ partial "footer.html" . }}
 </div>
-{{ partial "footer-scripts.html" . }}
+{{ partial "footerScripts.html" . }}

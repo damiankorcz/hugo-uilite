@@ -1,13 +1,44 @@
-{{- $src := .Get "src" -}}
-{{- $thumb := .Get "thumb" -}}
+{{ $name := .Get "name" }}
+{{ $src := .Get "src" }}
+{{ $thumb := .Get "thumb" }}
 {{ $baseURL := .Site.BaseURL }}
+<!-- humanized filename without extension -->
+{{ $caption :=  $src | replaceRE "\\..*" "" | humanize }}
 
-{{- $isimg := lower $src | findRE "\\.(gif|jpg|jpeg|tiff|png|bmp)" }} <!-- is the current file an image? -->
-{{- if $isimg }}
-{{- $caption :=  .Name | replaceRE "\\..*" "" | humanize }} <!-- humanized filename without extension -->
-<div class="img-fluid mx-auto d-block text-center my-4">
-    <a href="{{ $.Page.Params.imageDir }}{{ $src }}" data-fancybox>
-        <img class="mw-100 h-auto" src="{{ $.Page.Params.imageDir }}{{ $thumb }}" alt="{{ $caption }}" />
+{{- with .Parent -}}
+<div class="swiper-slide">
+    <a href="{{ $.Page.Params.imageDir }}{{ $src }}.webp" data-fancybox="{{ $name }}" data-caption="{{ $caption }}">
+        {{ with  $thumb}}
+        <picture>
+            <source srcset="{{ $.Page.Params.imageDir }}{{ $thumb }}.webp" type="image/webp">
+            <source srcset="{{ $.Page.Params.imageDir }}{{ $thumb }}.jpg" type="image/jpeg">
+            <img class="mw-100 h-auto" src="{{ $.Page.Params.imageDir }}{{ $thumb }}.jpg" alt="{{ $caption }}">
+        </picture>
+        {{ else }}
+        <picture>
+            <source srcset="{{ $.Page.Params.imageDir }}{{ $src }}.webp" type="image/webp">
+            <source srcset="{{ $.Page.Params.imageDir }}{{ $src }}.jpg" type="image/jpeg">
+            <img class="mw-100 h-auto" src="{{ $.Page.Params.imageDir }}{{ $src }}.jpg" alt="{{ $caption }}">
+        </picture>
+        {{ end }}
+    </a>
+</div>
+{{- else -}}
+<div class="noSelect img-fluid mx-auto d-block text-center my-4">
+    <a href="{{ $.Page.Params.imageDir }}{{ $src }}.webp" data-fancybox>
+        {{ with  $thumb}}
+        <picture>
+            <source srcset="{{ $.Page.Params.imageDir }}{{ $thumb }}.webp" type="image/webp">
+            <source srcset="{{ $.Page.Params.imageDir }}{{ $thumb }}.jpg" type="image/jpeg">
+            <img class="mw-100 h-auto" src="{{ $.Page.Params.imageDir }}{{ $thumb }}.jpg" alt="{{ $caption }}">
+        </picture>
+        {{ else }}
+        <picture>
+            <source srcset="{{ $.Page.Params.imageDir }}{{ $src }}.webp" type="image/webp">
+            <source srcset="{{ $.Page.Params.imageDir }}{{ $src }}.jpg" type="image/jpeg">
+            <img class="mw-100 h-auto" src="{{ $.Page.Params.imageDir }}{{ $src }}.jpg" alt="{{ $caption }}">
+        </picture>
+        {{ end }}
     </a>
 </div>
 {{- end }}

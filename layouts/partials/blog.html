@@ -3,15 +3,15 @@
 <section id="blog">
     <div class="row mb-4">
         <div class="col-8">
-            <h2 class="heading accentText"><i class="fas fa-edit pr-3" aria-hidden="true"></i>{{ $blog.title }}</h2>
+            <h2 class="heading"><i class="fas fa-edit pr-3" aria-hidden="true"></i>{{ $blog.title }}</h2>
         </div>
         <div class="col-4 text-right">
             <h3 class="btn font-weight-bold"><a href="{{.Site.BaseURL}}blog">Show all</a></h3>
         </div>
     </div>
     <div class="row blogPosts">
-        {{ range first 2 ( where .Site.Pages "Section" "blog" ) }}
-            {{ partial "blogCard.html" . }}
+        {{ range first 1 ( where .Site.Pages "Section" "blog" ) }}
+        {{ partial "blogCard.html" . }}
         {{ end }}
-   </div>
+    </div>
 </section>

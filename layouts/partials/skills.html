@@ -2,9 +2,9 @@
 
 <section id="skills">
   <div class="row">
-      <div class="col">
-          <h2 class="heading accentText"><i class="fas fa-toolbox pr-3" aria-hidden="true"></i></i>{{ $skills.title }}</h2>
-      </div>
+    <div class="col">
+      <h2 class="heading"><i class="fas fa-toolbox pr-3" aria-hidden="true"></i>{{ $skills.title }}</h2>
+    </div>
   </div>
   <div class="row justify-content-center text-center">
     <div class="col-12 p-4">
@@ -13,21 +13,22 @@
       </div>
       <div class="container" style="max-width: 800px;">
         <div class="row justify-content-center text-center">
-            {{ range $index, $element := $skills.languages }}
-              <div class="m-2">
-                  <div style="width: 7rem;">
-                      <img src="{{.Site.BaseURL}}images/skills/{{ $element.icon }}" class="card-img" height="112" width="112" alt="{{ $element.title }}" fill= "red">
-                      <div class="p-3">
-                          <a href="{{ $element.link }}" class="mb-0 font-weight-bold">{{ $element.title }}</a>
-                      </div>
-                  </div>
+          {{ range $index, $element := $skills.languages }}
+          <div class="m-2">
+            <div style="width: 7rem;">
+              <i class="{{ $element.icon }}" aria-hidden="true" class="card-img noSelect"
+                alt="{{ $element.title }}"></i>
+              <div class="p-2">
+                <a href="{{ $element.link }}" class="mb-0 h5 font-weight-bold">{{ $element.title }}</a>
               </div>
-            {{ end }}
+            </div>
+          </div>
+          {{ end }}
         </div>
       </div>
     </div>
 
-    <div class="separator-long mb-3"></div>
+    <div class="separator-long-2 mb-3"></div>
 
     <div class="col-12 p-4">
       <div class="row-12">
@@ -36,20 +37,21 @@
       <div class="container" style="max-width: 800px;">
         <div class="row justify-content-center text-center">
           {{ range $index, $element := $skills.web }}
-            <div class="m-2">
-              <div style="width: 7rem;">
-                <img src="{{.Site.BaseURL}}images/skills/{{ $element.icon }}" class="card-img" height="112" width="112" alt="{{ $element.title }}">
-                <div class="p-3">
-                  <a href="{{ $element.link }}" class="mb-0 font-weight-bold">{{ $element.title }}</a>
-                </div>
+          <div class="m-2">
+            <div style="width: 7rem;">
+              <i class="{{ $element.icon }}" aria-hidden="true" class="card-img noSelect"
+                alt="{{ $element.title }}"></i>
+              <div class="p-2">
+                <a href="{{ $element.link }}" class="mb-0 h5 font-weight-bold">{{ $element.title }}</a>
               </div>
             </div>
+          </div>
           {{ end }}
         </div>
       </div>
     </div>
 
-    <div class="separator-long mb-3"></div>
+    <div class="separator-long-2 mb-3"></div>
 
     <div class="col-12  p-4">
       <div class="row-12">
@@ -58,14 +60,15 @@
       <div class="container" style="max-width: 800px;">
         <div class="row justify-content-center text-center">
           {{ range $index, $element := $skills.tools }}
-            <div class="m-2">
-              <div style="width: 7rem;">
-                <img src="{{.Site.BaseURL}}images/skills/{{ $element.icon }}" class="card-img" height="112" width="112" alt="{{ $element.title }}">
-                <div class="p-3">
-                  <a href="{{ $element.link }}" class="mb-0 font-weight-bold">{{ $element.title }}</a>
-                </div>
+          <div class="m-2">
+            <div style="width: 7rem;">
+              <i class="{{ $element.icon }}" aria-hidden="true" class="card-img noSelect"
+                alt="{{ $element.title }}"></i>
+              <div class="p-2">
+                <a href="{{ $element.link }}" class="mb-0 h5 font-weight-bold">{{ $element.title }}</a>
               </div>
             </div>
+          </div>
           {{ end }}
         </div>
       </div>
@@ -73,9 +76,3 @@
 
   </div>
 </section>
-
-<!--
-
-        <p>{{ $skills.toolsDescription }}</p>
-
--->

@@ -1,15 +1,16 @@
 <div class="m-3">
     <div class="card h-100 d-flex flex-column" style="width: 18rem;">
-        <picture class="card-img" height="162" width= "288">
+        <picture class="noSelect card-img" height="162" width="288">
             <source srcset="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}.webp" type="image/webp">
-            <source srcset="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}.jpg" type="image/jpeg"> 
-            <img src="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}.jpg"  alt="{{ .Params.title }}">
+            <source srcset="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}.jpg" type="image/jpeg">
+            <img src="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}.jpg" alt="{{ .Params.title }}">
         </picture>
         <div class="p-3">
             <div class="row m-0 pb-2">
                 {{ $category := "categories/projects"}}
                 {{ range .Param $category }}
-                    <a class="blogCategory whiteText font-weight-bold elevateLink" href="/categories/projects/{{ . | urlize }}"><i class="fas fa-tag fa-xs pr-1" aria-hidden="true"></i>{{ . }}</a>
+                <a class="blogCategory elevateLink" href="/categories/projects/{{ . | urlize }}"><i
+                        class="fas fa-tag fa-xs pr-1" aria-hidden="true"></i>{{ . }}</a>
                 {{ end }}
             </div>
             <h5 class="mb-1">{{ .Params.title }}</h5>
@@ -17,33 +18,10 @@
         </div>
         <div class="px-3 pb-3 mt-auto">
             <div class="separator-long mb-2"></div>
-            <a href="{{ .Permalink }}" class="stretched-link font-weight-bold">
+            <a href="{{ .Permalink }}" class="stretched-link ">
                 Read more
                 <i class="fas fa-chevron-right float-right my-1" aria-hidden="true"></i>
             </a>
-       </div>
+        </div>
     </div>
 </div>
-
-<!-- 
-Image Overlay test (unfinished)
-
-            <div class="m-3">
-                <div class="card d-flex flex-column whiteText" style="width: 18rem; height:26rem;">
-                    <img class="card-img w-100 h-100" src="{{.Site.BaseURL}}images/{{ .Params.previewPicture }}.jpg" height="162" width="288" alt="{{ .Params.title }}">
-                    <div class="card-img-overlay-custom p-0">
-                        <div class="p-3">
-                            <p class="my-1 card-text font-weight-bold">{{ .Params.subtitle }}</p>
-                            <h5 class="mb-2">{{ .Params.title }}</h5>
-                            <p class="card-text">{{ .Params.description }}</p>
-                        </div>
-                        <div class="px-3 pb-3 mt-auto">
-                            <a href="{{ .Permalink }}" class="stretched-link font-weight-bold">
-                                Read more
-                                <i class="fas fa-chevron-right float-right my-1" aria-hidden="true"></i>
-                            </a>
-                       </div>
-                    </div>
-                </div>
-            </div>
--->

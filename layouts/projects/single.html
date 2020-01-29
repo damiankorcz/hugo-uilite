@@ -1,18 +1,19 @@
 {{ partial "header.html" . }}
 {{ partial "navbar.html" . }}
 <div class="main-content-list mx-auto">
+
     <section id="single">
         <div class="row mb-4">
             <div class="col">
                 {{ $category := "categories/projects"}}
                 {{ range .Param $category }}
-                    <a class="blogCategory float-left whiteText elevateLink font-weight-bold" href="/categories/projects/{{ . | urlize }}"><i class="fas fa-tag fa-xs pr-1" aria-hidden="true"></i>{{ . }}</a>
+                    <a class="blogCategory float-left elevateLink font-weight-bold" href="/categories/projects/{{ . | urlize }}"><i class="fas fa-tag fa-xs pr-1" aria-hidden="true"></i>{{ . }}</a>
                 {{ end }}
             </div>
             <div class="col">
-                <p class="accentText font-weight-bold float-right mb-0">
-                    {{ dateFormat "2/01/06" .Date }} 
-                    {{ if ne .PublishDate .Lastmod }}  | Last updated {{ dateFormat "2/01/06"  .Params.Lastmod }} {{ end }}
+                <p class="font-weight-bold float-right mb-0">
+                    {{ dateFormat "02/01/06" .Date }} 
+                    {{ if ne .PublishDate .Lastmod }}  | Last updated {{ dateFormat "02/01/06"  .Params.Lastmod }} {{ end }}
                 </p>
             </div>
         </div>
@@ -21,7 +22,7 @@
     </section>
     {{ partial "footer.html" . }}
 </div>
-{{ partial "footer-scripts.html" . }}
+{{ partial "footerScripts.html" . }}
 
 <!--
     <div class="text-center text-muted mb-5">{{ dateFormat "Monday, Jan 2, 2006" .Date }}</div>

@@ -1,16 +1,17 @@
 {{ partial "header.html" . }}
 {{ partial "navbar.html" . }}
 <div class="main-content-list mx-auto">
+
     <section id="single">
         <div class="row mb-4">
             <div class="col">
                 {{ $category := "categories/blog"}}
                 {{ range .Param $category }}
-                    <a class="blogCategory float-left whiteText elevateLink font-weight-bold" href="/categories/blog/{{ . | urlize }}"><i class="fas fa-tag fa-xs pr-1" aria-hidden="true"></i>{{ . }}</a>
+                    <a class="blogCategory float-left elevateLink" href="/categories/blog/{{ . | urlize }}"><i class="fas fa-tag fa-xs pr-1" aria-hidden="true"></i>{{ . }}</a>
                 {{ end }}
             </div>
             <div class="col">
-                <p class="accentText font-weight-bold float-right mb-0">
+                <p class="font-weight-bold float-right mb-0">
                     {{ dateFormat "2/01/2006" .Date }} 
                     {{ if ne .PublishDate .Lastmod }}  | Last updated {{ dateFormat "2/01/2006"  .Params.Lastmod }} {{ end }}
                 </p>
@@ -20,7 +21,7 @@
         <div class="d-flex justify-content-center mb-2">
             {{ $tags := "tags/blog"}}
             {{ range .Param $tags }}
-                <a class="blogTag accentText elevateLink" href="/tags/blog/{{ . | urlize }}"><i class="fas fa-hashtag fa-sm pr-1" aria-hidden="true"></i>{{ . }}</a>
+                <a class="blogTag-2 accentText elevateLink" href="/tags/blog/{{ . | urlize }}"><i class="fas fa-hashtag fa-sm pr-1" aria-hidden="true"></i>{{ . }}</a>
              {{ end }}
         </div>
         <div class="mb-4">{{ .Content }}</div>
@@ -28,6 +29,6 @@
     </section>
     {{ partial "footer.html" . }}
 </div>
-{{ partial "footer-scripts.html" . }}
+{{ partial "footerScripts.html" . }}
 
 

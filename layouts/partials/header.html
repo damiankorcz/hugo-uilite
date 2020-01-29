@@ -5,14 +5,14 @@
 
 <head>
 	<title>
-			{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-			{{ if .IsHome }}
-				{{ .Site.Title }}
-			{{ else if .Params.heading }}
-				{{ .Params.heading }}
-			{{ else }}
-				{{ .Title }} | {{ .Site.Title }}
-			{{ end }}
+		{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+		{{ if .IsHome }}
+		{{ .Site.Title }}
+		{{ else if .Params.heading }}
+		{{ .Params.heading }}
+		{{ else }}
+		{{ .Title }} | {{ .Site.Title }}
+		{{ end }}
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,12 +21,13 @@
 	{{ $bootstrap := resources.Get "css/vendor/bootstrap.min.css" }}
 	{{ $main := resources.Get "css/styles.css" }}
 	{{ $fontawesome := resources.Get "css/vendor/fontawesome-all.min.css" }}
+	{{ $skillIcons := resources.Get "css/vendor/skill-icons.css" }}
 	{{ $fancybox := resources.Get "css/vendor/jquery.fancybox.css" }}
 	{{ $swiper := resources.Get "css/vendor/swiper.css" }}
-	{{ $prism := resources.Get "css/vendor/prism.css" }}
 	{{ $prismtheme := resources.Get "css/vendor/prism-atom-dark.css" }}
-	{{ $bundle := slice $bootstrap $main $fontawesome $fancybox $swiper $prism $prismtheme | resources.Concat "bundle.css" | minify | fingerprint "sha256"}}
-	<link rel="stylesheet" href="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity }}"></link>
+	{{ $bundle := slice $bootstrap $main $fontawesome $skillIcons $fancybox $swiper $prismtheme | resources.Concat "bundle.css" | minify | fingerprint "sha256"}}
+	<link rel="stylesheet" href="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity }}">
+	</link>
 
 	<!-- Meta tags -->
 	<meta name="author" content="{{ $config.author }}">
@@ -39,4 +40,5 @@
 	{{ partial "seo_schema.html" . }}
 	{{ template "_internal/google_analytics.html" . }}
 </head>
+
 <body class="clearfix">

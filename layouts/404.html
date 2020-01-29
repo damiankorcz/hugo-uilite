@@ -1,0 +1,14 @@
+{{ partial "header.html" . }}
+<div class="d-flex justify-content-center align-items-center" style="height:100vh;">
+    <div class="card p-3 text-center" style="max-width: 430px;">
+        <h1 class="mb-2"><span class="accentText" style="font-size: 7rem; line-height: 1;">404</span><br/>Page not found!</h1>
+        <p>The page you are looking for might have been removed, had its name changed or is temporarily unavailable.</p>
+        <div class="px-3 pb-3 mt-auto">
+            <div class="separator-long mb-2"></div>
+            <a href="{{.Site.BaseURL}}" class="stretched-link font-weight-bold h3">
+                Go to homepage
+            </a>
+        </div>
+    </div>
+</div>
+{{ partial "footerScripts.html" . }}

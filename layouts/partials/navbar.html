@@ -3,40 +3,59 @@
 {{ $socialfas := .Site.Data.socialfas}}
 <nav class="navbar navbar-dark navbar-expand-lg navbarColor justify-content-between fixed-top">
     <div class="container-fluid">
-            <a href="{{.Site.BaseURL}}" class="navbar-toggler" aria-label="Home">
-                    <i class="fas fa-home"aria-hidden="true"></i>
-            </a>
-            <div class="navbar-collapse collapse dual-nav w-50 order-1 order-lg-0">
-                <ul class="navbar-nav">
-                    <li class="nav-item active"><a class="nav-link pl-0 font-weight-bold" href="{{.Site.BaseURL}}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link font-weight-bold" href="{{.Site.BaseURL}}projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link font-weight-bold" href="{{.Site.BaseURL}}blog">Blog</a></li>
-                </ul>
+        <a href="{{.Site.BaseURL}}" class="navbar-toggler" aria-label="Home">
+            <i class="fas fa-home" aria-hidden="true"></i>
+        </a>
+        <div class="navbar-collapse collapse dual-nav w-50 order-1 order-lg-0">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link pl-0 font-weight-bold" href="{{.Site.BaseURL}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="{{.Site.BaseURL}}projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="{{.Site.BaseURL}}blog">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <a href="{{.Site.BaseURL}}" class="navbar-brand mx-auto d-block text-center order-0">
+            <picture>
+                <source srcset="{{.Site.BaseURL}}images/navbar/{{$navbar.displayPicture}}.webp" type="image/webp">
+                <source srcset="{{.Site.BaseURL}}images/navbar/{{$navbar.displayPicture}}.jpg" type="image/jpeg">
+                <img src="{{.Site.BaseURL}}images/navbar/{{$navbar.displayPicture}}.jpg"
+                    class="d-inline-block rounded-circle" width="30" height="30" alt="Damian Korcz Portrait">
+            </picture>
+        </a>
+        <div class="navbar-collapse collapse dual-nav w-50 order-2">
+            <ul class="nav navbar-nav navbarSocial">
+                {{ range $key, $value := $social }}
+                <li class="nav-item">
+                    <a target="_blank" href="{{ $value }}" rel="noopener" aria-label="{{ $key }}">
+                        <i class="fab fa-{{ $key }}" aria-hidden="true"></i>
+                    </a>
+                </li>
+                {{ end }}
+
+                {{ range $key, $value := $socialfas }}
+                <li class="nav-item">
+                    <a target="_blank" href="{{ $value }}" rel="noopener" aria-label="{{ $key }}">
+                        <i class="fas fa-{{ $key }}" aria-hidden="true"></i>
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+            <div class="nav-item">
+                {{ partial "themeToggle.html" . }}
             </div>
-            <a href="{{.Site.BaseURL}}" class="navbar-brand mx-auto d-block text-center order-0">
-                <picture>
-                    <source srcset="{{.Site.BaseURL}}images/navbar/{{$navbar.displayPicture}}.webp" type="image/webp">
-                    <source srcset="{{.Site.BaseURL}}images/navbar/{{$navbar.displayPicture}}.jpg" type="image/jpeg"> 
-                    <img src="{{.Site.BaseURL}}images/navbar/{{$navbar.displayPicture}}.jpg" class="d-inline-block rounded-circle" width="30" height="30" alt="Damian Korcz Portrait">
-                </picture>
-            </a>
-            <div class="navbar-collapse collapse dual-nav w-50 order-2">
-                <ul class="nav navbar-nav navbarSocial">
-                        {{ range $key, $value := $social }}
-                        <li class="nav-item"><a target="_blank" href="{{ $value }}" rel="noopener" aria-label="{{ $key }}"><i class="fab fa-{{ $key }}" aria-hidden="true"></i></a></li>
-                        {{ end }}
-                        
-                        {{ range $key, $value := $socialfas }}
-                        <li class="nav-item"><a target="_blank" href="{{ $value }}" rel="noopener" aria-label="{{ $key }}"><i class="fas fa-{{ $key }}" aria-hidden="true"></i></a></li>
-                        {{ end }}
-                </ul>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav" aria-label="Menu">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav" aria-label="Menu">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
     </div>
 </nav>
 
+
 <!--
-    <li class="nav-item"><a class="nav-link font-weight-bold" href="{{.Site.BaseURL}}experience">Experience</a></li>
+    <li class="nav-item"><a class="nav-link" href="{{.Site.BaseURL}}experience">Experience</a></li>
 -->
