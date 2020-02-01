@@ -17,18 +17,24 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Bundling all of the local CSS files into one and minifying it -->
-	{{ $bootstrap := resources.Get "css/vendor/bootstrap.min.css" }}
-	{{ $main := resources.Get "css/styles.css" }}
-	{{ $fontawesome := resources.Get "css/vendor/fontawesome-all.min.css" }}
-	{{ $skillIcons := resources.Get "css/vendor/skill-icons.css" }}
-	{{ $fancybox := resources.Get "css/vendor/jquery.fancybox.css" }}
-	{{ $swiper := resources.Get "css/vendor/swiper.css" }}
-	{{ $prismtheme := resources.Get "css/vendor/prism-atom-dark.css" }}
-	{{ $bundle := slice $bootstrap $main $fontawesome $skillIcons $fancybox $swiper $prismtheme | resources.Concat "bundle.css" | minify | fingerprint "sha256"}}
-	<link rel="stylesheet" href="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity }}">
-	</link>
+	{{ $bootstrap := resources.Get "css/vendor/bootstrap.min.css" | minify | fingerprint "sha256" }}
+	<link rel="stylesheet" href="{{ $bootstrap.Permalink }}" integrity="{{ $bootstrap.Data.Integrity }}"/>
 
+	{{ $main := resources.Get "css/styles.css" | minify | fingerprint "sha256" }}
+	<link rel="stylesheet" href="{{ $main.Permalink }}" integrity="{{ $main.Data.Integrity }}"/>
+
+	{{ $fontawesome := resources.Get "css/vendor/fontawesome-all.min.css" | minify | fingerprint "sha256" }}
+	<link rel="stylesheet" href="{{ $fontawesome.Permalink }}" integrity="{{ $fontawesome.Data.Integrity }}"/>
+	
+	{{ $fancybox := resources.Get "css/vendor/jquery.fancybox.css" | minify | fingerprint "sha256" }}
+	<link rel="stylesheet" href="{{ $fancybox.Permalink }}" integrity="{{ $fancybox.Data.Integrity }}"/>
+	
+	{{ $swiper := resources.Get "css/vendor/swiper.css" | minify | fingerprint "sha256" }}
+	<link rel="stylesheet" href="{{ $swiper.Permalink }}" integrity="{{ $swiper.Data.Integrity }}"/>
+	
+	{{ $prismtheme := resources.Get "css/vendor/prism-atom-dark.css" | minify | fingerprint "sha256" }}
+	<link rel="stylesheet" href="{{ $prismtheme.Permalink }}" integrity="{{ $prismtheme.Data.Integrity }}"/>
+	
 	<!-- Meta tags -->
 	<meta name="author" content="{{ $config.author }}">
 	<meta name="theme-color" content="#000000">

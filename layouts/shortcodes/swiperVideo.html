@@ -1,0 +1,13 @@
+{{- $pc := .Page.Site.Config.Privacy.YouTube -}}
+{{- $ytHost := cond $pc.PrivacyEnhanced  "www.youtube-nocookie.com" "www.youtube.com" -}}
+{{- $id := .Get "id" | default (.Get 0) -}}
+
+{{- with .Parent -}}
+<div class="swiper-slide embed-responsive embed-responsive-16by9">
+    <iframe src="https://{{ $ytHost }}/embed/{{ $id }}{{ with .Get "autoplay" }}{{ if eq . "true" }}?autoplay=1{{ end }}{{ end }}" allowfullscreen title="YouTube Video"></iframe>
+</div>
+{{- else -}}
+<div class="noSelect img-fluid mx-auto d-block text-center my-4 embed-responsive embed-responsive-16by9">
+    <iframe src="https://{{ $ytHost }}/embed/{{ $id }}{{ with .Get "autoplay" }}{{ if eq . "true" }}?autoplay=1{{ end }}{{ end }}" allowfullscreen title="YouTube Video"></iframe>
+</div>
+{{- end }}

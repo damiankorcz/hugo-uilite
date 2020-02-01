@@ -3,6 +3,8 @@ var mySwiper = new Swiper ('.swiper-container', {
   direction: 'horizontal',
   loop: false,
   autoHeight: true,
+  allowTouchMove: false,
+  effect: 'fade',
 
   // If we need pagination
   pagination: {

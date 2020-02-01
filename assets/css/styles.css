@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "IBMPlexSans";
   font-style: normal;
@@ -17,6 +18,13 @@
   font-style: bold;
   font-weight: 700;
   src: url("../fonts/ManropeBold.eot?") format("eot"), url("../fonts/ManropeBold.woff2") format("woff2"), url("../fonts/ManropeBold.woff") format("woff"), url("../fonts/ManropeBold.ttf") format("truetype"), url("../fonts/ManropeBold.svg#ManropeBold") format("svg");
+}
+
+@font-face {
+  font-family: "skill-icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/skill-icons.eot?") format("eot"), url("../fonts/skill-icons.woff2") format("woff2"), url("../fonts/skill-icons.woff") format("woff"), url("../fonts/skill-icons.ttf") format("truetype"), url("../fonts/skill-icons.svg#skill-icons") format("svg");
 }
 
 :root {
@@ -59,81 +67,6 @@
   --clr-tag: #323538;
   --clr-shadow-1: #101010;
   --clr-shadow-2: #1d1f21;
-}
-
-input[type=checkbox] {
-  height: 0;
-  width: 0;
-  visibility: hidden;
-  display: none;
-}
-
-label {
-  cursor: pointer;
-  width: 50px;
-  height: 25px;
-  background: var(--clr-accent-1);
-  display: block;
-  border-radius: 100px;
-  position: relative;
-  margin: 0;
-}
-
-label .dark {
-  display: inline-block;
-  height: 25px;
-  margin-left: 5px;
-  color: rgba(0, 0, 0, 0);
-  font-size: 17px;
-}
-
-label .light {
-  display: inline-block;
-  height: 25px;
-  float: right;
-  margin-right: 5px;
-  color: var(--clr-font-1);
-  font-size: 17px;
-}
-
-label .light i {
-  vertical-align: inherit;
-}
-
-label:after {
-  content: '';
-  position: absolute;
-  top: 3px;
-  left: 4px;
-  width: 19px;
-  height: 19px;
-  background: var(--clr-font-1);
-  border-radius: 10px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-label:active:after {
-  width: 25px;
-}
-
-input:checked + label {
-  background: var(--clr-accent-1);
-}
-
-input:checked + label .light {
-  color: rgba(0, 0, 0, 0);
-}
-
-input:checked + label .dark {
-  color: var(--clr-font-1);
-}
-
-input:checked + label:after {
-  left: calc(100% - 4px);
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
-  will-change: transform;
 }
 
 hr {
@@ -296,6 +229,80 @@ h6 {
           justify-content: flex-end !important;
 }
 
+input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  display: none;
+}
+
+label {
+  cursor: pointer;
+  width: 50px;
+  height: 25px;
+  background: var(--clr-accent-1);
+  display: block;
+  border-radius: 100px;
+  position: relative;
+  margin: 0;
+}
+
+label .dark {
+  height: 25px;
+  float: left;
+  margin-left: 5px;
+  color: rgba(0, 0, 0, 0);
+  font-size: 17px;
+}
+
+label .light {
+  height: 25px;
+  float: right;
+  margin-right: 5px;
+  color: var(--clr-font-1);
+  font-size: 17px;
+}
+
+label .light i {
+  vertical-align: inherit;
+}
+
+label:after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: 19px;
+  height: 19px;
+  background: var(--clr-font-1);
+  border-radius: 10px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+label:active:after {
+  width: 25px;
+}
+
+input:checked + label {
+  background: var(--clr-accent-1);
+}
+
+input:checked + label .light {
+  color: rgba(0, 0, 0, 0);
+}
+
+input:checked + label .dark {
+  color: var(--clr-font-1);
+}
+
+input:checked + label:after {
+  left: calc(100% - 4px);
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  will-change: transform;
+}
+
 .social {
   color: var(--clr-accent-1);
   font-size: 2rem;
@@ -311,22 +318,21 @@ h6 {
   transition: all 0.2s ease !important;
 }
 
-.navbarSocial i {
+.navbarSocial a {
+  font-weight: normal !important;
+}
+
+.navbarSocialImg {
   color: var(--clr-accent-1);
   font-size: 1.4rem;
-  margin: 0 0.5rem;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
-.navbarSocial i:hover {
+.navbarSocialImg:hover {
   color: var(--clr-accent-1-dark);
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
-}
-
-.navbarSocial a {
-  font-weight: normal !important;
 }
 
 .faVerticalMiddle {
@@ -669,16 +675,17 @@ kbd {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: #ffffff;
-  background-color: rgba(32, 32, 32, 0.8);
+  color: var(--clr-accent-1);
+  background-color: var(--clr-page);
+  opacity: 0.9;
   border-radius: var(--border-radius);
+  font-size: 1.75rem;
 }
 
 .swiper-button-prev-custom.swiper-button-disabled,
 .swiper-button-next-custom.swiper-button-disabled {
-  opacity: 0.35;
+  opacity: 0.5;
   cursor: auto;
-  pointer-events: none;
 }
 
 .swiper-button-prev-custom:after,
@@ -693,19 +700,30 @@ kbd {
 
 .swiper-button-prev-custom,
 .swiper-container-rtl .swiper-button-next-custom {
-  left: 15px;
+  left: 1rem;
   right: auto;
 }
 
 .swiper-button-next-custom,
 .swiper-container-rtl .swiper-button-prev-custom {
-  right: 15px;
+  right: 1rem;
   left: auto;
+}
+
+.swiper-pagination {
+  background-color: var(--clr-page);
 }
 
 .swiper-pagination-bullet-active {
   opacity: 1;
-  background: #ffffff !important;
+  background: var(--clr-font-2) !important;
+}
+
+.swiper-pagination-bullet {
+  border: 2px solid var(--clr-font-2);
+  background: var(--clr-page);
+  opacity: 1;
+  margin: 0.5rem 0.25rem;
 }
 
 .twitter-tweet-rendered {
@@ -739,6 +757,101 @@ kbd {
   font-size: 16px;
 }
 
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "skill-icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  font-size: 112px;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-bootstrap:before {
+  content: '\e800';
+}
+
+/* '' */
+.icon-cplusplus:before {
+  content: '\e801';
+}
+
+/* '' */
+.icon-csharp:before {
+  content: '\e802';
+}
+
+/* '' */
+.icon-css3:before {
+  content: '\e803';
+}
+
+/* '' */
+.icon-git:before {
+  content: '\e804';
+}
+
+/* '' */
+.icon-github:before {
+  content: '\e805';
+}
+
+/* '' */
+.icon-html5:before {
+  content: '\e806';
+}
+
+/* '' */
+.icon-hugo:before {
+  content: '\e807';
+}
+
+/* '' */
+.icon-netlify:before {
+  content: '\e808';
+}
+
+/* '' */
+.icon-sass:before {
+  content: '\e809';
+}
+
+/* '' */
+.icon-unity:before {
+  content: '\e80a';
+}
+
+/* '' */
+.icon-unrealengine:before {
+  content: '\e80b';
+}
+
+/* '' */
+.icon-visualstudiocode:before {
+  content: '\e80d';
+}
+
+/* '' */
+.icon-visualstudio:before {
+  content: '\e80e';
+}
+
+/* '' */
 @media (max-width: 992px) {
   .sidebar {
     position: static;

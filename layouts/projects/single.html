@@ -7,7 +7,7 @@
             <div class="col">
                 {{ $category := "categories/projects"}}
                 {{ range .Param $category }}
-                    <a class="blogCategory float-left elevateLink font-weight-bold" href="/categories/projects/{{ . | urlize }}"><i class="fas fa-tag fa-xs pr-1" aria-hidden="true"></i>{{ . }}</a>
+                <a class="blogCategory float-left elevateLink font-weight-bold" href="/categories/projects/{{ . | urlize }}"><i class="fas fa-tag fa-xs pr-1" aria-hidden="true"></i>{{ . }}</a>
                 {{ end }}
             </div>
             <div class="col">

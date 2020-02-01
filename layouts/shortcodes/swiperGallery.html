@@ -2,19 +2,20 @@
 {{ $baseURL := .Site.BaseURL }}
 
 <!-- Slider main container -->
-<div class="swiper-container mb-4">
+<div class="swiper-container">
     <div class="swiper-wrapper">
             {{.Inner}}
+            
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev-custom">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            </div>
+            <div class="swiper-button-next-custom">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </div>
     </div>
-
+    
     <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
-
-    <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev-custom">
-        <i class="fas fa-chevron-left fa-lg" aria-hidden="true"></i>
-    </div>
-    <div class="swiper-button-next-custom">
-        <i class="fas fa-chevron-right fa-lg" aria-hidden="true"></i>
-    </div>
+    <div class="swiper-pagination mb-4"></div>
+    
 </div>

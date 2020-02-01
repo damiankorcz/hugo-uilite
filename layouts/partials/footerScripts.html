@@ -1,13 +1,24 @@
 <!-- Bundling all of the local js files into one and minifying it -->
-{{ $darkMode := resources.Get "js/darkMode.js"}}
-{{ $jquery := resources.Get "js/vendor/jquery-3.4.1.min.js"}}
-{{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js"}}
-{{ $fancybox := resources.Get "js/vendor/jquery.fancybox.js"}}
-{{ $swiper := resources.Get "js/vendor/swiper.js"}}
-{{ $swiperInit := resources.Get "js/swiperInit.js"}}
-{{ $prism := resources.Get "js/vendor/prism.js"}}
-{{ $bundle := slice $darkMode $jquery $bootstrap $fancybox $swiper $swiperInit $prism | resources.Concat "bundle.js" | minify | fingerprint "sha256"}}
-<script src="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity }}"></script>
-</body>
+{{ $darkMode := resources.Get "js/darkMode.js" | minify | fingerprint "sha256" }}
+<script src="{{ $darkMode.Permalink }}" integrity="{{ $darkMode.Data.Integrity }}"></script>
 
+{{ $jquery := resources.Get "js/vendor/jquery-3.4.1.min.js" | minify | fingerprint "sha256" }}
+<script src="{{ $jquery.Permalink }}" integrity="{{ $jquery.Data.Integrity }}"></script>
+
+{{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js" | minify | fingerprint "sha256" }}
+<script src="{{ $bootstrap.Permalink }}" integrity="{{ $bootstrap.Data.Integrity }}"></script>
+
+{{ $fancybox := resources.Get "js/vendor/jquery.fancybox.js" | minify | fingerprint "sha256" }}
+<script src="{{ $fancybox.Permalink }}" integrity="{{ $fancybox.Data.Integrity }}"></script>
+
+{{ $swiper := resources.Get "js/vendor/swiper.js" | minify | fingerprint "sha256" }}
+<script src="{{ $swiper.Permalink }}" integrity="{{ $swiper.Data.Integrity }}"></script>
+
+{{ $swiperInit := resources.Get "js/swiperInit.js" | minify | fingerprint "sha256" }}
+<script src="{{ $swiperInit.Permalink }}" integrity="{{ $swiperInit.Data.Integrity }}"></script>
+
+{{ $prism := resources.Get "js/vendor/prism.js" | minify | fingerprint "sha256" }}
+<script src="{{ $prism.Permalink }}" integrity="{{ $prism.Data.Integrity }}"></script>
+
+</body>
 </html>
