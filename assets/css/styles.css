@@ -3,32 +3,32 @@
   font-family: "IBMPlexSans";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/IBMPlexSans.eot?") format("eot"), url("../fonts/IBMPlexSans.woff2") format("woff2"), url("../fonts/IBMPlexSans.woff") format("woff"), url("../fonts/IBMPlexSans.ttf") format("truetype"), url("../fonts/IBMPlexSans.svg#IBMPlexSans") format("svg");
-  font-display: auto;
+  src: url("../fonts/IBMPlexSans.woff2") format("woff2"), url("../fonts/IBMPlexSans.woff") format("woff"), url("../fonts/IBMPlexSans.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "IBMPlexSans";
-  font-style: bold;
+  font-style: normal;
   font-weight: 700;
-  src: url("../fonts/IBMPlexSansBold.eot?") format("eot"), url("../fonts/IBMPlexSansBold.woff2") format("woff2"), url("../fonts/IBMPlexSansBold.woff") format("woff"), url("../fonts/IBMPlexSansBold.ttf") format("truetype"), url("../fonts/IBMPlexSansBold.svg#IBMPlexSans") format("svg");
-  font-display: auto;
+  src: url("../fonts/IBMPlexSansBold.woff2") format("woff2"), url("../fonts/IBMPlexSansBold.woff") format("woff"), url("../fonts/IBMPlexSansBold.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "ManropeBold";
   font-style: bold;
   font-weight: 700;
-  src: url("../fonts/ManropeBold.eot?") format("eot"), url("../fonts/ManropeBold.woff2") format("woff2"), url("../fonts/ManropeBold.woff") format("woff"), url("../fonts/ManropeBold.ttf") format("truetype"), url("../fonts/ManropeBold.svg#ManropeBold") format("svg");
-  font-display: auto;
+  src: url("../fonts/ManropeBold.woff2") format("woff2"), url("../fonts/ManropeBold.woff") format("woff"), url("../fonts/ManropeBold.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "skill-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/skill-icons.eot?") format("eot"), url("../fonts/skill-icons.woff2") format("woff2"), url("../fonts/skill-icons.woff") format("woff"), url("../fonts/skill-icons.ttf") format("truetype"), url("../fonts/skill-icons.svg#skill-icons") format("svg");
-  font-display: auto;
+  src: url("../fonts/skill-icons.woff2") format("woff2"), url("../fonts/skill-icons.woff") format("woff"), url("../fonts/skill-icons.ttf") format("truetype");
+  font-display: swap;
 }
 
 :root {
