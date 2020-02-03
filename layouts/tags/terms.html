@@ -4,11 +4,24 @@
     <section id="taxonomy">
         <h2 class="heading text-center mb-4"><i class="fas fa-hashtag pr-2" aria-hidden="true"></i>{{.Title}}</h2>
         <div class="row justify-content-center">
-            {{ range .Data.Pages }}
             <div class="mb-2 mx-1">
-                <h4><a class="accentText blogTag-2" href="{{ .Permalink}}">{{ .Title }}</a></h4>
+                <h4>
+                    <a class="accentText blogTag-2" href="{{.Site.BaseURL}}tags/blog">
+                        <i class="fas fa-hashtag pr-2" aria-hidden="true"></i>
+                        Tags/Blog
+                    </a>
+                </h4>
             </div>
-            {{ end }}
+            <!--
+                <div class="mb-2 mx-1">
+                    <h4>
+                        <a class="accentText blogTag-2" href="{{.Site.BaseURL}}tags/projects">
+                            <i class="fas fa-hashtag pr-2" aria-hidden="true"></i>
+                            Tags/Projects
+                        </a>
+                    </h4>
+                </div>
+            -->
         </div>
     </section>
     {{ partial "footer.html" . }}

@@ -8,7 +8,12 @@
         <div class="row justify-content-center">
             {{ range .Data.Pages }}
             <div class="mb-2 mx-1">
-                <h4><a class="accentText blogTag-2" href="{{ .Permalink}}">#{{ .Title }}</a></h4>
+                <h4>
+                    <a class="accentText blogTag-2" href="{{ .Permalink}}">
+                        <i class="fas fa-hashtag pr-2" aria-hidden="true"></i>
+                        {{ .Title }}
+                    </a>
+                </h4>
             </div>
             {{ end }}
         </div>
