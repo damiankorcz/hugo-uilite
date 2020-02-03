@@ -1,24 +1,17 @@
 <!-- Bundling all of the local js files into one and minifying it -->
-{{ $darkMode := resources.Get "js/darkMode.js" | minify | fingerprint "sha256" }}
-<script src="{{ $darkMode.Permalink }}" integrity="{{ $darkMode.Data.Integrity }}"></script>
+{{ $jquery := resources.Get "js/vendor/jquery-3.4.1.min.js"}}
+{{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js"}}
+{{ $darkMode := resources.Get "js/darkMode.js"}}
+{{ $mainBundle := slice $darkMode $jquery $bootstrap | resources.Concat "mainBundle.js" | minify | fingerprint "sha256"}}
+<script src="{{ $mainBundle.Permalink }}" integrity="{{ $mainBundle.Data.Integrity }}"></script>
+</body>
 
-{{ $jquery := resources.Get "js/vendor/jquery-3.4.1.min.js" | minify | fingerprint "sha256" }}
-<script src="{{ $jquery.Permalink }}" integrity="{{ $jquery.Data.Integrity }}"></script>
-
-{{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js" | minify | fingerprint "sha256" }}
-<script src="{{ $bootstrap.Permalink }}" integrity="{{ $bootstrap.Data.Integrity }}"></script>
-
-{{ $fancybox := resources.Get "js/vendor/jquery.fancybox.js" | minify | fingerprint "sha256" }}
-<script src="{{ $fancybox.Permalink }}" integrity="{{ $fancybox.Data.Integrity }}"></script>
-
-{{ $swiper := resources.Get "js/vendor/swiper.js" | minify | fingerprint "sha256" }}
-<script src="{{ $swiper.Permalink }}" integrity="{{ $swiper.Data.Integrity }}"></script>
-
-{{ $swiperInit := resources.Get "js/swiperInit.js" | minify | fingerprint "sha256" }}
-<script src="{{ $swiperInit.Permalink }}" integrity="{{ $swiperInit.Data.Integrity }}"></script>
-
-{{ $prism := resources.Get "js/vendor/prism.js" | minify | fingerprint "sha256" }}
-<script src="{{ $prism.Permalink }}" integrity="{{ $prism.Data.Integrity }}"></script>
+{{ $fancybox := resources.Get "js/vendor/jquery.fancybox.js"}}
+{{ $swiper := resources.Get "js/vendor/swiper.js"}}
+{{ $swiperInit := resources.Get "js/swiperInit.js"}}
+{{ $prism := resources.Get "js/vendor/prism.js"}}
+{{ $otherBundle := slice $fancybox $swiper $swiperInit $prism | resources.Concat "otherBundle.js" | minify | fingerprint "sha256"}}
+<script src="{{ $otherBundle.Permalink }}" integrity="{{ $otherBundle.Data.Integrity }}"></script>
 
 </body>
 </html>
