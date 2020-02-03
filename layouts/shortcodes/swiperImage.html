@@ -7,7 +7,7 @@
 
 {{- with .Parent -}}
 <div class="swiper-slide">
-    <a href="{{ $.Page.Params.imageDir }}{{ $src }}.webp" data-fancybox="{{ $name }}" data-caption="{{ $caption }}">
+    <a href="{{ $.Page.Params.imageDir }}{{ $src }}.jpg" data-fancybox="{{ $name }}" data-caption="{{ $caption }}">
         {{ with  $thumb}}
         <picture>
             <source srcset="{{ $.Page.Params.imageDir }}{{ $thumb }}.webp" type="image/webp">
@@ -25,7 +25,7 @@
 </div>
 {{- else -}}
 <div class="noSelect img-fluid mx-auto d-block text-center my-4">
-    <a href="{{ $.Page.Params.imageDir }}{{ $src }}.webp" data-fancybox>
+    <a href="{{ $.Page.Params.imageDir }}{{ $src }}.jpg" data-fancybox>
         {{ with  $thumb}}
         <picture>
             <source srcset="{{ $.Page.Params.imageDir }}{{ $thumb }}.webp" type="image/webp">

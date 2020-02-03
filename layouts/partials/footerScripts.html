@@ -2,15 +2,15 @@
 {{ $jquery := resources.Get "js/vendor/jquery-3.4.1.min.js"}}
 {{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js"}}
 {{ $darkMode := resources.Get "js/darkMode.js"}}
-{{ $mainBundle := slice $darkMode $jquery $bootstrap | resources.Concat "mainBundle.js" | minify | fingerprint "sha256"}}
+{{ $fancybox := resources.Get "js/vendor/jquery.fancybox.js"}}
+{{ $mainBundle := slice $darkMode $jquery $bootstrap $fancybox | resources.Concat "mainBundle.js" | minify | fingerprint "sha256"}}
 <script src="{{ $mainBundle.Permalink }}" integrity="{{ $mainBundle.Data.Integrity }}" async></script>
 </body>
 
-{{ $fancybox := resources.Get "js/vendor/jquery.fancybox.js"}}
 {{ $swiper := resources.Get "js/vendor/swiper.js"}}
 {{ $swiperInit := resources.Get "js/swiperInit.js"}}
 {{ $prism := resources.Get "js/vendor/prism.js"}}
-{{ $otherBundle := slice $fancybox $swiper $swiperInit $prism | resources.Concat "otherBundle.js" | minify | fingerprint "sha256"}}
+{{ $otherBundle := slice $swiper $swiperInit $prism | resources.Concat "otherBundle.js" | minify | fingerprint "sha256"}}
 <script src="{{ $otherBundle.Permalink }}" integrity="{{ $otherBundle.Data.Integrity }}" async></script>
 
 </body>

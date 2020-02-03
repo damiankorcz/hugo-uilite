@@ -16,6 +16,14 @@
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Preload Fonts -->
+	<link rel="preload" as="font" type="font/woff2" href="../fonts/IBMPlexSans.woff2" crossorigin>
+	<link rel="preload" as="font" type="font/woff2" href="../fonts/IBMPlexSansBold.woff2" crossorigin>
+	<link rel="preload" as="font" type="font/woff2" href="../fonts/ManropeBold.woff2" crossorigin>
+	<link rel="preload" as="font" type="font/woff2" href="../fonts/fa-solid-900.woff2" crossorigin>
+	<link rel="preload" as="font" type="font/woff2" href="../fonts/fa-brands-400.woff2" crossorigin>
+	<link rel="preload" as="font" type="font/woff2" href="../fonts/skill-icons.woff2" crossorigin>
 
 	<!-- Bundling all of the local CSS files into one and minifying it -->
 	{{ $bootstrap := resources.Get "css/vendor/bootstrap.min.css" }}
@@ -31,14 +39,6 @@
 	{{ $otherBundle := slice $fancybox $swiper $prismtheme | resources.Concat "otherBundle.css" | minify}}
 	<link rel="stylesheet" href="{{ $otherBundle.Permalink }}" integrity="{{ $otherBundle.Data.Integrity }}">
 	</link>
-	
-	<!-- Preload Fonts -->
-	<link rel="preload" as="font" type="font/woff2" href="../fonts/IBMPlexSans.woff2" crossorigin>
-	<link rel="preload" as="font" type="font/woff2" href="../fonts/IBMPlexSansBold.woff2" crossorigin>
-	<link rel="preload" as="font" type="font/woff2" href="../fonts/ManropeBold.woff2" crossorigin>
-	<link rel="preload" as="font" type="font/woff2" href="../fonts/fa-solid-900.woff2" crossorigin>
-	<link rel="preload" as="font" type="font/woff2" href="../fonts/fa-brands-400.woff2" crossorigin>
-	<link rel="preload" as="font" type="font/woff2" href="../fonts/skill-icons.woff2" crossorigin>
 
 	<!-- Favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -56,7 +56,7 @@
 	<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" />
 	{{ end -}}
 
-	{{ partial "seo_schema.html" . }}
+	{{ partial "schema.html" . }}
 	{{ template "_internal/google_analytics_async.html" . }}
 </head>
 

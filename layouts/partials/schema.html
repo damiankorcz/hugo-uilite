@@ -1,0 +1,57 @@
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="{{ .Title }}">
+<meta itemprop="description"
+    content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="{{ .Title }}">
+<meta name="og:description"
+    content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}">
+<meta name="og:type" content="article">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description"
+    content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}">
+<!-- Open Graph - Article -->
+<meta name="article:author" content="{{ .Site.Data.config.author }}">
+
+
+<script type="application/ld+json">
+    {{ if eq .Section "posts" }}
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": {{ .Title }},
+      "image": {{ .Params.featuredImage | absURL }},
+      "datePublished": {{ .PublishDate }},
+      "dateModified": {{ .Lastmod }},
+      "author": {
+        "@type": "Person",
+        "name": {{ .Site.Params.author }}
+      },
+      "mainEntityOfPage": { "@type": "WebPage" },
+       "publisher": {
+        "@type": "Organization",
+        "name": {{ .Site.Params.header }},
+        "logo": {
+          "@type": "ImageObject",
+          "url": {{ .Site.Params.logo }}
+        }
+      },
+      "description": {{ .Summary | plainify | safeHTML }},
+      "keywords": [{{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}]
+    }
+    {{ end }}
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": {{ .Site.Params.header }},
+      "url": {{ .Site.BaseURL }},
+      "sameAs": [
+        "https://github.com/{{ .Site.Params.github }}",
+        "https://linkedin.com/{{ .Site.Params.linkedin }}",
+        "https://pinterest.com/{{ .Site.Params.pinterest }}",
+        "https://www.twitter.com/{{ .Site.Params.twitter }}"
+      ]
+    }
+    </script>

@@ -358,6 +358,10 @@ section {
         box-shadow: 5px 5px 10px var(--clr-shadow-1), -5px -5px 10px var(--clr-shadow-2);
     }
 
+    &#sidebar {
+        padding-left: 3rem;
+    }
+
     &#about {
         font-size: 1.1rem;
     }
@@ -771,8 +775,7 @@ kbd {
   .icon-visualstudiocode:before { content: '\e80d'; } /* '' */
   .icon-visualstudio:before { content: '\e80e'; } /* '' */
 
-
-@media (max-width: 992px) {
+@media (max-width: 991.98px) {
     .sidebar {
         position: static;
         width: 100%;

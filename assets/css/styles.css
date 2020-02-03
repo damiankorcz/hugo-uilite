@@ -373,6 +373,10 @@ section#about, section#projects, section#blog, section#experience, section#skill
           box-shadow: 5px 5px 10px var(--clr-shadow-1), -5px -5px 10px var(--clr-shadow-2);
 }
 
+section#sidebar {
+  padding-left: 3rem;
+}
+
 section#about {
   font-size: 1.1rem;
 }
@@ -856,7 +860,7 @@ kbd {
 }
 
 /* '' */
-@media (max-width: 992px) {
+@media (max-width: 991.98px) {
   .sidebar {
     position: static;
     width: 100%;
