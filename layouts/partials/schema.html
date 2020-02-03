@@ -1,17 +1,17 @@
 <!-- Schema.org for Google -->
 <meta itemprop="name" content="{{ .Title }}">
 <meta itemprop="description"
-    content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}">
+    content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }} {{ else }} {{ .Site.Params.description }}{{ end }}{{ end }}">
 <!-- Open Graph general (Facebook, Pinterest & Google+) -->
 <meta name="og:title" content="{{ .Title }}">
 <meta name="og:description"
-    content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}">
+    content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }} {{ else }} {{ .Site.Params.description }}{{ end }}{{ end }}">
 <meta name="og:type" content="article">
 <!-- Twitter -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="{{ .Title }}">
 <meta name="twitter:description"
-    content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}">
+    content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }} {{ else }} {{ .Site.Params.description }}{{ end }}{{ end }}">
 <!-- Open Graph - Article -->
 <meta name="article:author" content="{{ .Site.Data.config.author }}">
 
@@ -44,7 +44,7 @@
     {{ end }}
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "Person",
       "name": {{ .Site.Params.header }},
       "url": {{ .Site.BaseURL }},
       "sameAs": [
