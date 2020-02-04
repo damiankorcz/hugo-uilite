@@ -29,21 +29,16 @@
 	{{ $bootstrap := resources.Get "css/vendor/bootstrap.min.css" | minify | fingerprint "sha256" }}
 	<link rel="stylesheet" href="{{ $bootstrap.Permalink }}" integrity="{{ $bootstrap.Data.Integrity }}"/>
 
-	{{ $main := resources.Get "css/styles.css" | minify | fingerprint "sha256" }}
-	<link rel="stylesheet" href="{{ $main.Permalink }}" integrity="{{ $main.Data.Integrity }}"/>
-
 	{{ $fontawesome := resources.Get "css/vendor/fontawesome-all.min.css" | minify | fingerprint "sha256" }}
 	<link rel="stylesheet" href="{{ $fontawesome.Permalink }}" integrity="{{ $fontawesome.Data.Integrity }}"/>
 	
-	{{ $fancybox := resources.Get "css/vendor/jquery.fancybox.css" | minify | fingerprint "sha256" }}
-	<link rel="stylesheet" href="{{ $fancybox.Permalink }}" integrity="{{ $fancybox.Data.Integrity }}"/>
+	{{ $main := resources.Get "css/styles.css"}}
+	{{ $fancybox := resources.Get "css/vendor/jquery.fancybox.css"}}
+	{{ $swiper := resources.Get "css/vendor/swiper.css"}}
+	{{ $prismtheme := resources.Get "css/vendor/prism-atom-dark.css"}}
+	{{ $cssBundle := slice $main $fancybox $swiper $prismtheme | resources.Concat "cssBundle.css" | minify | fingerprint "sha256"}}
+	<link rel="stylesheet" href="{{ $cssBundle.Permalink }}" integrity="{{ $cssBundle.Data.Integrity }}"/>
 	
-	{{ $swiper := resources.Get "css/vendor/swiper.css" | minify | fingerprint "sha256" }}
-	<link rel="stylesheet" href="{{ $swiper.Permalink }}" integrity="{{ $swiper.Data.Integrity }}"/>
-	
-	{{ $prismtheme := resources.Get "css/vendor/prism-atom-dark.css" | minify | fingerprint "sha256" }}
-	<link rel="stylesheet" href="{{ $prismtheme.Permalink }}" integrity="{{ $prismtheme.Data.Integrity }}"/>
-
 	<!-- Favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
