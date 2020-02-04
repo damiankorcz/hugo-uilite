@@ -25,20 +25,24 @@
 	<link rel="preload" as="font" type="font/woff2" href="../fonts/fa-brands-400.woff2" crossorigin>
 	<link rel="preload" as="font" type="font/woff2" href="../fonts/skill-icons.woff2" crossorigin>
 
-	<!-- Bundling all of the local CSS files into one and minifying it -->
-	{{ $bootstrap := resources.Get "css/vendor/bootstrap.min.css" }}
-	{{ $main := resources.Get "css/styles.css" }}
-	{{ $fontawesome := resources.Get "css/vendor/fontawesome-all.min.css" }}
-	{{ $mainBundle := slice $bootstrap $main $fontawesome | resources.Concat "mainBundle.css" | minify}}
-	<link rel="stylesheet" href="{{ $mainBundle.Permalink }}" integrity="{{ $mainBundle.Data.Integrity }}">
-	</link>
+	
+	{{ $bootstrap := resources.Get "css/vendor/bootstrap.min.css" | minify | fingerprint "sha256" }}
+	<link rel="stylesheet" href="{{ $bootstrap.Permalink }}" integrity="{{ $bootstrap.Data.Integrity }}"/>
 
-	{{ $fancybox := resources.Get "css/vendor/jquery.fancybox.css" }}
-	{{ $swiper := resources.Get "css/vendor/swiper.css" }}
-	{{ $prismtheme := resources.Get "css/vendor/prism-atom-dark.css" }}
-	{{ $otherBundle := slice $fancybox $swiper $prismtheme | resources.Concat "otherBundle.css" | minify}}
-	<link rel="stylesheet" href="{{ $otherBundle.Permalink }}" integrity="{{ $otherBundle.Data.Integrity }}">
-	</link>
+	{{ $main := resources.Get "css/styles.css" | minify | fingerprint "sha256" }}
+	<link rel="stylesheet" href="{{ $main.Permalink }}" integrity="{{ $main.Data.Integrity }}"/>
+
+	{{ $fontawesome := resources.Get "css/vendor/fontawesome-all.min.css" | minify | fingerprint "sha256" }}
+	<link rel="stylesheet" href="{{ $fontawesome.Permalink }}" integrity="{{ $fontawesome.Data.Integrity }}"/>
+	
+	{{ $fancybox := resources.Get "css/vendor/jquery.fancybox.css" | minify | fingerprint "sha256" }}
+	<link rel="stylesheet" href="{{ $fancybox.Permalink }}" integrity="{{ $fancybox.Data.Integrity }}"/>
+	
+	{{ $swiper := resources.Get "css/vendor/swiper.css" | minify | fingerprint "sha256" }}
+	<link rel="stylesheet" href="{{ $swiper.Permalink }}" integrity="{{ $swiper.Data.Integrity }}"/>
+	
+	{{ $prismtheme := resources.Get "css/vendor/prism-atom-dark.css" | minify | fingerprint "sha256" }}
+	<link rel="stylesheet" href="{{ $prismtheme.Permalink }}" integrity="{{ $prismtheme.Data.Integrity }}"/>
 
 	<!-- Favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">

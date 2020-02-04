@@ -1,17 +1,20 @@
 <!-- Bundling all of the local js files into one and minifying it -->
-{{ $jquery := resources.Get "js/vendor/jquery-3.4.1.min.js"}}
-{{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js"}}
-{{ $darkMode := resources.Get "js/darkMode.js"}}
-{{ $fancybox := resources.Get "js/vendor/jquery.fancybox.js"}}
-{{ $mainBundle := slice $darkMode $jquery $bootstrap $fancybox | resources.Concat "mainBundle.js" | minify | fingerprint "sha256"}}
-<script src="{{ $mainBundle.Permalink }}" integrity="{{ $mainBundle.Data.Integrity }}" async></script>
-</body>
+{{ $darkMode := resources.Get "js/darkMode.js" | minify | fingerprint "sha256" }}
+<script async src="{{ $darkMode.Permalink }}" integrity="{{ $darkMode.Data.Integrity }}"></script>
+
+{{ $jquery := resources.Get "js/vendor/jquery-3.4.1.min.js" | minify | fingerprint "sha256" }}
+{{ $bootstrap := resources.Get "js/vendor/bootstrap.min.js" | minify | fingerprint "sha256" }}
+{{ $fancybox := resources.Get "js/vendor/jquery.fancybox.js" | minify | fingerprint "sha256" }}
+{{ $jqBootstrapBundle := slice $jquery $bootstrap $fancybox  | resources.Concat "jqBootstrapBundle.js" | minify | fingerprint "sha256"}}
+<script async src="{{ $jqBootstrapBundle.Permalink }}" integrity="{{ $jqBootstrapBundle.Data.Integrity }}"></script>
 
 {{ $swiper := resources.Get "js/vendor/swiper.js"}}
 {{ $swiperInit := resources.Get "js/swiperInit.js"}}
-{{ $prism := resources.Get "js/vendor/prism.js"}}
-{{ $otherBundle := slice $swiper $swiperInit $prism | resources.Concat "otherBundle.js" | minify | fingerprint "sha256"}}
-<script src="{{ $otherBundle.Permalink }}" integrity="{{ $otherBundle.Data.Integrity }}" async></script>
+{{ $swiperBundle := slice $swiper $swiperInit  | resources.Concat "swiperBundle.js" | minify | fingerprint "sha256"}}
+<script async src="{{ $swiperBundle.Permalink }}" integrity="{{ $swiperBundle.Data.Integrity }}"></script>
+
+{{ $prism := resources.Get "js/vendor/prism.js" | minify | fingerprint "sha256" }}
+<script async src="{{ $prism.Permalink }}" integrity="{{ $prism.Data.Integrity }}"></script>
 
 </body>
 </html>
