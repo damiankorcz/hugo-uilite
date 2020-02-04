@@ -32,11 +32,13 @@
 	{{ $fontawesome := resources.Get "css/vendor/fontawesome-all.min.css" | minify | fingerprint "sha256" }}
 	<link rel="stylesheet" href="{{ $fontawesome.Permalink }}" integrity="{{ $fontawesome.Data.Integrity }}"/>
 	
-	{{ $main := resources.Get "css/styles.css"}}
+	{{ $main := resources.Get "css/styles.css" | minify | fingerprint "sha256" }}
+	<link rel="stylesheet" href="{{ $main.Permalink }}" integrity="{{ $main.Data.Integrity }}"/>
+
 	{{ $fancybox := resources.Get "css/vendor/jquery.fancybox.css"}}
 	{{ $swiper := resources.Get "css/vendor/swiper.css"}}
 	{{ $prismtheme := resources.Get "css/vendor/prism-atom-dark.css"}}
-	{{ $cssBundle := slice $main $fancybox $swiper $prismtheme | resources.Concat "cssBundle.css" | minify | fingerprint "sha256"}}
+	{{ $cssBundle := slice $fancybox $swiper $prismtheme | resources.Concat "cssBundle.css" | minify | fingerprint "sha256"}}
 	<link rel="stylesheet" href="{{ $cssBundle.Permalink }}" integrity="{{ $cssBundle.Data.Integrity }}"/>
 	
 	<!-- Favicon -->
