@@ -57,7 +57,12 @@
 	{{ end -}}
 
 	{{ partial "schema.html" . }}
-	{{ template "_internal/google_analytics_async.html" . }}
+
+	{{ $galiteInit := resources.Get "js/galite.js" | minify | fingerprint "sha256"}}
+	<script src="{{ $galiteInit.Permalink }}" integrity="{{ $galiteInit.Data.Integrity }}" async></script>
+
+	{{ $galite := resources.Get "js/vendor/ga-lite.min.js" | minify | fingerprint "sha256"}}
+	<script src="{{ $galite.Permalink }}" integrity="{{ $galite.Data.Integrity }}" async></script>
 </head>
 
 <body class="clearfix">
