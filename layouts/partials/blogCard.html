@@ -1,17 +1,22 @@
 <div class="col-12 card mb-3 p-3 w-100">
     <div class="row mb-2">
-        <div class="col">
+        <div class="col-5">
             {{ $category := "categories/blog"}}
             {{ range .Param $category }}
             <a class="blogCategory float-left elevateLink" href="/categories/blog/{{ . | urlize }}"><i
                     class="fas fa-tag fa-xs pr-1" aria-hidden="true"></i> {{ . }}</a>
             {{ end }}
         </div>
-        <div class="col">
-            <p class="font-weight-bold float-right mb-0">
-                {{ dateFormat "02/01/2006" .Date }}
-                {{ if ne .PublishDate .Lastmod }} | Last updated {{ dateFormat "02/01/2006"  .Params.Lastmod }} {{ end }}
-            </p>
+        <div class="col-7">
+            {{ if ne .PublishDate .Lastmod }}
+                <p class="font-weight-bold float-right mb-0">
+                    Updated: {{ dateFormat "02/01/2006"  .Params.Lastmod }}
+                </p>
+            {{ else }}
+                <p class="font-weight-bold float-right mb-0">
+                    {{ dateFormat "02/01/2006" .Date }}
+                </p>
+            {{ end }}
         </div>
     </div>
 

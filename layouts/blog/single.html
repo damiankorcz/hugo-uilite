@@ -11,10 +11,20 @@
                 {{ end }}
             </div>
             <div class="col">
-                <p class="font-weight-bold float-right mb-0">
-                    {{ dateFormat "02/01/2006" .Date }} 
-                    {{ if ne .PublishDate .Lastmod }}  | Last updated {{ dateFormat "02/01/2006"  .Params.Lastmod }} {{ end }}
-                </p>
+                <div class="row">
+                    <div class="col-12">
+                        <p class="font-weight-bold float-right mb-0">
+                           Post Date: {{ dateFormat "02/01/2006" .Date }}
+                        </p>
+                    </div>
+                    {{ if ne .PublishDate .Lastmod }}
+                        <div class="col-12">
+                            <p class="font-weight-bold float-right mb-0">
+                                Updated: {{ dateFormat "02/01/2006"  .Params.Lastmod }}
+                            </p>
+                        </div>
+                    {{ end }}
+                </div>
             </div>
         </div>
         <h2 class="text-center px-5 mb-2">{{ .Title }}</h2>
